@@ -10,6 +10,7 @@ hardness: "no O(n^{3-eps}) total time with polynomial preprocessing, by definiti
 hardness_ref: "Henzinger, Krinninger, Nanongkai & Saranurak, STOC 2015"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [omv, dynamic, matrix-vector, fine-grained]
 ---
 
@@ -28,3 +29,12 @@ OMv is the hub conjecture for dynamic-problem hardness. Henzinger, Krinninger, N
 ## Attack surface
 
 The 2^Ω(√log n) barrier also appears in Chan-Williams-style shaved-exponent algorithms, suggesting a shared bottleneck: probabilistic polynomials and lookup tables cap out at that savings. Ideas worth probing: (1) exploit the fact that M is fixed across all n queries more aggressively — current algorithms reuse preprocessing but not query history; (2) the single-query variant uMv (compute u^T M v for online vector pairs) is equivalent in hardness and may be a cleaner target; (3) try structured matrices first (low rank over rings, sparse, Kronecker-structured) where genuinely subcubic total time is achievable, and map the boundary of where the techniques die.
+
+## Verification notes
+
+Checked August 2026. No improvement over the Larsen–Williams (SODA 2017,
+arXiv:1605.01695) n^3 / 2^Ω(√log n) bound for general OMv was found. Progress
+on the structured lane exists: Anand, van den Brand and McCarty
+(arXiv:2502.21240) show matrices of VC-dimension d admit Õ(n^{2-1/d}) query
+time after Õ(n^2) preprocessing — consistent with attack-surface item (3) but
+leaving the general record intact.

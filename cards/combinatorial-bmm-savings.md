@@ -5,11 +5,12 @@ genre: improve-algorithm
 problems: ["Boolean Matrix Multiplication", "Triangle Detection"]
 hypotheses: ["BMM (combinatorial subcubic-hardness conjecture)"]
 record: "n^3 / 2^{Omega((log n)^{1/7})} time, combinatorial"
-record_ref: "Abboud, Fischer, Kelley, Lovett & Meka, STOC 2024 (\"New Graph Decompositions and Combinatorial Boolean Matrix Multiplication Algorithms\")"
+record_ref: "Abboud, Fischer, Kelley, Lovett & Meka, STOC 2024 (\"New Graph Decompositions and Combinatorial Boolean Matrix Multiplication Algorithms\", arXiv:2311.09095)"
 hardness: "conjectured: no n^{3-eps} combinatorial algorithm (the BMM conjecture); many equivalences known via triangle detection"
 hardness_ref: "Vassilevska Williams & Williams, FOCS 2010 (subcubic equivalences)"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [matrix-multiplication, combinatorial, bmm, regularity, fine-grained]
 ---
 
@@ -34,8 +35,12 @@ log^4 n, ICALP 2015). Abboud, Fischer, Kelley, Lovett and Meka (STOC 2024) blew
 past the polylog regime with the first n^3 / 2^{(log n)^{eps}} combinatorial
 algorithm, with eps = 1/7, by importing the Kelley–Meka additive-combinatorics
 machinery (of 3-term-arithmetic-progression fame) as a new graph regularity
-decomposition. Verify the exponent and any follow-up improvements before
-attacking — this line is moving, hence confidence: medium. On the flip side, the
+decomposition. The 1/7 exponent checks out against the arXiv abstract
+(2311.09095, v2 May 2024): running time n^3 / 2^{Omega((log n)^{1/7})}, via a
+decomposition into 2^{O((log(1/delta))^7)} pseudo-regular parts. As of 2026-08
+no published improvement is known; note that a March 2024 preprint claiming a
+strongly subcubic combinatorial triangle-detection algorithm (Dumitrescu,
+arXiv:2403.01085) was withdrawn after a flaw was found. On the flip side, the
 BMM conjecture (no truly subcubic combinatorial algorithm) underpins conditional
 lower bounds for triangle detection and many graph and string problems via the
 subcubic-equivalence framework of Vassilevska Williams and Williams.
@@ -54,7 +59,11 @@ direction rewires a large region of the web.
 The 2024 breakthrough works via decompositions into pseudo-regular pieces; the
 1/7 exponent traces to losses in the Kelley–Meka sifting argument, and any
 quantitative improvement to those additive-combinatorics bounds should propagate
-directly — that dependency chain is the most concrete bite point. Special cases
+directly — that dependency chain is the most concrete bite point. Indeed, an
+improved sifting argument for grid norms has already appeared (Kelley & Lyu,
+arXiv:2505.01587, 2025), though stated for multiparty communication complexity;
+whether it propagates to the BMM exponent is exactly the question to ask first.
+Special cases
 first: sparse BMM, or triangle detection (equivalent to BMM under subcubic
 reductions, sometimes easier to shave). On the pessimistic side, even a formal
 definition of "combinatorial" under which n^{3-eps} is provably impossible would

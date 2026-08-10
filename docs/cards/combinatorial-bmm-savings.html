@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Beat n^3 / 2^{Omega((log n)^{1/7})} for combinatorial Boolean matrix multiplication — push the savings toward 2^{Omega(log n)}, i.e., truly subcubic</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: medium</span><span class="chip">matrix-multiplication</span><span class="chip">combinatorial</span><span class="chip">bmm</span><span class="chip">regularity</span><span class="chip">fine-grained</span></div><dl class="facts"><dt>Record</dt><dd>n^3 / 2^{Omega((log n)^{1/7})} time, combinatorial</dd><dt>Record held by</dt><dd>Abboud, Fischer, Kelley, Lovett &amp; Meka, STOC 2024 (\"New Graph Decompositions and Combinatorial Boolean Matrix Multiplication Algorithms\")</dd><dt>Hardness</dt><dd>conjectured: no n^{3-eps} combinatorial algorithm (the BMM conjecture); many equivalences known via triangle detection</dd><dt>Hardness from</dt><dd>Vassilevska Williams &amp; Williams, FOCS 2010 (subcubic equivalences)</dd><dt>Hypotheses</dt><dd>BMM (combinatorial subcubic-hardness conjecture)</dd><dt>Problems</dt><dd>Boolean Matrix Multiplication, Triangle Detection</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Beat n^3 / 2^{Omega((log n)^{1/7})} for combinatorial Boolean matrix multiplication — push the savings toward 2^{Omega(log n)}, i.e., truly subcubic</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">matrix-multiplication</span><span class="chip">combinatorial</span><span class="chip">bmm</span><span class="chip">regularity</span><span class="chip">fine-grained</span></div><dl class="facts"><dt>Record</dt><dd>n^3 / 2^{Omega((log n)^{1/7})} time, combinatorial</dd><dt>Record held by</dt><dd>Abboud, Fischer, Kelley, Lovett &amp; Meka, STOC 2024 (\"New Graph Decompositions and Combinatorial Boolean Matrix Multiplication Algorithms\", arXiv:2311.09095)</dd><dt>Hardness</dt><dd>conjectured: no n^{3-eps} combinatorial algorithm (the BMM conjecture); many equivalences known via triangle detection</dd><dt>Hardness from</dt><dd>Vassilevska Williams &amp; Williams, FOCS 2010 (subcubic equivalences)</dd><dt>Hypotheses</dt><dd>BMM (combinatorial subcubic-hardness conjecture)</dd><dt>Problems</dt><dd>Boolean Matrix Multiplication, Triangle Detection</dd></dl><h2>Statement</h2>
 <p>Boolean matrix multiplication (BMM): given two n x n matrices over {0,1},
 compute their product where + is OR and x is AND. Fast algebraic algorithms do
 this in n^{omega} &lt; n^{2.372} time, but they route through cancellation-heavy
@@ -42,8 +42,12 @@ log^4 n, ICALP 2015). Abboud, Fischer, Kelley, Lovett and Meka (STOC 2024) blew
 past the polylog regime with the first n^3 / 2^{(log n)^{eps}} combinatorial
 algorithm, with eps = 1/7, by importing the Kelley–Meka additive-combinatorics
 machinery (of 3-term-arithmetic-progression fame) as a new graph regularity
-decomposition. Verify the exponent and any follow-up improvements before
-attacking — this line is moving, hence confidence: medium. On the flip side, the
+decomposition. The 1/7 exponent checks out against the arXiv abstract
+(2311.09095, v2 May 2024): running time n^3 / 2^{Omega((log n)^{1/7})}, via a
+decomposition into 2^{O((log(1/delta))^7)} pseudo-regular parts. As of 2026-08
+no published improvement is known; note that a March 2024 preprint claiming a
+strongly subcubic combinatorial triangle-detection algorithm (Dumitrescu,
+arXiv:2403.01085) was withdrawn after a flaw was found. On the flip side, the
 BMM conjecture (no truly subcubic combinatorial algorithm) underpins conditional
 lower bounds for triangle detection and many graph and string problems via the
 subcubic-equivalence framework of Vassilevska Williams and Williams.</p>
@@ -58,7 +62,11 @@ direction rewires a large region of the web.</p>
 <p>The 2024 breakthrough works via decompositions into pseudo-regular pieces; the
 1/7 exponent traces to losses in the Kelley–Meka sifting argument, and any
 quantitative improvement to those additive-combinatorics bounds should propagate
-directly — that dependency chain is the most concrete bite point. Special cases
+directly — that dependency chain is the most concrete bite point. Indeed, an
+improved sifting argument for grid norms has already appeared (Kelley &amp; Lyu,
+arXiv:2505.01587, 2025), though stated for multiparty communication complexity;
+whether it propagates to the BMM exponent is exactly the question to ask first.
+Special cases
 first: sparse BMM, or triangle detection (equivalent to BMM under subcubic
 reductions, sometimes easier to shave). On the pessimistic side, even a formal
 definition of &quot;combinatorial&quot; under which n^{3-eps} is provably impossible would

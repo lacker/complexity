@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Beat PPSZ's Θ(1/k) savings for k-SAT — solve k-SAT in 2^{n(1 - ω(1/k))} time</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: medium</span><span class="chip">sat</span><span class="chip">exponential-time</span><span class="chip">seth</span><span class="chip">ppsz</span><span class="chip">savings</span></div><dl class="facts"><dt>Record</dt><dd>2^{n(1 - c_k/k)} time with c_k → π²/6 ≈ 1.645 (PPSZ savings)</dd><dt>Record held by</dt><dd>Paturi, Pudlák, Saks &amp; Zane, JACM 2005; general (non-unique) case by Hertli, SICOMP 2014</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm for any fixed k ≥ 3 unless ETH fails; SETH asserts the exponent tends to n as k grows</dd><dt>Hardness from</dt><dd>Impagliazzo &amp; Paturi, JCSS 2001</dd><dt>Hypotheses</dt><dd>SETH, Super Strong ETH</dd><dt>Problems</dt><dd>k-SAT</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Beat PPSZ's Θ(1/k) savings for k-SAT — solve k-SAT in 2^{n(1 - ω(1/k))} time</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">sat</span><span class="chip">exponential-time</span><span class="chip">seth</span><span class="chip">ppsz</span><span class="chip">savings</span></div><dl class="facts"><dt>Record</dt><dd>2^{n(1 - c_k/k)} time with c_k → π²/6 ≈ 1.645 (PPSZ savings)</dd><dt>Record held by</dt><dd>Paturi, Pudlák, Saks &amp; Zane, JACM 2005; general (non-unique) case by Hertli, SICOMP 2014</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm for any fixed k ≥ 3 unless ETH fails; SETH asserts the exponent tends to n as k grows</dd><dt>Hardness from</dt><dd>Impagliazzo &amp; Paturi, JCSS 2001</dd><dt>Hypotheses</dt><dd>SETH, Super Strong ETH</dd><dt>Problems</dt><dd>k-SAT</dd></dl><h2>Statement</h2>
 <p>For k-SAT (satisfiability of CNF formulas with clauses of width at most k),
 every known algorithm runs in time 2^{n(1 - Θ(1/k))}: the &quot;savings&quot; over brute
 force is a constant divided by k. Find an algorithm whose savings grow
@@ -38,8 +38,13 @@ Hertli (SICOMP 2014) removed the unique-solution assumption. Subsequent
 improvements (biased PPSZ and successors) improve the constant for small k
 but not the Θ(1/k) shape. The statement that Θ(1/k) savings is optimal has
 been studied under the name &quot;Super Strong ETH&quot; (see Vyas &amp; Williams, &quot;On
-Super Strong ETH&quot;, SAT 2019, and Scheder &amp; Talebanfard, CCC 2020, who proved
-that PPSZ-type algorithms themselves cannot achieve ω(1/k) savings). No
+Super Strong ETH&quot;, SAT 2019, and Scheder &amp; Talebanfard, CCC 2020, who
+constructed instances on which even the strong PPSZ variant with
+bounded-width resolution has savings at most (1 + o(1))·2/k — so PPSZ-type
+algorithms themselves cannot achieve ω(1/k) savings). As of 2026-08 the
+Θ(1/k) shape still stands: the newest published improvements (e.g., Scheder,
+&quot;PPSZ for General k-SAT and CSP — Making Hertli&#39;s Analysis Simpler and 3-SAT
+Faster&quot;, computational complexity 2024) again move only the constant. No
 consequence links Super Strong ETH to SETH or ETH in either direction: it
 could fail while SETH holds, or vice versa.</p>
 <h2>Why it matters</h2>

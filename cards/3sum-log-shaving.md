@@ -10,6 +10,7 @@ hardness: "3SUM conjecture: no n^{2-eps} time algorithm; but nonuniformly, linea
 hardness_ref: "Kane, Lovett & Moran, STOC 2018 (JACM 2019)"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [3sum, log-shaving, decision-trees, word-ram]
 ---
 
@@ -28,3 +29,12 @@ Baran, Demaine and Pătraşcu (WADS 2005, Algorithmica 2008) shaved the first lo
 ## Attack surface
 
 The APSP analogy is the roadmap: APSP was stuck at n^3/log^2 n-style bounds until Williams' polynomial-method algorithm reached n^3/2^{Θ(√log n)} (STOC 2014). The corresponding move for 3SUM — evaluating many low-degree polynomial comparisons in batch via fast rectangular matrix multiplication — has no published analogue; the obstruction is that 3SUM's comparisons a_i + b_j vs. -c_k are three-way, not two-way. Concrete starting points: (1) get n^2/log^3 n for Convolution-3SUM, whose structured indices (i + j = k) admit FFT-flavored preprocessing; (2) derandomize or tighten the Baran–Demaine–Pătraşcu hashing to squeeze the (log log n)^2; (3) implement Kane–Lovett–Moran queries in batches over the word RAM for inputs with polynomially bounded integers.
+
+## Verification notes
+
+Checked August 2026. The two-log-factor plateau stands: no algorithm faster
+than n^2 (log log n)^{O(1)} / log^2 n for core 3SUM was found in 2024–2026
+literature. Recent activity is in adjacent settings — e.g., "3SUM in
+Preprocessed Universes: Faster and Simpler" (arXiv:2410.16784) improves the
+preprocessed-universe variant to O(n^{1.5} log n) query time — none of which
+moves the record this card tracks.

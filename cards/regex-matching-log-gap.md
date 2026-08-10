@@ -9,7 +9,8 @@ record_ref: "Bille & Thorup, ICALP 2009 (improving Myers' O(nm / log n), JACM 19
 hardness: "no O((nm)^{1-eps}) algorithm unless SETH fails"
 hardness_ref: "Backurs & Indyk, FOCS 2016"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [strings, regex, fine-grained, seth, log-shaving]
 ---
 
@@ -61,6 +62,8 @@ tabulation, as attempted for edit distance, is open here too. (3) For
 classification: pick a concrete unresolved pattern family — e.g., depth-4
 combinations mixing concatenation, union, Kleene star, and plus — and settle
 it by either a near-linear algorithm or an OV reduction imitating the
-Backurs–Indyk gadgets. (4) Word Break's odd exponent (m^{1/3}) invites either
-a matching conditional lower bound or a further improvement; either result
-would be a clean standalone paper.
+Backurs–Indyk gadgets. (4) Word Break's odd exponent (m^{1/3}) already has a
+matching conditional lower bound for *combinatorial* algorithms
+(Bringmann–Grønlund–Larsen), so the open moves are an algebraic algorithm
+beating m^{1/3} or a lower bound without the combinatorial restriction;
+either result would be a clean standalone paper.

@@ -9,7 +9,8 @@ record_ref: "Gold & Sharir, ACM TALG 2018"
 hardness: "no O(n^{2-eps}) algorithm unless SETH fails, even for one-dimensional curves over a small integer alphabet"
 hardness_ref: "Bringmann & Künnemann, FOCS 2015; Abboud, Backurs & Vassilevska Williams, FOCS 2015"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [sequences, time-series, fine-grained, seth, log-shaving]
 ---
 

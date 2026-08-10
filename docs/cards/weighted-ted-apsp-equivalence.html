@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Weighted tree edit distance is APSP-hard but only one-way: break O(n^3) or reduce it back to APSP to complete the equivalence</title><style>
+<title>SOLVED — weighted tree edit distance is APSP-equivalent: the missing reduction back to APSP was found at STOC 2025</title><style>
 :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
@@ -24,7 +24,18 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Weighted tree edit distance is APSP-hard but only one-way: break O(n^3) or reduce it back to APSP to complete the equivalence</h1><div class="chips"><span class="chip open">open</span><span class="chip">Complete an equivalence</span><span class="chip">confidence: high</span><span class="chip">trees</span><span class="chip">strings</span><span class="chip">fine-grained</span><span class="chip">apsp</span><span class="chip">equivalence</span></div><dl class="facts"><dt>Record</dt><dd>O(n^3) time</dd><dt>Record held by</dt><dd>Demaine, Mozes, Rossman &amp; Weimann, ICALP 2007 / ACM TALG 2009</dd><dt>Hardness</dt><dd>no O(n^{3-eps}) algorithm for weighted TED (alphabet size Theta(n)) unless APSP has a truly subcubic algorithm</dd><dt>Hardness from</dt><dd>Bringmann, Gawrychowski, Mozes &amp; Weimann, SODA 2018</dd><dt>Hypotheses</dt><dd>APSP</dd><dt>Problems</dt><dd>Tree Edit Distance, All-Pairs Shortest Paths</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>SOLVED — weighted tree edit distance is APSP-equivalent: the missing reduction back to APSP was found at STOC 2025</h1><div class="chips"><span class="chip solved">solved</span><span class="chip">Complete an equivalence</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">trees</span><span class="chip">strings</span><span class="chip">fine-grained</span><span class="chip">apsp</span><span class="chip">equivalence</span></div><dl class="facts"><dt>Record</dt><dd>n^3 / 2^{Omega(sqrt(log n))} time, matching APSP; fine-grained equivalent to APSP</dd><dt>Record held by</dt><dd>Nogler, Polak, Saha, Vassilevska Williams, Xu &amp; Ye, STOC 2025 (arXiv:2411.06502)</dd><dt>Hardness</dt><dd>no O(n^{3-eps}) algorithm for weighted TED (alphabet size Theta(n)) unless APSP has a truly subcubic algorithm</dd><dt>Hardness from</dt><dd>Bringmann, Gawrychowski, Mozes &amp; Weimann, SODA 2018</dd><dt>Hypotheses</dt><dd>APSP</dd><dt>Problems</dt><dd>Tree Edit Distance, All-Pairs Shortest Paths</dd></dl><h2>Resolution</h2>
+<p>This card&#39;s direction (b) was achieved. Nogler, Polak, Saha, Vassilevska
+Williams, Xu, and Ye (STOC 2025, arXiv:2411.06502) reduced weighted tree edit
+distance to APSP with subcubic overhead, completing the equivalence: weighted
+TED is now a full member of the APSP equivalence class, and inherits Williams&#39;
+n^3 / 2^{Omega(sqrt(log n))} algorithm — the first improvement over the 2007
+Demaine–Mozes–Rossman–Weimann O(n^3) bound. The same paper improved the
+<em>unweighted</em> TED record to about O(n^{2.6857}) (see the card
+<code>unweighted-ted-exponent</code>, which remains open). The card below is preserved
+as originally written: it is a worked example of an equivalence-completion
+problem posed and then closed by exactly the kind of reduction it asked for.</p>
+<h2>Statement</h2>
 <p>Tree edit distance (TED) generalizes string edit distance to rooted ordered
 labeled trees: transform one tree into the other by node insertions,
 deletions, and relabelings of minimum total cost. For arbitrary cost

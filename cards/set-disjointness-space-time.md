@@ -9,7 +9,8 @@ record_ref: "folklore; stated and conjectured optimal in Goldstein, Kopelowitz, 
 hardness: "nontrivial but weaker space-time tradeoffs under 3SUM, via triangle-listing reductions"
 hardness_ref: "Pătraşcu, STOC 2010; Kopelowitz, Pettie & Porat, SODA 2016"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [3sum, set-disjointness, space-time-tradeoffs, data-structures]
 ---
 
@@ -19,7 +20,7 @@ Data-structure SetDisjointness: preprocess a family of sets S_1, ..., S_k of tot
 
 ## Current record
 
-Upper bound (folklore): call a set "large" if it has more than t elements; there are at most N/t large sets, so all (N/t)^2 large-large answers can be precomputed and stored, while any query involving a small set is answered by scanning its at most t elements against a hash table. This gives space Õ(N^2/t^2) with query time Õ(t), and nothing better is known. Lower bounds: Pătraşcu's 3SUM-to-set-structure reductions (STOC 2010), as sharpened via triangle listing by Kopelowitz, Pettie and Porat (SODA 2016), yield genuine polynomial space-time tradeoffs under 3SUM, but with exponents strictly weaker than N^2/t^2; the full strength is only a conjecture, introduced by Goldstein et al. precisely because so many string-indexing and graph lower bounds would follow from it.
+Upper bound (folklore): call a set "large" if it has more than t elements; there are at most N/t large sets, so all (N/t)^2 large-large answers can be precomputed and stored, while any query involving a small set is answered by scanning its at most t elements against a hash table. This gives space Õ(N^2/t^2) with query time Õ(t), and nothing better is known. Lower bounds: Pătraşcu's 3SUM-to-set-structure reductions (STOC 2010), as sharpened via triangle listing by Kopelowitz, Pettie and Porat (SODA 2016), yield genuine polynomial space-time tradeoffs under 3SUM, but with exponents strictly weaker than N^2/t^2; the full strength is only a conjecture, introduced by Goldstein et al. precisely because so many string-indexing and graph lower bounds would follow from it. In the time-tradeoff (rather than space) setting, Kopelowitz and Vassilevska Williams (ICALP 2020) proved preprocessing/query lower bounds matching the upper-bound curve in part of the parameter range — but only under new bespoke hypotheses about triangle detection/enumeration in unbalanced tripartite graphs, not under 3SUM, so the "re-anchor to a first-tier hypothesis" gap is unchanged.
 
 ## Why it matters
 

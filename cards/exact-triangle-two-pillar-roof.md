@@ -7,9 +7,10 @@ hypotheses: [3SUM, APSP]
 record: "O(n^3) for arbitrary integer weights; Õ(W · n^ω) when weights are bounded by W"
 record_ref: "folklore; bounded-weight bound cf. Vassilevska Williams & Williams, SICOMP 2013"
 hardness: "a truly subcubic algorithm refutes the 3SUM conjecture AND the APSP conjecture"
-hardness_ref: "3SUM-hardness: Pătraşcu, STOC 2010 with Vassilevska Williams & Williams, SICOMP 2013; APSP-hardness: Vassilevska Williams & Xu, FOCS 2020"
+hardness_ref: "3SUM-hardness: Pătraşcu, STOC 2010 with Vassilevska Williams & Williams, SICOMP 2013; APSP-hardness: Vassilevska Williams & Williams, FOCS 2010 (JACM 2018)"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [triangles, 3sum, apsp, weighted-graphs, two-pillar]
 ---
 
@@ -19,7 +20,7 @@ Exact-Weight Triangle (special case: Zero-Weight Triangle): given an n-vertex gr
 
 ## Current record
 
-No algorithm beats cubic time by a polynomial factor for arbitrary weights; with weights bounded by W, fast matrix multiplication gives Õ(W n^ω). On the hardness side the problem is a "roof" over two pillars. From 3SUM: Pătraşcu (STOC 2010) reduced 3SUM to Convolution-3SUM, and Vassilevska Williams and Williams (SICOMP 2013, "Finding, minimizing, and counting weighted subgraphs") carried this to Exact-Weight Triangle, so a subcubic algorithm breaks 3SUM. From APSP: Vassilevska Williams and Xu (FOCS 2020) reduced APSP (via Negative Triangle) to Exact Triangle, so the same algorithm would break APSP. The reverse directions are wide open: Exact Triangle is not known to reduce to APSP, to 3SUM, or to anything subcubic-equivalent to them. Note the contrast with *Negative* Triangle (is some triangle's weight below t?), which is subcubic-equivalent to APSP (Vassilevska Williams & Williams, FOCS 2010): changing "at most" to "exactly" apparently jumps hardness classes.
+No algorithm beats cubic time by a polynomial factor for arbitrary weights; with weights bounded by W, fast matrix multiplication gives Õ(W n^ω). On the hardness side the problem is a "roof" over two pillars. From 3SUM: Pătraşcu (STOC 2010) reduced 3SUM to Convolution-3SUM, and Vassilevska Williams and Williams (SICOMP 2013, "Finding, minimizing, and counting weighted subgraphs") carried this to Exact-Weight Triangle, so a subcubic algorithm breaks 3SUM. From APSP: Vassilevska Williams and Williams (FOCS 2010; JACM 2018) reduced APSP (via Negative Triangle) to Exact Triangle, so the same algorithm would break APSP — Chan and Xu (arXiv:2310.11575, 2023) cite exactly these two sources for the two sides of the roof. Vassilevska Williams and Xu (FOCS 2020, arXiv:2007.09318) pushed the hardness onward, reducing Exact Triangle to All-Edges Sparse Triangle and Triangle Listing, which is why the "Exact Triangle hypothesis" is now used as a standalone assumption strictly more believable than 3SUM or APSP alone. The reverse directions are wide open: Exact Triangle is not known to reduce to APSP, to 3SUM, or to anything subcubic-equivalent to them. Note the contrast with *Negative* Triangle (is some triangle's weight below t?), which is subcubic-equivalent to APSP (also Vassilevska Williams & Williams, FOCS 2010): changing "at most" to "exactly" apparently jumps hardness classes.
 
 ## Why it matters
 
@@ -27,4 +28,4 @@ Exact Triangle is the closest thing fine-grained complexity has to a unification
 
 ## Attack surface
 
-(1) Reduce Exact Triangle to Negative Triangle: the standard trick — binary-searching the target via monotone perturbations — fails because "exactly t" is not monotone; a bit-by-bit weight-splitting gadget (as used in the VW–Xu FOCS 2020 reduction, run in reverse) is the concrete thing to attempt. (2) Solve the bounded-difference or monotone weight special cases subcubically: structured min-plus products fell this way (Bringmann, Grandoni, Saha & Vassilevska Williams, FOCS 2016), and any such class transferring to exact-sum products would be new. (3) Extend the roof: reduce k-OV or SETH to Exact Triangle, or prove an NSETH-style barrier showing this is impossible.
+(1) Reduce Exact Triangle to Negative Triangle: the standard trick — binary-searching the target via monotone perturbations — fails because "exactly t" is not monotone; a bit-by-bit weight-splitting gadget (as used in the APSP-to-Exact-Triangle reduction, run in reverse) is the concrete thing to attempt. (2) Solve the bounded-difference or monotone weight special cases subcubically: structured min-plus products fell this way (Bringmann, Grandoni, Saha & Vassilevska Williams, FOCS 2016), and any such class transferring to exact-sum products would be new. (3) Extend the roof: reduce k-OV or SETH to Exact Triangle, or prove an NSETH-style barrier showing this is impossible.

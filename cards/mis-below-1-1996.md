@@ -10,6 +10,7 @@ hardness: "no 2^{o(n)} algorithm unless ETH fails"
 hardness_ref: "Impagliazzo, Paturi & Zane, JCSS 2001"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [graphs, exponential-time, branching, measure-and-conquer]
 ---
 
@@ -63,3 +64,13 @@ even without new ideas. (3) Bottleneck instances are known to be graphs of
 maximum degree 5-6; improved dedicated algorithms for these degree classes
 (an active subliterature: degree-3 stands near 1.0836^n, Xiao–Nagamochi)
 plug directly into the general bound.
+
+## Verification notes
+
+Checked August 2026. O(1.1996^n) (Xiao–Nagamochi, Information and Computation
+2017) remains the published general record; no faster exact algorithm was
+found in 2024–2026 sources. Cautionary data point for the degree-bounded lane:
+the claimed O(1.0821^n) degree-3 algorithm (Issac–Jaiswal, arXiv:1308.1351)
+was withdrawn in 2022 after a bug surfaced in its case analysis, so the
+1.0836^n degree-3 figure cited above still stands — and underlines why
+machine-checked case analyses (attack item 2) would be valuable.

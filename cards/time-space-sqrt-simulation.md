@@ -5,11 +5,12 @@ genre: tighten-overhead
 problems: ["Time-Space Simulation", "Tree Evaluation"]
 hypotheses: []
 record: "every multitape Turing machine running in time t can be simulated in space O(sqrt(t log t))"
-record_ref: "Williams, STOC 2025 (arXiv:2502.17779)"
+record_ref: "Williams, STOC 2025 (arXiv:2502.17779; JACM 2026)"
 hardness: "no matching lower bound; a simulation in space t^{o(1)} would imply P != PSPACE-style separations far beyond current techniques"
 hardness_ref: "discussed in Williams, STOC 2025"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [space-complexity, simulations, tree-evaluation, structural]
 ---
 
@@ -61,3 +62,13 @@ across siblings would move the exponent. Route 3 (barriers): show that any
 which would itself be a publishable scoping theorem. Special case first:
 one-tape or oblivious machines, where block structure is more rigid and better
 bounds may be provable.
+
+## Verification notes
+
+Checked August 2026. O(sqrt(t log t)) remains the record; the paper is now
+published (JACM 2026, doi 10.1145/3798104). One preprint claiming target (1) —
+"TIME[t] ⊆ SPACE[O(sqrt t)] via Tree Height Compression" (Nye,
+arXiv:2508.14831) — was withdrawn in January 2026 with an author-acknowledged
+error in its height-compression framework, so the card's gap is untouched.
+Related follow-up: Shalunov (arXiv:2504.20950) improved the space bound for
+circuit evaluation via a direct reduction to Tree Evaluation.

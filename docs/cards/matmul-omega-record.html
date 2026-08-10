@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Multiply n x n matrices in n^{2.371338} time — beat omega &lt; 2.371339 — or break the Ambainis–Filmus–Le Gall 2.3725 laser-method barrier some other way</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip">matrix-multiplication</span><span class="chip">omega</span><span class="chip">algebraic</span><span class="chip">laser-method</span><span class="chip">barriers</span></div><dl class="facts"><dt>Record</dt><dd>omega &lt; 2.371339</dd><dt>Record held by</dt><dd>Alman, Duan, Vassilevska Williams, Xu, Xu &amp; Zhou, SODA 2025 (\"More Asymmetry Yields Faster Matrix Multiplication\")</dd><dt>Hardness</dt><dd>no superquadratic lower bound known; laser-method analyses of powers of the Coppersmith–Winograd tensor cannot prove omega &lt; 2.3725 (and broad generalizations cannot go below ~2.3078)</dd><dt>Hardness from</dt><dd>Ambainis, Filmus &amp; Le Gall, STOC 2015</dd><dt>Problems</dt><dd>Matrix Multiplication</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Multiply n x n matrices in n^{2.371338} time — beat omega &lt; 2.371339 — or break the Ambainis–Filmus–Le Gall 2.3725 laser-method barrier some other way</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">matrix-multiplication</span><span class="chip">omega</span><span class="chip">algebraic</span><span class="chip">laser-method</span><span class="chip">barriers</span></div><dl class="facts"><dt>Record</dt><dd>omega &lt; 2.371339</dd><dt>Record held by</dt><dd>Alman, Duan, Vassilevska Williams, Xu, Xu &amp; Zhou, SODA 2025 (arXiv:2404.16349, \"More Asymmetry Yields Faster Matrix Multiplication\")</dd><dt>Hardness</dt><dd>no superquadratic lower bound known; laser-method analyses of powers of the Coppersmith–Winograd tensor cannot prove omega &lt; 2.3725 (and broad generalizations cannot go below ~2.3078)</dd><dt>Hardness from</dt><dd>Ambainis, Filmus &amp; Le Gall, STOC 2015</dd><dt>Problems</dt><dd>Matrix Multiplication</dd></dl><h2>Statement</h2>
 <p>Let omega be the matrix multiplication exponent: the infimum of c such that two
 n x n matrices can be multiplied in O(n^c) arithmetic operations. Trivially
 omega &lt;= 3 and omega &gt;= 2, and the running conjecture is omega = 2. The card:
@@ -61,4 +61,9 @@ analyzing tensors other than Coppersmith–Winograd), the group-theoretic approa
 of Cohn–Umans, or degeneration notions that evade the known barrier definitions.
 First cheap experiment: rerun the 2025 asymmetric optimization on the next
 unanalyzed tensor power and see whether the numerical program still improves.</p>
+<h2>Verification notes</h2>
+<p>Checked against the literature in August 2026: no published bound below
+2.371339 was found; sources through late 2025 still cite omega &lt; 2.371339
+(arXiv:2404.16349) as the record. Adjacent 2026 activity (e.g., asymptotic-rank
+speedup theorems, arXiv:2605.21738) does not claim a new omega bound.</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

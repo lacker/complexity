@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Close the middle regime for Gaussian kernel density evaluation in dimension Theta(log n): fast algorithms need squared radius o(log n), SETH-hardness is known only at high accuracy — one side must give</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: medium</span><span class="chip">machine-learning</span><span class="chip">kernels</span><span class="chip">kde</span><span class="chip">fine-grained</span><span class="chip">seth</span></div><dl class="facts"><dt>Record</dt><dd>n^{1+o(1)} time for batch Gaussian KDE via the polynomial method when the squared radius of the point set is o(log n)</dd><dt>Record held by</dt><dd>Aggarwal &amp; Alman, CCC 2022</dd><dt>Hardness</dt><dd>n^{2-o(1)} required under SETH for Gaussian-kernel evaluation at very high accuracy in dimension polylog(n)</dd><dt>Hardness from</dt><dd>Backurs, Indyk &amp; Schmidt, NeurIPS 2017</dd><dt>Hypotheses</dt><dd>SETH</dd><dt>Problems</dt><dd>Kernel Density Estimation, Bichromatic Hamming Closest Pair, Orthogonal Vectors</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Close the middle regime for Gaussian kernel density evaluation in dimension Theta(log n): fast algorithms need squared radius o(log n), SETH-hardness is known only at high accuracy — one side must give</h1><div class="chips"><span class="chip solved">solved</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">machine-learning</span><span class="chip">kernels</span><span class="chip">kde</span><span class="chip">fine-grained</span><span class="chip">seth</span></div><dl class="facts"><dt>Record</dt><dd>n^{1+o(1)} time for batch Gaussian KDE via the polynomial method when the squared radius of the point set is o(log n)</dd><dt>Record held by</dt><dd>Aggarwal &amp; Alman, CCC 2022</dd><dt>Hardness</dt><dd>n^{2-o(1)} required under SETH for Gaussian KDE in dimension m &gt;= C log n with squared radius B whenever 1/eps &gt; (m/B)^m C^m — matching the polynomial method up to a low-order 2^{O(m)} factor in 1/eps; the m = o(log n) regime is likewise matched to the fast multipole method</dd><dt>Hardness from</dt><dd>Alman &amp; Guan, CCC 2024 (arXiv:2407.02372); original high-accuracy hardness: Backurs, Indyk &amp; Schmidt, NeurIPS 2017</dd><dt>Hypotheses</dt><dd>SETH</dd><dt>Problems</dt><dd>Kernel Density Estimation, Bichromatic Hamming Closest Pair, Orthogonal Vectors</dd></dl><h2>Statement</h2>
 <p>Kernel density evaluation (KDE) for the Gaussian kernel: given n source points
 and n query points in R^d, compute for every query q the sum over sources x of
 exp(-||q - x||^2), up to accuracy eps. This is the batch version — one shot, all
@@ -46,9 +46,22 @@ problems, KDE-type evaluation included, require n^{2-o(1)} time under SETH (the
 Strong Exponential Time Hypothesis), via reduction from Bichromatic Hamming
 Closest Pair — but the reduction needs superlogarithmic dimension and very high
 accuracy. Between these regimes — moderate radius, d = Theta(log n), accuracy
-eps = 1/poly(n) — neither a fast algorithm nor a lower bound is known. Later
-work (e.g., Alman–Guan) sharpened parts of the picture, which is why this card
-is confidence: medium — verify the exact surviving window before attacking.</p>
+eps = 1/poly(n) — neither a fast algorithm nor a lower bound was known when
+this card was written.</p>
+<h2>Resolution</h2>
+<p>The middle regime has been closed, on the hardness side. Alman and Guan
+(&quot;Finer-Grained Hardness of Kernel Density Estimation&quot;, CCC 2024,
+arXiv:2407.02372) refined the reduction to show, under SETH, that Gaussian KDE
+in dimension m &gt;= C log n with squared radius B requires n^{2-o(1)} time
+whenever 1/eps &gt; (m/B)^m C^m — meeting the Aggarwal–Alman polynomial-method
+frontier (fast when 1/eps &lt; (m/B)^{o(m)}) up to a low-order 2^{O(m)} factor in
+1/eps. In particular, at B = Theta(log n) the hardness already bites at
+inverse-polynomial accuracy. They also proved the first nontrivial lower
+bounds in the genuinely low-dimensional regime m = o(log n), matching the fast
+multipole method up to low-order terms. The algorithm and hardness frontiers
+now touch, up to low-order factors, in all parameter regimes; what survives is
+only the 2^{O(m)} slack in 1/eps — a sharpening exercise, not a missing-
+hardness gap. Hence status: solved.</p>
 <h2>Why it matters</h2>
 <p>Gaussian KDE is a primitive under kernel regression, kernel SVMs, and attention-
 like computations; the same threshold phenomenon as in the attention card should
@@ -57,7 +70,10 @@ technique beyond polynomial method + multipole, or a new SETH edge into the
 statistics/ML cluster that other kernels (Laplacian, Student-t) could then
 inherit by kernel-to-kernel reductions.</p>
 <h2>Attack surface</h2>
-<p>On the hardness side, imitate the Backurs–Indyk–Schmidt reduction but replace
+<p>(Written pre-resolution; kept for the record. Alman–Guan&#39;s actual route was an
+analysis of the counting matrix via Schur polynomials, not the distributed-PCP
+gadget suggested below.) On the hardness side, imitate the
+Backurs–Indyk–Schmidt reduction but replace
 the high-accuracy amplification with a distributed-PCP gadget (Rubinstein-style)
 to survive at lower accuracy. On the algorithm side, try importing density-
 constrained near-neighbor ideas (Charikar–Kapralov–Nouri–Siminelakis line) from

@@ -9,7 +9,8 @@ record_ref: "folklore reduction; min-plus subroutine from R. Williams, STOC 2014
 hardness: "for k = 3 the problem (as Negative Triangle) is subcubic-equivalent to APSP; for k ≥ 4 hardness is its own standalone hypothesis"
 hardness_ref: "Vassilevska Williams & Williams, FOCS 2010 (JACM 2018)"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [cliques, weighted-graphs, apsp, hardness-hub]
 ---
 
@@ -28,3 +29,7 @@ Min-Weight (and Max-Weight) k-Clique is one of the busiest hardness hubs in fine
 ## Attack surface
 
 Algorithmic side: the k = 3 shaving comes from the polynomial method / Fredman's trick applied to min-plus products; the open question is whether larger k admits *more* savings than the triangle reduction inherits — e.g., can rectangular min-plus products or higher-arity Fredman tricks exploit the k-clique structure directly? Even n^k/2^{Θ(log^{0.6} n)} for k = 4 would beat the record. Hardness side: the natural target is a reduction from Min-Weight Triangle on n^{k/3}-vertex graphs *back* into Min-Weight k-Clique on n-vertex graphs, which fails because the super-vertex graph is complete tripartite with correlated weights; finding a weight-decorrelation gadget is the concrete missing piece. A reduction for even one value k ≥ 4, or from the counting version, would be publishable.
+
+## Verification notes
+
+Verified 2026-08-10 against current literature: the standard hypothesis statement (n^{k-o(1)} for weights in [1, n^{ck}]), the k = 3 APSP equivalence, and the absence of any polynomial-factor improvement over n^k all check out; papers through 2026 (e.g. combinatorial k-clique work, arXiv:2401.13502, and conjunctive-query lower-bound work) still treat Min-Weight k-Clique hardness for k ≥ 4 as an independent assumption. The negative claims (no APSP/3SUM/SETH reduction for k ≥ 4) cannot be conclusively proven by search; no 2024–2026 paper claiming such a reduction was found.

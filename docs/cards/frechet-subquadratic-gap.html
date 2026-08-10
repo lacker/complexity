@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Close the gap for Fréchet distance: record ~O(n^2 sqrt(log n)) vs Bringmann's SETH bound ruling out even 1.001-approximation in n^{2-eps}</title><style>
+<title>Close the gap for Fréchet distance: record ~O(n^2 / log^mu n) vs Bringmann's SETH bound ruling out even 1.001-approximation in n^{2-eps}</title><style>
 :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Close the gap for Fréchet distance: record ~O(n^2 sqrt(log n)) vs Bringmann's SETH bound ruling out even 1.001-approximation in n^{2-eps}</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: medium</span><span class="chip">curves</span><span class="chip">geometry</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">frechet</span></div><dl class="facts"><dt>Record</dt><dd>randomized O(n^2 sqrt(log n) (log log n)^{3/2}) for continuous Fréchet; O(n^2 log log n / log n) for discrete Fréchet</dd><dt>Record held by</dt><dd>Buchin, Buchin, Meulemans &amp; Mulzer, SODA 2014 (continuous); Agarwal, Ben Avraham, Kaplan &amp; Sharir, SICOMP 2014 (discrete)</dd><dt>Hardness</dt><dd>no O(n^{2-eps}) algorithm unless SETH fails; holds even for 1.001-approximation</dd><dt>Hardness from</dt><dd>Bringmann, FOCS 2014</dd><dt>Hypotheses</dt><dd>SETH, OV</dd><dt>Problems</dt><dd>Fréchet Distance, Orthogonal Vectors</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Close the gap for Fréchet distance: record ~O(n^2 / log^mu n) vs Bringmann's SETH bound ruling out even 1.001-approximation in n^{2-eps}</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">curves</span><span class="chip">geometry</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">frechet</span></div><dl class="facts"><dt>Record</dt><dd>expected O(mn (log log n)^{2+mu} log n / log^{1+mu} m) for continuous Fréchet, i.e., O(n^2 (log log n)^{2+mu} / log^mu n) when m = n, for some constant mu in (0,1); O(n^2 log log n / log n) for discrete Fréchet</dd><dt>Record held by</dt><dd>Cheng &amp; Huang, SODA 2025, arXiv:2407.05231 (continuous); Agarwal, Ben Avraham, Kaplan &amp; Sharir, SICOMP 2014 (discrete)</dd><dt>Hardness</dt><dd>no O(n^{2-eps}) algorithm unless SETH fails; holds even for 1.001-approximation</dd><dt>Hardness from</dt><dd>Bringmann, FOCS 2014</dd><dt>Hypotheses</dt><dd>SETH, OV</dd><dt>Problems</dt><dd>Fréchet Distance, Orthogonal Vectors</dd></dl><h2>Statement</h2>
 <p>The Fréchet distance between two polygonal curves with n vertices each is the
 famous &quot;dog-leash distance&quot;: the minimum leash length needed for a person
 walking along one curve and a dog walking along the other, both moving only
@@ -40,11 +40,15 @@ Buchin, Meulemans, and Mulzer (&quot;Four Soviets Walk the Dog&quot;, SODA 2014)
 that barrier with a randomized algorithm running in roughly
 O(n^2 sqrt(log n)) time on the word RAM; for the discrete Fréchet distance
 (walkers hop between vertices), Agarwal, Ben Avraham, Kaplan, and Sharir got
-the mildly subquadratic O(n^2 log log n / log n). Bringmann (FOCS 2014)
-proved that any O(n^{2-eps}) algorithm — even one approximating the distance
-within factor 1.001 — would refute SETH, via a reduction from Orthogonal
-Vectors. Note the record here is <em>above</em> n^2, while strings sit at
-n^2 / log^2 n: curves are the laggard of the quadratic family.</p>
+the mildly subquadratic O(n^2 log log n / log n). Cheng and Huang (SODA
+2025, arXiv:2407.05231) then took the continuous case genuinely below
+quadratic: expected time O(mn (log log n)^{2+mu} log n / log^{1+mu} m) for
+some constant mu in (0,1) — the first o(mn) bound whenever m = Omega(n^eps),
+which for m = n reads O(n^2 (log log n)^{2+mu} / log^mu n). Bringmann
+(FOCS 2014) proved that any O(n^{2-eps}) algorithm — even one approximating
+the distance within factor 1.001 — would refute SETH, via a reduction from
+Orthogonal Vectors. Curves now sit below n^2 but still lag strings&#39;
+n^2 / log^2 n, and the polylog corridor remains wide open.</p>
 <h2>Why it matters</h2>
 <p>Fréchet distance is the standard similarity measure for trajectories (GPS
 traces, motion capture, handwriting), so the quadratic wall has practical
@@ -53,12 +57,19 @@ about strings specifically or about alignment DPs in general: the Fréchet DP
 lives over continuous &quot;free space&quot; rather than a discrete grid, and nobody
 knows if lookup-table compression fundamentally applies. On the hardness
 side, the approximation-hardness angle is unusually strong (1.001), and the
-exact threshold where approximation becomes easy — constant-factor
-approximations in strongly subquadratic time exist for special curve classes
-like c-packed curves — is an active frontier.</p>
+threshold where approximation becomes easy is moving fast: beyond the older
+near-linear (1+eps)-approximations for special classes like c-packed curves,
+Cheng, Huang, and Zhang (STOC 2025, arXiv:2503.12746) gave a
+(7+eps)-approximation for <em>general</em> curves in strongly subquadratic
+O(nm^{0.99} log(n/eps)) time, since sharpened to (5+eps) (arXiv:2607.06864)
+and to (3+eps) for paths in general metric spaces (arXiv:2607.08893). The
+exact constant where subquadratic approximation becomes impossible is now a
+live race between these algorithms and the hardness side.</p>
 <h2>Attack surface</h2>
-<p>(1) Port the discrete-case log-shaving to the continuous case, where the
-record is worse. (2) Restricted inputs: for c-packed, kappa-straight, or
+<p>(1) The continuous record shaves only log^mu n for some mu &lt; 1
+(Cheng–Huang), while the discrete case has a nearly full log; closing that
+internal gap — or getting either case to n^2 / log^2 n — is the direct
+target. (2) Restricted inputs: for c-packed, kappa-straight, or
 low-density curves, (1+eps)-approximations run in near-linear time — try to
 enlarge these classes or de-approximate them. (3) The decision version
 (is the distance at most delta?) is where the hardness lives; the

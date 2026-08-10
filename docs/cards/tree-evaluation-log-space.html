@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Put Tree Evaluation in O(log n) space, beating the Cook–Mertz O(log n · log log n) bound</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip">space-complexity</span><span class="chip">tree-evaluation</span><span class="chip">catalytic</span><span class="chip">logspace</span></div><dl class="facts"><dt>Record</dt><dd>Tree Evaluation is solvable in space O(log n · log log n)</dd><dt>Record held by</dt><dd>Cook &amp; Mertz, STOC 2024 (\"Tree Evaluation Is in Space O(log n · log log n)\")</dd><dt>Hardness</dt><dd>no super-logarithmic space lower bound known; the problem was originally conjectured to require space Omega(h log k), which the record refuted</dd><dt>Hardness from</dt><dd>Cook, McKenzie, Wehr, Braverman &amp; Santhanam, TOCT 2012 (problem introduction and conjecture)</dd><dt>Problems</dt><dd>Tree Evaluation</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Put Tree Evaluation in O(log n) space, beating the Cook–Mertz O(log n · log log n) bound</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">space-complexity</span><span class="chip">tree-evaluation</span><span class="chip">catalytic</span><span class="chip">logspace</span></div><dl class="facts"><dt>Record</dt><dd>Tree Evaluation is solvable in space o(log n · log log n)</dd><dt>Record held by</dt><dd>Cook &amp; Mertz, STOC 2024 (\"Tree Evaluation Is in Space O(log n · log log n)\"); refined by Goldreich, ECCC TR24-124 (o((h+ℓ)·log(h+ℓ)) space)</dd><dt>Hardness</dt><dd>no super-logarithmic space lower bound known; the problem was originally conjectured to require space Omega(h log k), which the record refuted</dd><dt>Hardness from</dt><dd>Cook, McKenzie, Wehr, Braverman &amp; Santhanam, TOCT 2012 (problem introduction and conjecture)</dd><dt>Problems</dt><dd>Tree Evaluation</dd></dl><h2>Statement</h2>
 <p>Tree Evaluation (TreeEval): given a complete binary tree of height h where each
 leaf holds a value in {1, ..., k} and each internal node holds an explicit
 lookup table for an arbitrary function from pairs of child values to {1, ..., k},
@@ -43,8 +43,15 @@ using ideas from catalytic computing, their algorithm stores children&#39;s valu
 <em>on top of</em> memory that is still in use, encoding intermediate results as
 low-degree-polynomial evaluations over small fields so the workspace can be
 restored afterward. The result is space O(log n · log log n) — tantalizingly
-short of logspace. The gap to close is exactly that log log n factor, or, in
-the other direction, any argument that the multiplicative slack is necessary.</p>
+short of logspace. Goldreich (ECCC TR24-124, 2024) refined the Cook–Mertz
+procedure to space o((h+ℓ)·log(h+ℓ)), i.e., o(log n · log log n), shaving a
+Theta(log log(h+ℓ)) factor in the h ≥ ℓ regime by working with d-ary trees.
+Separately, Henzinger, Pyne and Ragavan (arXiv:2602.14320, 2026) gave a
+catalytic algorithm using O(log n) free space, polynomial time, and
+subpolynomial (2^{log^eps n}) catalytic space, via a connection to
+matching-vector families — logspace-with-an-asterisk, but not yet L. The gap
+to close is the remaining super-logarithmic slack, or, in the other
+direction, any argument that multiplicative slack is necessary.</p>
 <h2>Why it matters</h2>
 <p>Two direct cascades. First, the Williams STOC 2025 simulation TIME[t] ⊆
 SPACE[sqrt(t log t)] invokes Cook–Mertz as its core subroutine; TreeEval in
@@ -64,4 +71,11 @@ k = O(1) in L?), or trees of arity d &gt; 2 where the tradeoffs shift. For lower
 bounds, the only live avenue is restricted models: prove Omega(h log k) space
 for algorithms whose memory accesses are oblivious to table contents, scoping
 exactly what the Cook–Mertz trick evades.</p>
+<h2>Verification notes</h2>
+<p>Checked August 2026. TreeEval in O(log n) space remains open; the card&#39;s core
+gap stands. The worst-case space record is Goldreich&#39;s o(log n · log log n)
+refinement (ECCC TR24-124), slightly better than the Cook–Mertz bound the card
+previously listed. A claimed poly-time O(log^{1+eps} n)-space algorithm (Asadi
+&amp; Cleve, ECCC TR26-044) was withdrawn in April 2026 due to an error and should
+not be cited.</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

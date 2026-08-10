@@ -5,11 +5,12 @@ genre: improve-algorithm
 problems: ["Matrix Multiplication"]
 hypotheses: []
 record: "omega < 2.371339"
-record_ref: "Alman, Duan, Vassilevska Williams, Xu, Xu & Zhou, SODA 2025 (\"More Asymmetry Yields Faster Matrix Multiplication\")"
+record_ref: "Alman, Duan, Vassilevska Williams, Xu, Xu & Zhou, SODA 2025 (arXiv:2404.16349, \"More Asymmetry Yields Faster Matrix Multiplication\")"
 hardness: "no superquadratic lower bound known; laser-method analyses of powers of the Coppersmith–Winograd tensor cannot prove omega < 2.3725 (and broad generalizations cannot go below ~2.3078)"
 hardness_ref: "Ambainis, Filmus & Le Gall, STOC 2015"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [matrix-multiplication, omega, algebraic, laser-method, barriers]
 ---
 
@@ -57,3 +58,10 @@ analyzing tensors other than Coppersmith–Winograd), the group-theoretic approa
 of Cohn–Umans, or degeneration notions that evade the known barrier definitions.
 First cheap experiment: rerun the 2025 asymmetric optimization on the next
 unanalyzed tensor power and see whether the numerical program still improves.
+
+## Verification notes
+
+Checked against the literature in August 2026: no published bound below
+2.371339 was found; sources through late 2025 still cite omega < 2.371339
+(arXiv:2404.16349) as the record. Adjacent 2026 activity (e.g., asymptotic-rank
+speedup theorems, arXiv:2605.21738) does not claim a new omega bound.

@@ -4,22 +4,23 @@ title: "Undirected diameter: find a 5/3-approximation faster than Õ(m^{3/2}), o
 genre: missing-hardness
 problems: ["Diameter", "Orthogonal Vectors", "k-OV"]
 hypotheses: [SETH]
-record: "3/2-approximation in Õ(m^{3/2}) time; (2 - 1/2^k)-approximation ladder in Õ(m n^{1/(k+1)}) time; no ratio-5/3 algorithm faster than the 3/2 rung is known"
-record_ref: "Roditty & Vassilevska Williams, STOC 2013; Chechik, Larkin, Roditty, Schoenebeck, Tarjan & Vassilevska Williams, SODA 2014; Cairo, Grossi & Rizzi, SODA 2016"
+record: "3/2-approximation in Õ(m^{3/2}) time; (2 - 1/2^k)-approximation ladder in Õ(m n^{1/(k+1)}) time; NEW: 5/3-approximation (small additive error) in Õ(n m^{3/5}) time — beats the 3/2-rung runtime for densities m in [n^{5/4}, n^{5/3}], but not for sparse m = Õ(n)"
+record_ref: "Roditty & Vassilevska Williams, STOC 2013; Chechik, Larkin, Roditty, Schoenebeck, Tarjan & Vassilevska Williams, SODA 2014; Cairo, Grossi & Rizzi, SODA 2016; Kirkpatrick, Roditty, Qi & Vassilevska Williams, arXiv:2604.27142 (2026)"
 hardness: "under SETH: no (3/2-eps)-approximation in m^{2-o(1)} time; no (5/3-eps)-approximation in m^{3/2-o(1)} time"
 hardness_ref: "Roditty & Vassilevska Williams, STOC 2013; Backurs, Roditty, Segal, Vassilevska Williams & Wein, STOC 2018"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [graphs, diameter, approximation, seth, sparse]
 ---
 
 ## Statement
 
-For sparse undirected unweighted graphs (m edges), close the gap between the approximation-algorithm ladder and the SETH-hardness ladder for diameter. Concretely: either give a 5/3-approximation algorithm running in O(m^{3/2 - eps}) time — not ruled out, since the known lower bound only covers ratios strictly below 5/3 — or prove that under SETH some ratio in the open interval (5/3, 7/4) requires m^{3/2-o(1)} time, tightening the staircase.
+For sparse undirected unweighted graphs (m edges), close the gap between the approximation-algorithm ladder and the SETH-hardness ladder for diameter. Concretely: either give a 5/3-approximation algorithm running in O(m^{3/2 - eps}) time on sparse graphs (m = Õ(n)) — not ruled out, since the known lower bound only covers ratios strictly below 5/3, and the 2026 rung of Kirkpatrick et al. achieves this only at densities m ≥ n^{5/4} — or prove that under SETH some ratio in the open interval (5/3, 7/4) requires m^{3/2-o(1)} time, tightening the staircase.
 
 ## Current record
 
-Algorithms: a simple BFS from one vertex 2-approximates the diameter in O(m) time. Roditty and Vassilevska Williams (STOC 2013) gave a 3/2-approximation in Õ(m√n) expected time, made deterministic and Õ(m^{3/2}) by Chechik et al. (SODA 2014). Cairo, Grossi and Rizzi (SODA 2016) generalized this to a ladder: roughly (2 - 1/2^k)-approximation in Õ(m n^{1/(k+1)}) time. Note the ladder jumps from ratio 3/2 at m^{3/2} to ratio 7/4 at Õ(m n^{1/3}) — there is no known 5/3 rung. Hardness: Roditty–Vassilevska Williams showed that under SETH, distinguishing diameter 2 from 3 (hence (3/2-eps)-approximating) requires m^{2-o(1)} time; Backurs et al. (STOC 2018) showed (5/3-eps)-approximation requires m^{3/2-o(1)}. For *directed* graphs the full time–accuracy tradeoff was settled under SETH (R. Li, STOC 2021; Dalirrooyfard & Wein, STOC 2021): in particular no near-linear-time (2-eps)-approximation exists. For undirected graphs further hardness rungs were proved (Dalirrooyfard, Li & Vassilevska Williams, FOCS 2021), but the algorithmic ladder (ratios 2 - 1/2^k) and the hardness ladder still do not meet, and the 5/3-vs-3/2 region is the sharpest open gap.
+Algorithms: a simple BFS from one vertex 2-approximates the diameter in O(m) time. Roditty and Vassilevska Williams (STOC 2013) gave a 3/2-approximation in Õ(m√n) expected time, made deterministic and Õ(m^{3/2}) by Chechik et al. (SODA 2014). Cairo, Grossi and Rizzi (SODA 2016) generalized this to a ladder: roughly (2 - 1/2^k)-approximation in Õ(m n^{1/(k+1)}) time. For a decade the ladder jumped from ratio 3/2 at m^{3/2} to ratio 7/4 at Õ(m n^{1/3}) with no 5/3 rung; Kirkpatrick, Roditty, Qi and Vassilevska Williams (arXiv:2604.27142, 2026) finally added one — the first ratio off the 2 - 1/2^k curve — computing a 5/3-approximation (with additive error at most 7/5) in deterministic O(n m^{3/5} log^{8/5} n) time. This beats all known 3/2-approximation algorithms exactly when m is in [n^{5/4}, n^{5/3}], but for sparse graphs (m = Õ(n)) it costs m^{8/5}, worse than the 3/2 rung's m^{3/2}, so the headline question below is still open. Hardness: Roditty–Vassilevska Williams showed that under SETH, distinguishing diameter 2 from 3 (hence (3/2-eps)-approximating) requires m^{2-o(1)} time; Backurs et al. (STOC 2018) showed (5/3-eps)-approximation requires m^{3/2-o(1)}. For *directed* graphs the full time–accuracy tradeoff was settled under SETH (R. Li, STOC 2021; Dalirrooyfard & Wein, STOC 2021): in particular no near-linear-time (2-eps)-approximation exists. For undirected graphs, Dalirrooyfard, Li and Vassilevska Williams (FOCS 2021; JACM 2025, arXiv:2106.06026) proved the entire hardness curve: for every integer k ≥ 2, a (2 - 1/k - δ)-approximation requires m^{1+1/(k-1)-o(1)} time under SETH, so the linear-time 2-approximation is optimal. But the algorithmic ladder (ratios 2 - 1/2^k, now plus the 5/3 rung above) and the hardness curve (ratios 2 - 1/k) still do not meet, and the 5/3-at-sparse-density region is the sharpest open gap.
 
 ## Why it matters
 

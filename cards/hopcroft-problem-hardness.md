@@ -5,11 +5,12 @@ genre: missing-hardness
 problems: ["Hopcroft's Problem", "Point-Line Incidence", "3SUM", "Orthogonal Vectors"]
 hypotheses: [3SUM, SETH]
 record: "O(n^{4/3}) time"
-record_ref: "Chan & Zheng, SODA 2022"
+record_ref: "Chan & Zheng, SODA 2022 (ACM TALG 2023; arXiv:2111.03744)"
 hardness: "Ω(n^{4/3}) only in Erickson's restricted 'partitioning algorithm' model; no lower bound from any fine-grained hypothesis"
 hardness_ref: "Erickson, Discrete & Computational Geometry 1996"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [geometry, incidences, 3sum, lower-bounds, models]
 ---
 
@@ -19,7 +20,7 @@ Hopcroft's problem: given n points and n lines in the plane, does any point lie 
 
 ## Current record
 
-After decades of algorithms converging on n^{4/3} times subpolynomial factors (Matoušek and others in the 1990s), Chan and Zheng (SODA 2022) achieved a clean O(n^{4/3}) deterministic algorithm, matching the exponent long believed optimal. The belief rests on incidence geometry — the Szemerédi–Trotter theorem says n points and n lines can have Θ(n^{4/3}) incidences, so counting-type variants "feel" like they need that time — and on Erickson's 1996 lower bound of Ω(n^{4/3}) in the restricted "partitioning algorithm" model, which captures the known algorithmic techniques but not general computation. No reduction from 3SUM, OV, or any pillar hypothesis gives even an n^{1.01} lower bound for the standard real-RAM decision version. This is a strange gap: Hopcroft's problem is the canonical hard primitive of computational geometry's middle regime, sitting between the near-linear world and the quadratic 3SUM-hard world of the Gajentaan–Overmars catalog (CGTA 1995) — related detection problems such as "do three of these n points lie on a common line?" ARE 3SUM-hard, but that only certifies quadratic hardness for a different problem.
+After decades of algorithms converging on n^{4/3} times subpolynomial factors (Matoušek and others in the 1990s), Chan and Zheng (SODA 2022) achieved a clean O(n^{4/3}) deterministic algorithm, matching the exponent long believed optimal. The belief rests on incidence geometry — the Szemerédi–Trotter theorem says n points and n lines can have Θ(n^{4/3}) incidences, so counting-type variants "feel" like they need that time — and on Erickson's 1996 lower bound of Ω(n^{4/3}) in the restricted "partitioning algorithm" model, which captures the known algorithmic techniques but not general computation. No reduction from 3SUM, OV, or any pillar hypothesis gives even an n^{1.01} lower bound for the standard real-RAM decision version. This is a strange gap: Hopcroft's problem is the canonical hard primitive of computational geometry's middle regime, sitting between the near-linear world and the quadratic 3SUM-hard world of the Gajentaan–Overmars catalog (CGTA 1995) — related detection problems such as "do three of these n points lie on a common line?" ARE 3SUM-hard, but that only certifies quadratic hardness for a different problem. (In the quantum setting the exponent story has since diverged — an O(n^{5/6})-type quantum algorithm exists (arXiv:2405.01160, ACM Trans. Quantum Computing 2026) — but classically the record and the hardness gap described here are unchanged as of mid-2026.)
 
 ## Why it matters
 

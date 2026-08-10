@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Improve TIME[t] ⊆ SPACE[sqrt(t log t)]: shave the sqrt(log t) factor, or push the exponent below 1/2</h1><div class="chips"><span class="chip open">open</span><span class="chip">Tighten an overhead</span><span class="chip">confidence: high</span><span class="chip">space-complexity</span><span class="chip">simulations</span><span class="chip">tree-evaluation</span><span class="chip">structural</span></div><dl class="facts"><dt>Record</dt><dd>every multitape Turing machine running in time t can be simulated in space O(sqrt(t log t))</dd><dt>Record held by</dt><dd>Williams, STOC 2025 (arXiv:2502.17779)</dd><dt>Hardness</dt><dd>no matching lower bound; a simulation in space t^{o(1)} would imply P != PSPACE-style separations far beyond current techniques</dd><dt>Hardness from</dt><dd>discussed in Williams, STOC 2025</dd><dt>Problems</dt><dd>Time-Space Simulation, Tree Evaluation</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Improve TIME[t] ⊆ SPACE[sqrt(t log t)]: shave the sqrt(log t) factor, or push the exponent below 1/2</h1><div class="chips"><span class="chip open">open</span><span class="chip">Tighten an overhead</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">space-complexity</span><span class="chip">simulations</span><span class="chip">tree-evaluation</span><span class="chip">structural</span></div><dl class="facts"><dt>Record</dt><dd>every multitape Turing machine running in time t can be simulated in space O(sqrt(t log t))</dd><dt>Record held by</dt><dd>Williams, STOC 2025 (arXiv:2502.17779; JACM 2026)</dd><dt>Hardness</dt><dd>no matching lower bound; a simulation in space t^{o(1)} would imply P != PSPACE-style separations far beyond current techniques</dd><dt>Hardness from</dt><dd>discussed in Williams, STOC 2025</dd><dt>Problems</dt><dd>Time-Space Simulation, Tree Evaluation</dd></dl><h2>Statement</h2>
 <p>How much memory does time buy? For fifty years the best generic answer was
 Hopcroft–Paul–Valiant (1977): anything computable in time t is computable in
 space t / log t — barely better than trivial. Williams (STOC 2025) collapsed
@@ -65,4 +65,12 @@ across siblings would move the exponent. Route 3 (barriers): show that any
 which would itself be a publishable scoping theorem. Special case first:
 one-tape or oblivious machines, where block structure is more rigid and better
 bounds may be provable.</p>
+<h2>Verification notes</h2>
+<p>Checked August 2026. O(sqrt(t log t)) remains the record; the paper is now
+published (JACM 2026, doi 10.1145/3798104). One preprint claiming target (1) —
+&quot;TIME[t] ⊆ SPACE[O(sqrt t)] via Tree Height Compression&quot; (Nye,
+arXiv:2508.14831) — was withdrawn in January 2026 with an author-acknowledged
+error in its height-compression framework, so the card&#39;s gap is untouched.
+Related follow-up: Shalunov (arXiv:2504.20950) improved the space bound for
+circuit evaluation via a direct reduction to Tree Evaluation.</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

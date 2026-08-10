@@ -9,7 +9,8 @@ record_ref: "Björklund, Pagh, Vassilevska Williams & Zwick, ICALP 2014"
 hardness: "Ω(m^{4/3-o(1)}) to list m triangles, assuming the 3SUM conjecture"
 hardness_ref: "Kopelowitz, Pettie & Porat, SODA 2016"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [3sum, triangles, graphs, matrix-multiplication, listing]
 ---
 
@@ -27,4 +28,4 @@ Triangle listing sits at the junction of the 3SUM, APSP and Boolean matrix multi
 
 ## Attack surface
 
-The Kopelowitz–Pettie–Porat reduction converts 3SUM instances to tripartite graphs via careful (almost-linear) hashing; its loss is understood, and the m^{4/3} it produces is a real barrier for that construction — improving it likely needs a different source problem (e.g. exact-weight variants or OMv). On the algorithms side, the ICALP 2014 bound reduces listing to many small rectangular matrix products; improvements to rectangular matrix multiplication exponents translate directly, so tracking ω(1,1,t) improvements is free progress. Special cases to try first: graphs of bounded degeneracy (where m^{4/3}-type bounds are already achievable) and listing t << m triangles, where the tight tradeoff curve is also open.
+The Kopelowitz–Pettie–Porat reduction converts 3SUM instances to tripartite graphs via careful (almost-linear) hashing; its loss is understood, and the m^{4/3} it produces is a real barrier for that construction — improving it likely needs a different source problem (e.g. exact-weight variants or OMv). The newer "short cycle removal" line (Abboud, Bringmann, Khoury & Zamir, STOC 2022; sharpened by Jin & Xu, STOC 2023, arXiv:2211.07048) strengthens 3SUM-hardness of triangle problems in structured (few-short-cycle) graphs and improves the hashing toolkit, but has not moved the m^{4/3} bound for listing. On the algorithms side, the ICALP 2014 bound reduces listing to many small rectangular matrix products; improvements to rectangular matrix multiplication exponents translate directly, so tracking ω(1,1,t) improvements is free progress. Special cases to try first: graphs of bounded degeneracy (where m^{4/3}-type bounds are already achievable) and listing t << m triangles, where the tight tradeoff curve is also open.

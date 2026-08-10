@@ -1,15 +1,16 @@
 ---
 id: unweighted-ted-exponent
-title: "Unweighted tree edit distance sits between n^2 (SETH) and ~n^{2.95} (Mao) — close the exponent gap"
+title: "Unweighted tree edit distance sits between n^2 (SETH) and ~n^{2.69} (Nogler et al.) — close the exponent gap"
 genre: improve-algorithm
 problems: ["Tree Edit Distance", "Edit Distance", "Min-Plus Product"]
 hypotheses: [SETH, APSP]
-record: "O(n^{2.9546}) time"
-record_ref: "Mao, FOCS 2021 (subsequently sharpened via improved monotone min-plus products)"
+record: "~O(n^{(3+omega)/2}) time, about O(n^{2.6857}) with current omega"
+record_ref: "Nogler, Polak, Saha, Vassilevska Williams, Xu & Ye, STOC 2025, arXiv:2411.06502"
 hardness: "no O(n^{2-eps}) algorithm unless SETH fails (inherited from string edit distance)"
 hardness_ref: "Backurs & Indyk, STOC 2015 (strings embed as caterpillar trees)"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [trees, fine-grained, min-plus, matrix-multiplication, seth]
 ---
 
@@ -17,11 +18,11 @@ tags: [trees, fine-grained, min-plus, matrix-multiplication, seth]
 
 For unweighted tree edit distance — rooted ordered trees, unit cost for every
 node insertion, deletion, or relabel — the truth is somewhere between
-quadratic and roughly n^{2.95}. Close the gap from either side: find an
-algorithm running in O(n^{2.9}) or better (ideally approaching O(n^2) or the
-matrix multiplication exponent omega), or prove a super-quadratic conditional
-lower bound, e.g., that unweighted TED requires n^{omega - o(1)} time under a
-standard hypothesis.
+quadratic and roughly n^{2.69}. Close the gap from either side: find an
+algorithm running in O(n^{(3+omega)/2 - eps}) or better (ideally approaching
+O(n^2) or the matrix multiplication exponent omega), or prove a
+super-quadratic conditional lower bound, e.g., that unweighted TED requires
+n^{omega - o(1)} time under a standard hypothesis.
 
 ## Current record
 
@@ -32,11 +33,17 @@ case resists subcubic *combinatorial* algorithms (via Boolean matrix
 multiplication hardness). Mao (FOCS 2021) broke the cubic barrier for the
 unweighted case with an algebraic algorithm running in about O(n^{2.9546}),
 by reducing the DP bottleneck to min-plus products of matrices with bounded
-difference structure; follow-up improvements to rectangular monotone
-min-plus products have since nudged the exponent to roughly 2.91. The only
-lower bound is quadratic: a string is a path-like tree, so the
+difference structure; Dürr improved this to O(n^{2.9148}) via rectangular
+monotone min-plus products. The current record is Nogler, Polak, Saha,
+Vassilevska Williams, Xu, and Ye (STOC 2025, arXiv:2411.06502):
+~O(n^{(3+omega)/2}) ≈ O(n^{2.6857}), using bounded monotone min-plus product
+as the crucial subroutine — the same exponent as RNA folding. The same paper
+settled the *weighted* case: weighted TED is fine-grained equivalent to
+APSP (so it is truly cubic under the APSP hypothesis), with a subcubic
+n^3 / 2^{Omega(sqrt(log n))} algorithm to match. For unweighted TED the only
+lower bound is still quadratic: a string is a path-like tree, so the
 Backurs–Indyk SETH hardness of string edit distance transfers directly.
-The gap — nearly a full n^{0.9} — is one of the widest for any heavily
+The gap — nearly n^{0.69} — remains one of the widest for any heavily
 studied polynomial-time problem.
 
 ## Why it matters
@@ -61,7 +68,8 @@ automatically — this is a pure "improve the black box" card for anyone
 attacking min-plus products. Independent angles: (1) bounded-depth or
 bounded-degree trees, where the decomposition DP simplifies and quadratic
 time may already be reachable; (2) the k-bounded distance regime (TED at
-most k), where O(nk^2)-type bounds exist for strings — matching this for
-trees is open territory; (3) for lower bounds, try reducing from min-plus
+most k), where Õ(n + poly(k)) algorithms now exist (arXiv:2209.07524;
+sharpened at ESA 2025, arXiv:2507.02701) and the optimal k-dependence is
+still open; (3) for lower bounds, try reducing from min-plus
 convolution or BMM to unweighted TED with only quadratic blowup — even
 ruling out n^{2+o(1)} under a believable hypothesis would be new.

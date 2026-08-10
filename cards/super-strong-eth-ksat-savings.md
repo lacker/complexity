@@ -9,7 +9,8 @@ record_ref: "Paturi, Pudlák, Saks & Zane, JACM 2005; general (non-unique) case 
 hardness: "no 2^{o(n)} algorithm for any fixed k ≥ 3 unless ETH fails; SETH asserts the exponent tends to n as k grows"
 hardness_ref: "Impagliazzo & Paturi, JCSS 2001"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [sat, exponential-time, seth, ppsz, savings]
 ---
 
@@ -30,8 +31,13 @@ Hertli (SICOMP 2014) removed the unique-solution assumption. Subsequent
 improvements (biased PPSZ and successors) improve the constant for small k
 but not the Θ(1/k) shape. The statement that Θ(1/k) savings is optimal has
 been studied under the name "Super Strong ETH" (see Vyas & Williams, "On
-Super Strong ETH", SAT 2019, and Scheder & Talebanfard, CCC 2020, who proved
-that PPSZ-type algorithms themselves cannot achieve ω(1/k) savings). No
+Super Strong ETH", SAT 2019, and Scheder & Talebanfard, CCC 2020, who
+constructed instances on which even the strong PPSZ variant with
+bounded-width resolution has savings at most (1 + o(1))·2/k — so PPSZ-type
+algorithms themselves cannot achieve ω(1/k) savings). As of 2026-08 the
+Θ(1/k) shape still stands: the newest published improvements (e.g., Scheder,
+"PPSZ for General k-SAT and CSP — Making Hertli's Analysis Simpler and 3-SAT
+Faster", computational complexity 2024) again move only the constant. No
 consequence links Super Strong ETH to SETH or ETH in either direction: it
 could fail while SETH holds, or vice versa.
 

@@ -51,7 +51,10 @@ See [TEMPLATE.md](TEMPLATE.md). Frontmatter fields:
 
 ## Caveats
 
-Records in this seed set reflect the literature as known in **early 2026** and
-have not yet been individually re-verified against the latest arXiv postings.
-Cards marked `confidence: medium` especially need a verification pass. Finding a
-stale card is itself a contribution — fix it.
+Records were seeded from early-2026 knowledge; on **2026-08-10** a web
+verification sweep checked 25 of the 41 cards against current literature (all
+cards that were medium-confidence, plus the fast-moving famous records). Cards
+carry a `verified: <date>` frontmatter line when a sweep has confirmed or
+corrected them against primary sources. The sweep caught 4 stale records, 2
+solved cards, and several misattributions — expect the same decay rate going
+forward: records rot, and finding a stale card is itself a contribution. Fix it.

@@ -1,17 +1,31 @@
 ---
 id: weighted-ted-apsp-equivalence
-title: "Weighted tree edit distance is APSP-hard but only one-way: break O(n^3) or reduce it back to APSP to complete the equivalence"
+title: "SOLVED — weighted tree edit distance is APSP-equivalent: the missing reduction back to APSP was found at STOC 2025"
 genre: equivalence-completion
 problems: ["Tree Edit Distance", "All-Pairs Shortest Paths"]
 hypotheses: [APSP]
-record: "O(n^3) time"
-record_ref: "Demaine, Mozes, Rossman & Weimann, ICALP 2007 / ACM TALG 2009"
+record: "n^3 / 2^{Omega(sqrt(log n))} time, matching APSP; fine-grained equivalent to APSP"
+record_ref: "Nogler, Polak, Saha, Vassilevska Williams, Xu & Ye, STOC 2025 (arXiv:2411.06502)"
 hardness: "no O(n^{3-eps}) algorithm for weighted TED (alphabet size Theta(n)) unless APSP has a truly subcubic algorithm"
 hardness_ref: "Bringmann, Gawrychowski, Mozes & Weimann, SODA 2018"
-status: open
+status: solved
 confidence: high
+verified: 2026-08-10
 tags: [trees, strings, fine-grained, apsp, equivalence]
 ---
+
+## Resolution
+
+This card's direction (b) was achieved. Nogler, Polak, Saha, Vassilevska
+Williams, Xu, and Ye (STOC 2025, arXiv:2411.06502) reduced weighted tree edit
+distance to APSP with subcubic overhead, completing the equivalence: weighted
+TED is now a full member of the APSP equivalence class, and inherits Williams'
+n^3 / 2^{Omega(sqrt(log n))} algorithm — the first improvement over the 2007
+Demaine–Mozes–Rossman–Weimann O(n^3) bound. The same paper improved the
+*unweighted* TED record to about O(n^{2.6857}) (see the card
+`unweighted-ted-exponent`, which remains open). The card below is preserved
+as originally written: it is a worked example of an equivalence-completion
+problem posed and then closed by exactly the kind of reduction it asked for.
 
 ## Statement
 

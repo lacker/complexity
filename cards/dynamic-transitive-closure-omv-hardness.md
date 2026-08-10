@@ -9,7 +9,8 @@ record_ref: "van den Brand, Nanongkai & Saranurak, FOCS 2019"
 hardness: "matching ~n^{1.406} bound known only under 'hinted' OMv/uMv variants; standard OMv gives only weaker update/query tradeoffs"
 hardness_ref: "van den Brand, Nanongkai & Saranurak, FOCS 2019; Henzinger, Krinninger, Nanongkai & Saranurak, STOC 2015"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [omv, dynamic, reachability, matrix-inverse, algebraic]
 ---
 
@@ -27,4 +28,4 @@ This is one of the cleanest cases in fine-grained complexity where the tight bou
 
 ## Attack surface
 
-The gap between standard and hinted OMv is about when the reduction gets to see which entries matter — a hint-elimination argument (random self-reduction over the hint space, or a direct-sum trick averaging over hints) is the natural shape of a solution. Template to imitate: the equivalences HKNS already proved between OMv and uMv, which trade query granularity for quantity. A concrete first target: derive from standard OMv any lower bound above n^{1.0} for worst-case update time of dynamic transitive closure with n^{o(1)} queries, since currently the strong exponents all pass through hints.
+The gap between standard and hinted OMv is about when the reduction gets to see which entries matter — a hint-elimination argument (random self-reduction over the hint space, or a direct-sum trick averaging over hints) is the natural shape of a solution. Template to imitate: the equivalences HKNS already proved between OMv and uMv, which trade query granularity for quantity. A concrete first target: derive from standard OMv any lower bound above n^{1.0} for worst-case update time of dynamic transitive closure with n^{o(1)} queries, since currently the strong exponents all pass through hints. Encouraging recent precedent: Hu and Polak (arXiv:2409.15970, 2024) proved that several a-priori-weaker non-Boolean OMv variants (equality, dominance, min-witness, min-max, bounded monotone min-plus) are all *equivalent* to standard OMv — the first fine-grained equivalence class around OMv — but the hinted variants remain outside this class.

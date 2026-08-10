@@ -5,11 +5,12 @@ genre: improve-algorithm
 problems: ["RNA Folding", "Dyck Edit Distance", "Language Edit Distance", "Min-Plus Product", "k-Clique"]
 hypotheses: [k-Clique, BMM]
 record: "~O(n^{(3+omega)/2}) time (about O(n^{2.687}) with current omega)"
-record_ref: "Chi, Duan, Xie & Zhang, STOC 2022 (bounded-difference min-plus product), plugged into the framework of Bringmann, Grandoni, Saha & Vassilevska Williams, FOCS 2016"
+record_ref: "Chi, Duan, Xie & Zhang, STOC 2022 (min-plus product for monotone/bounded-difference instances), plugged into the framework of Bringmann, Grandoni, Saha & Vassilevska Williams, FOCS 2016"
 hardness: "an O(n^{omega - eps}) algorithm would give faster k-Clique detection; no truly subcubic combinatorial algorithm unless combinatorial BMM/k-Clique falls"
 hardness_ref: "Abboud, Backurs & Vassilevska Williams, FOCS 2015"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [strings, rna-folding, dyck, min-plus, clique, matrix-multiplication]
 ---
 
@@ -48,8 +49,9 @@ algebraic algorithms, and RNA folding is its marquee application. An
 O(n^omega) RNA folding algorithm would make the clique-based lower bound
 tight, completing a rare matching pair at an exotic exponent. Progress also
 flows to CFG parsing (Valiant's parser), stochastic grammars, and — through
-rectangular variants of the same products — to unweighted tree edit
-distance. And RNA secondary structure prediction is a real computational
+monotone variants of the same products — to unweighted tree edit distance,
+which was brought to the very same ~O(n^{(3+omega)/2}) exponent at STOC 2025
+(arXiv:2411.06502). And RNA secondary structure prediction is a real computational
 biology workload, not a toy.
 
 ## Attack surface
@@ -60,8 +62,9 @@ Zhang's method mixes algebraic (polynomial-multiplication) handling of
 known slack is in the balance between the two phases, and any better trade
 gives a new record here mechanically. Special cases to try first: Dyck edit
 distance with a bounded number of edit types, RNA folding over binary
-pairing rules, or approximation — constant-factor approximations for Dyck
-edit distance already run in near-linear time, so the exact-vs-approximate
+pairing rules, or approximation — Das, Kociumaka, and Saha (ICALP 2022,
+arXiv:2112.05866) gave the first constant-factor approximation for Dyck
+edit distance in subquadratic Õ(n^{1.971}) time, so the exact-vs-approximate
 boundary is well-populated with intermediate questions. For hardness, the
 open move is a reduction showing bounded-difference min-plus itself is
 needed — i.e., an equivalence between RNA folding and the min-plus product

@@ -6,10 +6,11 @@ problems: ["Monochromatic Closest Pair", "Bichromatic Closest Pair", "Approximat
 hypotheses: [SETH]
 record: "n^{2-Omega~(eps^{1/3})} time for (1+eps)-approximate closest pair via the polynomial method"
 record_ref: "Alman, Chan & Williams, FOCS 2016"
-hardness: "bichromatic version: for every delta > 0 there is eps > 0 with no n^{2-delta} algorithm for (1+eps)-approximation under SETH; monochromatic approximate version has no known conditional lower bound"
-hardness_ref: "Rubinstein, STOC 2018"
+hardness: "bichromatic version: for every delta > 0 there is eps > 0 with no n^{2-delta} algorithm for (1+eps)-approximation under SETH; monochromatic approximate version: no n^{1.5-delta} algorithm for (1+eps)-approximation (eps = eps(delta) > 0 constant) in c log n dimensions under SETH — full n^{2-o(1)} hardness remains open"
+hardness_ref: "Rubinstein, STOC 2018; Karthik C. S. & Manurangsi, ITCS 2019 / Combinatorica 2020 (arXiv:1812.00901)"
 status: open
-confidence: medium
+confidence: high
+verified: 2026-08-10
 tags: [nearest-neighbor, geometry, fine-grained, seth, distributed-pcp]
 ---
 
@@ -33,11 +34,19 @@ he showed that for every delta > 0 there is an eps > 0 such that a
 n^{2-delta}-time (1+eps)-approximation would refute SETH. On the algorithms
 side, Alman, Chan and Williams (FOCS 2016) gave a n^{2-Omega~(eps^{1/3})}-time
 algorithm via probabilistic polynomial representations of threshold functions.
-For the monochromatic case, Karthik C. S. and Manurangsi (ITCS 2019) transferred
-hardness for the *exact* problem, and explicitly posed the approximate
-monochromatic case as open. It still appears open; the obstruction is that
-OV-style reductions naturally produce two-sided (red/blue) instances, and known
-tricks for collapsing colors destroy the approximation gap.
+For the monochromatic case, Karthik C. S. and Manurangsi (ITCS 2019;
+Combinatorica 2020, arXiv:1812.00901) transferred hardness for the *exact*
+problem in d = (log n)^{Omega(1)} dimensions — and, contrary to earlier drafts
+of this card, they also proved a partial *approximate* result: under SETH, no
+O(n^{1.5-delta})-time algorithm can (1+eps)-approximate monochromatic closest
+pair for some constant eps = eps(delta) > 0, in c log n dimensions. What
+remains open (as of 2026-08) is lifting that n^{1.5} to the full n^{2-o(1)};
+they note the 1.5 exponent is an artifact of their proof strategy, and that an
+improved upper bound on the number of minimum-weight codewords in
+algebraic-geometric codes would resolve the question completely. The
+obstruction to a direct transfer is that OV-style reductions naturally produce
+two-sided (red/blue) instances, and known tricks for collapsing colors destroy
+the approximation gap.
 
 ## Why it matters
 
@@ -54,7 +63,9 @@ clustering-type subroutines.
 
 Template to imitate: Karthik–Manurangsi's exact-case transfer, which routes
 through a balanced code-based embedding — the open question is a gap-preserving
-version. Candidate gadgets: locally dense codes, or Rubinstein-style advice sets
+version at full quadratic hardness. Karthik–Manurangsi themselves flag the
+concrete bite point: improve the state-of-the-art bound on minimum-weight
+codewords in algebraic-geometric codes and their n^{1.5} barrier lifts to n^2. Candidate gadgets: locally dense codes, or Rubinstein-style advice sets
 arranged so that same-color near pairs are forced to be far. Special case to try
 first: eps = o(1) shrinking with n (weaker than constant eps but already new),
 or the ell_infinity metric where gaps behave more rigidly.

@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Find a maximum independent set faster than O(1.1996^n)</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip">graphs</span><span class="chip">exponential-time</span><span class="chip">branching</span><span class="chip">measure-and-conquer</span></div><dl class="facts"><dt>Record</dt><dd>O(1.1996^n) time, polynomial space</dd><dt>Record held by</dt><dd>Xiao &amp; Nagamochi, Information and Computation 2017</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm unless ETH fails</dd><dt>Hardness from</dt><dd>Impagliazzo, Paturi &amp; Zane, JCSS 2001</dd><dt>Hypotheses</dt><dd>ETH</dd><dt>Problems</dt><dd>Maximum Independent Set</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Find a maximum independent set faster than O(1.1996^n)</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">graphs</span><span class="chip">exponential-time</span><span class="chip">branching</span><span class="chip">measure-and-conquer</span></div><dl class="facts"><dt>Record</dt><dd>O(1.1996^n) time, polynomial space</dd><dt>Record held by</dt><dd>Xiao &amp; Nagamochi, Information and Computation 2017</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm unless ETH fails</dd><dt>Hardness from</dt><dd>Impagliazzo, Paturi &amp; Zane, JCSS 2001</dd><dt>Hypotheses</dt><dd>ETH</dd><dt>Problems</dt><dd>Maximum Independent Set</dd></dl><h2>Statement</h2>
 <p>Give an algorithm that computes a maximum independent set (a largest set of
 pairwise non-adjacent vertices) in an arbitrary n-vertex graph in time
 O(c^n) for some c &lt; 1.1996, beating Xiao and Nagamochi&#39;s record. Polynomial
@@ -67,4 +67,12 @@ even without new ideas. (3) Bottleneck instances are known to be graphs of
 maximum degree 5-6; improved dedicated algorithms for these degree classes
 (an active subliterature: degree-3 stands near 1.0836^n, Xiao–Nagamochi)
 plug directly into the general bound.</p>
+<h2>Verification notes</h2>
+<p>Checked August 2026. O(1.1996^n) (Xiao–Nagamochi, Information and Computation
+2017) remains the published general record; no faster exact algorithm was
+found in 2024–2026 sources. Cautionary data point for the degree-bounded lane:
+the claimed O(1.0821^n) degree-3 algorithm (Issac–Jaiswal, arXiv:1308.1351)
+was withdrawn in 2022 after a bug surfaced in its case analysis, so the
+1.0836^n degree-3 figure cited above still stands — and underlines why
+machine-checked case analyses (attack item 2) would be valuable.</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>
