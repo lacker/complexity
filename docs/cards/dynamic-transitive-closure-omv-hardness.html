@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base the ~n^1.407 dynamic transitive closure bound on the standard OMv conjecture</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Base the ~n^1.407 dynamic transitive closure bound on the standard OMv conjecture</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: medium</span><span class="chip">omv</span><span class="chip">dynamic</span><span class="chip">reachability</span><span class="chip">matrix-inverse</span><span class="chip">algebraic</span></div><dl class="facts"><dt>Record</dt><dd>roughly O(n^{1.407}) worst-case update and pair-query time via dynamic matrix inverse</dd><dt>Record held by</dt><dd>van den Brand, Nanongkai &amp; Saranurak, FOCS 2019</dd><dt>Hardness</dt><dd>matching ~n^{1.406} bound known only under 'hinted' OMv/uMv variants; standard OMv gives only weaker update/query tradeoffs</dd><dt>Hardness from</dt><dd>van den Brand, Nanongkai &amp; Saranurak, FOCS 2019; Henzinger, Krinninger, Nanongkai &amp; Saranurak, STOC 2015</dd><dt>Hypotheses</dt><dd>OMv, hinted OMv variants</dd><dt>Problems</dt><dd>Dynamic Transitive Closure, Dynamic st-Reachability, Dynamic Matrix Inverse</dd></dl><h2>Statement</h2>
+<p>Fully dynamic transitive closure: maintain a directed graph on n vertices under edge insertions and deletions, answering queries &quot;is there a path from u to v?&quot;. The best algebraic algorithms achieve update and query time around n^{1.407} (exponent governed by fast matrix multiplication). The challenge: prove a matching conditional lower bound of the form n^{1.407-o(1)} (or even any bound beating the known ones) assuming only the <em>standard</em> OMv conjecture — or, alternatively, improve the algorithm and show the hinted-variant lower bounds are not tight.</p>
+<h2>Current record</h2>
+<p>Sankowski (FOCS 2004) gave dynamic-matrix-inverse-based algorithms, e.g. update time O(n^{1.575}) with query time O(n^{0.575}). Van den Brand, Nanongkai and Saranurak (FOCS 2019) improved the balanced tradeoff to roughly n^{1.407} for both update and pair query, and proved an essentially matching lower bound of about n^{1.406} — but only under strengthened &quot;hinted&quot; versions of the OMv/uMv conjectures, where the adversary commits to part of the input in advance. Under the standard OMv conjecture of Henzinger, Krinninger, Nanongkai and Saranurak (STOC 2015), only weaker tradeoffs are known — of the flavor that st-reachability cannot have both n^{1-eps} amortized update time and n^{2-eps} query time — which do not explain the exponent 1.407 at all.</p>
+<h2>Why it matters</h2>
+<p>This is one of the cleanest cases in fine-grained complexity where the tight bound is &quot;known&quot; but rests on a bespoke hypothesis invented to match the algorithm. Deriving the hinted variants from standard OMv (a reduction between hypotheses) would consolidate the hypothesis zoo and make the n^{1.407} bound a genuine consequence of a single widely believed conjecture. A refutation of a hinted variant would instead predict an algorithmic improvement for one of the most-studied dynamic problems. Either resolution moves many downstream bounds proved with the same machinery (dynamic rank, DAG path counting, dynamic largest eigenvalue).</p>
+<h2>Attack surface</h2>
+<p>The gap between standard and hinted OMv is about when the reduction gets to see which entries matter — a hint-elimination argument (random self-reduction over the hint space, or a direct-sum trick averaging over hints) is the natural shape of a solution. Template to imitate: the equivalences HKNS already proved between OMv and uMv, which trade query granularity for quantity. A concrete first target: derive from standard OMv any lower bound above n^{1.0} for worst-case update time of dynamic transitive closure with n^{o(1)} queries, since currently the strong exponents all pass through hints.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

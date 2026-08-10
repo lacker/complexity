@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Improve TIME[t] ⊆ SPACE[sqrt(t log t)]: shave the sqrt(log t) factor, or push the exponent below 1/2</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Improve TIME[t] ⊆ SPACE[sqrt(t log t)]: shave the sqrt(log t) factor, or push the exponent below 1/2</h1><div class="chips"><span class="chip open">open</span><span class="chip">Tighten an overhead</span><span class="chip">confidence: high</span><span class="chip">space-complexity</span><span class="chip">simulations</span><span class="chip">tree-evaluation</span><span class="chip">structural</span></div><dl class="facts"><dt>Record</dt><dd>every multitape Turing machine running in time t can be simulated in space O(sqrt(t log t))</dd><dt>Record held by</dt><dd>Williams, STOC 2025 (arXiv:2502.17779)</dd><dt>Hardness</dt><dd>no matching lower bound; a simulation in space t^{o(1)} would imply P != PSPACE-style separations far beyond current techniques</dd><dt>Hardness from</dt><dd>discussed in Williams, STOC 2025</dd><dt>Problems</dt><dd>Time-Space Simulation, Tree Evaluation</dd></dl><h2>Statement</h2>
+<p>How much memory does time buy? For fifty years the best generic answer was
+Hopcroft–Paul–Valiant (1977): anything computable in time t is computable in
+space t / log t — barely better than trivial. Williams (STOC 2025) collapsed
+this to O(sqrt(t log t)). The card: improve the simulation. Two concrete
+targets, in increasing ambition: (1) TIME[t] ⊆ SPACE[o(sqrt(t log t))], for
+instance O(sqrt(t)), by removing the logarithmic overhead the current proof
+inherits from its tree-evaluation subroutine; (2) TIME[t] ⊆ SPACE[t^{1/2 - c}]
+for some constant c &gt; 0, which would require evaluating the computation graph
+in a fundamentally more space-efficient order.</p>
+<h2>Current record</h2>
+<p>Williams&#39; simulation chops a time-t computation into blocks, arranges the
+block-dependency structure as an instance of the Tree Evaluation problem, and
+then invokes the Cook–Mertz space-efficient tree evaluation algorithm (STOC
+2024), whose catalytic-computing-style trick reuses the same workspace for a
+node&#39;s children by storing intermediate values additively on top of live data.
+Balancing block size against tree overhead yields O(sqrt(t log t)). The
+sqrt(log t) factor comes directly from the Cook–Mertz bound; the sqrt(t) itself
+comes from the block-tree tradeoff, and the paper explicitly flags improving
+either as open. No lower bound rules out dramatically better simulations —
+there is provably no obstacle short of the fact that t^{o(1)} space would
+separate P from PSPACE.</p>
+<h2>Why it matters</h2>
+<p>This is the biggest movement in generic time-space simulation since the 1970s,
+and it immediately strengthened downstream separations (e.g., problems solvable
+in linear space but requiring nearly quadratic time). Every improvement here
+mechanically improves those separations, and pushing the exponent below 1/2
+would be a structural earthquake: the block-respecting framework is also the
+substrate for many time-space lower bound arguments, so both directions of this
+card touch a lot of edges. It is also the showcase for catalytic/clean-tape
+techniques crossing into classical structural complexity.</p>
+<h2>Attack surface</h2>
+<p>Route 1: improve Tree Evaluation to O(log n) space (see the companion card
+tree-evaluation-log-space) — the improvement flows through automatically and
+kills the log factor. Route 2: attack the block-tree tradeoff itself; the
+current reduction pays for recomputing block boundaries, and any amortization
+across siblings would move the exponent. Route 3 (barriers): show that any
+&quot;block-respecting, oblivious-recomputation&quot; simulation cannot beat sqrt(t),
+which would itself be a publishable scoping theorem. Special case first:
+one-tape or oblivious machines, where block structure is more rigid and better
+bounds may be provable.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

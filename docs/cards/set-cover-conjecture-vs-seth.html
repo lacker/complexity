@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Link the Set Cover Conjecture to SETH — or solve Set Cover in O((2-ε)^n)</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Link the Set Cover Conjecture to SETH — or solve Set Cover in O((2-ε)^n)</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip">set-cover</span><span class="chip">seth</span><span class="chip">scc</span><span class="chip">hypotheses</span><span class="chip">exponential-time</span><span class="chip">reductions</span></div><dl class="facts"><dt>Record</dt><dd>2^n · poly(m) time over n elements and m sets (dynamic programming / inclusion-exclusion)</dd><dt>Record held by</dt><dd>folklore DP; inclusion-exclusion framework: Björklund, Husfeldt &amp; Koivisto, SICOMP 2009</dd><dt>Hardness</dt><dd>Set Cover Conjecture (no (2-ε)^n · poly(m) algorithm) is itself the unproven hypothesis; no derivation from SETH is known in either direction</dd><dt>Hardness from</dt><dd>Cygan, Dell, Lokshtanov, Marx, Nederlof, Okamoto, Paturi, Saurabh &amp; Wahlström, CCC 2012 (journal: ACM TALG 2016)</dd><dt>Hypotheses</dt><dd>SCC, SETH</dd><dt>Problems</dt><dd>Set Cover, k-SAT, Steiner Tree, Connected Vertex Cover</dd></dl><h2>Statement</h2>
+<p>Set Cover: given a universe of n elements and a family of m subsets, find
+the fewest sets whose union is the whole universe. The Set Cover Conjecture
+(SCC) asserts there is no O((2-ε)^n · poly(m)) algorithm for any ε &gt; 0.
+Close this card in any of three ways: (a) refute SCC with a (2-ε)^n
+algorithm; (b) prove SCC follows from SETH (a reduction from k-SAT with n
+variables to Set Cover with roughly n elements, tight enough that a (2-ε)^n
+Set Cover algorithm would give a (2-δ)^n k-SAT algorithm for all k); or
+(c) prove the reverse implication, SETH from SCC.</p>
+<h2>Current record</h2>
+<p>The 2^n · poly(m) upper bound is subset dynamic programming (or
+inclusion-exclusion in the Björklund–Husfeldt–Koivisto style, SICOMP 2009).
+SCC was formulated by Cygan, Dell, Lokshtanov, Marx, Nederlof, Okamoto,
+Paturi, Saurabh and Wahlström in &quot;On Problems as Hard as CNF-SAT&quot; (CCC
+2012; TALG 2016), which built a small web of tight equivalences around it:
+under SCC, Steiner Tree, Connected Vertex Cover, Set Partitioning and
+others cannot beat their known bases. What is conspicuously missing is any
+bridge between this web and the SETH web. The known SAT-to-Set-Cover
+reductions blow up the universe size by a constant factor, which destroys
+tightness at base 2: they rule out nothing about (2-ε)^n. The two
+hypotheses currently float independently — an unusual and unstable-looking
+state for two central assumptions of the same field.</p>
+<h2>Why it matters</h2>
+<p>Fine-grained complexity rests on a handful of hypotheses (SETH, 3SUM, APSP,
+SCC), and edges between them are the field&#39;s most valuable commodity.
+SETH → SCC would consolidate dozens of (2-ε)^n lower bounds (Steiner Tree,
+Connected Vertex Cover, and the CDLMNOPSW cluster) under the standard
+assumption, instantly upgrading their status. A refutation of SCC would be
+a first-rank algorithmic breakthrough with immediate consequences for the
+same cluster, plus pressure on the 2^n records for chromatic number and
+weighted TSP (see cards chromatic-number-below-2n, tsp-below-2n).</p>
+<h2>Attack surface</h2>
+<p>(1) The obstruction is understood: k-SAT clauses interact with an
+assignment universe multiplicatively, while set cover elements are covered
+disjunctively — a tight reduction needs a gadget encoding n Boolean
+variables into n(1+o(1)) elements. Study why the CDLMNOPSW reductions among
+covering problems are tight but SAT resists; the paper itself poses this.
+(2) Intermediate hypotheses: reductions from SETH to SCC restricted to
+sets of bounded size k (mirroring clause width) are a graded version worth
+attempting first — SCC for constant-size sets is already meaningful.
+(3) For refutation, the representation/algebraic toolkit that broke 2^n
+for coloring special cases (Zamir, ICALP 2021) and bipartite TSP (Nederlof,
+STOC 2020) marks Set Cover with structured set families as the soft spot.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

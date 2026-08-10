@@ -1,0 +1,16 @@
+{
+  "name": "complexity",
+  "version": "1.0.0",
+  "description": "A structured, browsable set of **open \"reduction-type\" problems** in computational complexity — each one anchored to a published result that quantifies the current record. The bet: a swarm of people using AI, each attacking well-posed cards from this list, will collectively strengthen the web of reductions until big separations fall out of it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "marked": "^18.0.9"
+  }
+}

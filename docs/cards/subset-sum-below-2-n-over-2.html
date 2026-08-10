@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solve worst-case Subset Sum faster than O*(2^{n/2}) — beat 50-year-old meet-in-the-middle</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Solve worst-case Subset Sum faster than O*(2^{n/2}) — beat 50-year-old meet-in-the-middle</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip">subset-sum</span><span class="chip">meet-in-the-middle</span><span class="chip">exponential-time</span><span class="chip">cryptography</span><span class="chip">average-case</span></div><dl class="facts"><dt>Record</dt><dd>O*(2^{n/2}) time (worst case); ~O(2^{0.29n}) known only for random/average-case instances</dd><dt>Record held by</dt><dd>Horowitz &amp; Sahni, JACM 1974; average case: Becker, Coron &amp; Joux, EUROCRYPT 2011</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm unless ETH fails; no O(t^{1-eps} · 2^{o(n)}) algorithm (t = target) unless SETH fails</dd><dt>Hardness from</dt><dd>ETH: folklore via IPZ, JCSS 2001; SETH: Abboud, Bringmann, Hermelin &amp; Shabtay, SODA 2019</dd><dt>Hypotheses</dt><dd>ETH, SETH</dd><dt>Problems</dt><dd>Subset Sum, Knapsack</dd></dl><h2>Statement</h2>
+<p>Given n integers and a target t, decide whether some subset sums exactly to
+t, in worst-case time O(2^{(0.5-ε)n}) for some fixed ε &gt; 0 — beating
+meet-in-the-middle. Randomized algorithms count. (A secondary open front:
+match the 2^{n/2} time with polynomial space.)</p>
+<h2>Current record</h2>
+<p>Horowitz and Sahni (JACM 1974) split the n items into two halves, enumerate
+the 2^{n/2} sums of each half, sort, and scan — O*(2^{n/2}) time and space,
+where O* hides polynomial factors. Fifty years later, no worst-case
+improvement in the exponent is known. Schroeppel and Shamir (SICOMP 1981)
+reduced the space to O*(2^{n/4}) at the same time bound, and Nederlof and
+Węgrzycki (STOC 2021) pushed space below that benchmark to O(2^{0.246n}) —
+progress on space, none on time. The average case tells a different story:
+for random instances, the &quot;representation technique&quot; of Howgrave-Graham and
+Joux (EUROCRYPT 2010, ~2^{0.337n}) and Becker–Coron–Joux (EUROCRYPT 2011,
+~2^{0.29n}) beats meet-in-the-middle soundly, which is why the worst-case
+barrier looks suspicious rather than fundamental. On the hardness side,
+Abboud, Bringmann, Hermelin and Shabtay (SODA 2019) proved SETH-based lower
+bounds in terms of the target t (no O(t^{1-ε} · 2^{o(n)})), but nothing
+known connects the 2^{n/2} exponent itself to any hypothesis.</p>
+<h2>Why it matters</h2>
+<p>Subset Sum is the simplest NP-complete problem — no graph, no clauses, just
+numbers — and 2^{n/2} is among the oldest unbeaten records in the field.
+The exponent is load-bearing in cryptography: knapsack-based cryptosystems
+and lattice attack subroutines are calibrated to it, and the
+representation-technique literature exists precisely because cryptanalysts
+pay for every hundredth in that exponent. A worst-case improvement would
+also propagate through exact algorithms that use meet-in-the-middle as a
+subroutine (Schroeppel–Shamir-style enumeration appears inside algorithms
+for knapsack, binary programming, and decoding).</p>
+<h2>Attack surface</h2>
+<p>(1) Derandomize the average case: the representation technique fails in the
+worst case because structured instances (e.g., all items sharing arithmetic
+structure) break the uniformity of partial-sum distributions; classify the
+obstructing instances — additive-combinatorics tools (Freiman-type
+structure theorems) are the natural weapon and this is explicitly proposed
+in the literature. (2) Instances with high additive energy are &quot;compressible&quot;
+and instances with low additive energy behave randomly; make that dichotomy
+algorithmic. (3) The Nederlof–Węgrzycki machinery (orthogonal-vector-style
+partitioning of the enumeration space) reduced space; investigate whether
+the same partitioning admits any time-space tradeoff below the 2^{n/2}
+time point.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

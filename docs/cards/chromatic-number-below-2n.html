@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compute the chromatic number in O((2-ε)^n) time — break the 2^n inclusion-exclusion barrier</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Compute the chromatic number in O((2-ε)^n) time — break the 2^n inclusion-exclusion barrier</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip">graphs</span><span class="chip">coloring</span><span class="chip">inclusion-exclusion</span><span class="chip">subset-convolution</span><span class="chip">exponential-time</span></div><dl class="facts"><dt>Record</dt><dd>2^n · poly(n) time</dd><dt>Record held by</dt><dd>Björklund, Husfeldt &amp; Koivisto, SICOMP 2009 (announced FOCS 2006)</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm unless ETH fails</dd><dt>Hardness from</dt><dd>Impagliazzo, Paturi &amp; Zane, JCSS 2001</dd><dt>Hypotheses</dt><dd>ETH, SCC</dd><dt>Problems</dt><dd>Graph Coloring, Chromatic Number, Set Partition</dd></dl><h2>Statement</h2>
+<p>Give an algorithm computing the chromatic number of an arbitrary n-vertex
+graph — the minimum number of colors needed so adjacent vertices get
+different colors — in time O((2-ε)^n) for some fixed ε &gt; 0. Equivalently,
+break the 2^n barrier for k-coloring simultaneously for all k. The question
+is open even for k = 7 on general graphs.</p>
+<h2>Current record</h2>
+<p>Björklund, Husfeldt and Koivisto (FOCS 2006; SICOMP 2009) solved chromatic
+number in 2^n · poly(n) time via inclusion-exclusion: k-colorability is
+rephrased as covering the vertex set by k independent sets, and the number
+of such covers is a signed sum, over all 2^n vertex subsets, of quantities
+computable in polynomial time each. This was a breakthrough over the
+previous ~2.4^n dynamic programming, and 2^n is a natural information-
+theoretic-feeling wall: the algorithm inspects every subset once. For small
+k better bases are known — 3-coloring in O(1.3289^n) (Beigel–Eppstein,
+J. Algorithms 2005), 4-coloring in O(1.7272^n) (Fomin–Gaspers–Saurabh) —
+and Zamir (ICALP 2021) broke the 2^n barrier for 5-coloring and 6-coloring
+and for k-coloring of graphs of bounded average degree. For general k on
+general graphs, 2^n stands. No known hypothesis rules out (2-ε)^n; the
+related Set Cover Conjecture asserts the analogous barrier for Set Cover.</p>
+<h2>Why it matters</h2>
+<p>Chromatic number is the flagship of the &quot;2^n club&quot;: problems solved by
+subset dynamic programming or inclusion-exclusion where the base 2 looks
+like an artifact of enumerating subsets rather than a true complexity. A
+(2-ε)^n algorithm would be a major structural surprise, would likely
+introduce a technique bypassing subset enumeration wholesale, and would
+put pressure on the Set Cover Conjecture (coloring is a set-partition
+problem, the covering cousin of set cover). Zamir&#39;s partial break shows the
+wall is not information-theoretic — which makes the general case a live
+target rather than a folklore impossibility.</p>
+<h2>Attack surface</h2>
+<p>(1) Extend Zamir: his approach exploits that bounded-degree graphs have
+either structure to compress or large independent sets to peel; the open
+frontier is k = 7 and unbounded degree — understand exactly where the
+argument loses. (2) Algebraic route: the 2^n algorithm computes a covering
+product / subset convolution; any representation of the independent-set
+indicator vector admitting faster transforms (à la fast zeta/Möbius with
+sparsity) would shave the base. (3) Reverse direction: derive
+(2-ε)^n-hardness of chromatic number from the Set Cover Conjecture or SETH
+— even that reduction is currently missing, and finding it would also be a
+publishable closure of this card (as a hardness edge rather than an
+algorithm).</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>
