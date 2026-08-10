@@ -10,6 +10,7 @@ hardness: "no m^{2-eps} algorithm for exact radius on sparse graphs unless the H
 hardness_ref: "Abboud, Vassilevska Williams & Wang, SODA 2016"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [graphs, radius, hitting-set, seth, quantifiers]
 ---
 

@@ -10,6 +10,7 @@ hardness: "none known — not even a super-linear conditional lower bound"
 hardness_ref: "n/a"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [strings, pattern-matching, fft, convolution, missing-hardness]
 ---
 
@@ -65,5 +66,9 @@ For the algorithmic direction, the structured special cases are the wedge:
 few wildcards (k wildcards admit O(n log k)-type bounds via subtler
 methods), clustered wildcards, or bounded alphabet — any regime where
 O(n log m) can be beaten sharpens intuition for whether the general log is
-real. A word-RAM result exploiting bit-packing to get O(n log m / log log n)
+real. Recent instance of exactly this: Bathie, Charalampopoulos and
+Starikovskaya (ESA 2024, arXiv:2402.07732) beat the FFT bound whenever the
+wildcard structure is sparse, running in O(n + DG n/m) time for D wildcards
+in G maximal groups — faster than O(n log m) when DG = o(m log m) — leaving
+only the dense-wildcard regime to the FFT. A word-RAM result exploiting bit-packing to get O(n log m / log log n)
 would already close this card as stated.

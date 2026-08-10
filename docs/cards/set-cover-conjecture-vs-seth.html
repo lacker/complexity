@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Link the Set Cover Conjecture to SETH — or solve Set Cover in O((2-ε)^n)</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip">set-cover</span><span class="chip">seth</span><span class="chip">scc</span><span class="chip">hypotheses</span><span class="chip">exponential-time</span><span class="chip">reductions</span></div><dl class="facts"><dt>Record</dt><dd>2^n · poly(m) time over n elements and m sets (dynamic programming / inclusion-exclusion)</dd><dt>Record held by</dt><dd>folklore DP; inclusion-exclusion framework: Björklund, Husfeldt &amp; Koivisto, SICOMP 2009</dd><dt>Hardness</dt><dd>Set Cover Conjecture (no (2-ε)^n · poly(m) algorithm) is itself the unproven hypothesis; no derivation from SETH is known in either direction</dd><dt>Hardness from</dt><dd>Cygan, Dell, Lokshtanov, Marx, Nederlof, Okamoto, Paturi, Saurabh &amp; Wahlström, CCC 2012 (journal: ACM TALG 2016)</dd><dt>Hypotheses</dt><dd>SCC, SETH</dd><dt>Problems</dt><dd>Set Cover, k-SAT, Steiner Tree, Connected Vertex Cover</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Link the Set Cover Conjecture to SETH — or solve Set Cover in O((2-ε)^n)</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">set-cover</span><span class="chip">seth</span><span class="chip">scc</span><span class="chip">hypotheses</span><span class="chip">exponential-time</span><span class="chip">reductions</span></div><dl class="facts"><dt>Record</dt><dd>2^n · poly(m) time over n elements and m sets (dynamic programming / inclusion-exclusion)</dd><dt>Record held by</dt><dd>folklore DP; inclusion-exclusion framework: Björklund, Husfeldt &amp; Koivisto, SICOMP 2009</dd><dt>Hardness</dt><dd>Set Cover Conjecture (no (2-ε)^n · poly(m) algorithm) is itself the unproven hypothesis; no derivation from SETH is known in either direction</dd><dt>Hardness from</dt><dd>Cygan, Dell, Lokshtanov, Marx, Nederlof, Okamoto, Paturi, Saurabh &amp; Wahlström, CCC 2012 (journal: ACM TALG 2016)</dd><dt>Hypotheses</dt><dd>SCC, SETH</dd><dt>Problems</dt><dd>Set Cover, k-SAT, Steiner Tree, Connected Vertex Cover</dd></dl><h2>Statement</h2>
 <p>Set Cover: given a universe of n elements and a family of m subsets, find
 the fewest sets whose union is the whole universe. The Set Cover Conjecture
 (SCC) asserts there is no O((2-ε)^n · poly(m)) algorithm for any ε &gt; 0.
@@ -45,7 +45,15 @@ bridge between this web and the SETH web. The known SAT-to-Set-Cover
 reductions blow up the universe size by a constant factor, which destroys
 tightness at base 2: they rule out nothing about (2-ε)^n. The two
 hypotheses currently float independently — an unusual and unstable-looking
-state for two central assumptions of the same field.</p>
+state for two central assumptions of the same field. Meanwhile SCC has
+acquired a serious enemy from an unexpected direction: Björklund and Kaski
+(STOC 2024, arXiv:2310.11926) proved that Strassen&#39;s asymptotic rank
+conjecture (ARC) and SCC cannot both be true, and Pratt (STOC 2024,
+arXiv:2311.02774) strengthened this — ARC implies Set Cover with
+bounded-size sets in (3/2^{2/3} + ε)^n ≈ 1.8899^n time, and conversely SCC
+implies explicit tensor families of asymptotic rank at least N^{1.08}. So
+refuting SCC now reduces to a (widely believed) statement in algebraic
+complexity, while SETH ↔ SCC remains open in both directions.</p>
 <h2>Why it matters</h2>
 <p>Fine-grained complexity rests on a handful of hypotheses (SETH, 3SUM, APSP,
 SCC), and edges between them are the field&#39;s most valuable commodity.
@@ -64,7 +72,11 @@ covering problems are tight but SAT resists; the paper itself poses this.
 (2) Intermediate hypotheses: reductions from SETH to SCC restricted to
 sets of bounded size k (mirroring clause width) are a graded version worth
 attempting first — SCC for constant-size sets is already meaningful.
-(3) For refutation, the representation/algebraic toolkit that broke 2^n
-for coloring special cases (Zamir, ICALP 2021) and bipartite TSP (Nederlof,
+(3) For refutation, the now-sharpest route is via tensors: by
+Björklund–Kaski and Pratt (both STOC 2024), proving low-enough rank for one
+explicit tensor family refutes SCC — Pratt shows that improving the known
+(1/2)8^n bound on the tensor rank of a specific T_n to (2/(9n))8^n for any
+single n already suffices. The older algebraic toolkit that broke 2^n for
+coloring special cases (Zamir, ICALP 2021) and bipartite TSP (Nederlof,
 STOC 2020) marks Set Cover with structured set families as the soft spot.</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

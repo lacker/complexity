@@ -5,11 +5,12 @@ genre: tighten-overhead
 problems: ["Dynamic Connectivity"]
 hypotheses: []
 record: "O(log n (log log n)^2) amortized expected time per operation"
-record_ref: "Huang, Huang, Kopelowitz & Pettie, SODA 2017"
+record_ref: "Huang, Huang, Kopelowitz & Pettie, SODA 2017 (journal version with Thorup: TheoretiCS 2023)"
 hardness: "Ω(log n) amortized per operation in the cell-probe model"
 hardness_ref: "Pătraşcu & Demaine, SICOMP 2006 (conference version STOC 2004)"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [dynamic, connectivity, cell-probe, data-structures, polylog]
 ---
 
@@ -27,4 +28,4 @@ Dynamic connectivity is the flagship dynamic graph problem; its true complexity 
 
 ## Attack surface
 
-The (log log n)^2 in Huang et al. comes from layered structures and sampling overhead in the amortized cluster maintenance; each log log factor has an identifiable source, so shaving one of them is a plausible incremental target. On the lower-bound side, information transfer fundamentally caps out at Ω(log n) per operation for problems with single-bit answers; beating it needs the harder machinery of Larsen-style chronogram/cell-sampling arguments, which so far only bite for problems with larger outputs. Related open flank worth a separate look: worst-case update time, where Monte Carlo randomized polylog is known (Kapron, King and Mountjoy, STOC 2013) but the best deterministic worst-case bound is only n^{o(1)} (Chuzhoy, Gao, Li, Nanongkai, Peng and Saranurak, FOCS 2020).
+The (log log n)^2 in Huang et al. comes from layered structures and sampling overhead in the amortized cluster maintenance; each log log factor has an identifiable source, so shaving one of them is a plausible incremental target. On the lower-bound side, information transfer fundamentally caps out at Ω(log n) per operation for problems with single-bit answers; beating it needs the harder machinery of Larsen-style chronogram/cell-sampling arguments, which so far only bite for problems with larger outputs. Related open flank worth a separate look: worst-case update time, where Monte Carlo randomized polylog is known (Kapron, King and Mountjoy, STOC 2013), Las Vegas expected-polylog worst-case was recently achieved (Meierhans and Probst Gutenberg, SODA 2026, arXiv:2510.08297), and the best deterministic worst-case bound remains subpolynomial n^{o(1)} (Chuzhoy, Gao, Li, Nanongkai, Peng and Saranurak, FOCS 2020; also via derandomizing the SODA 2026 approach).

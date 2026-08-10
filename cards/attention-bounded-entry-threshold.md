@@ -10,6 +10,7 @@ hardness: "no O(n^{2-delta}) algorithm when B = Theta(sqrt(log n)), assuming SET
 hardness_ref: "Alman & Song, NeurIPS 2023 (arXiv:2302.13214)"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [machine-learning, transformers, fine-grained, seth, hardness-transfer]
 ---
 
@@ -36,7 +37,14 @@ any n^{2-delta} algorithm would refute the Strong Exponential Time Hypothesis
 a reduction from Approximate Nearest Neighbor built on Orthogonal Vectors. A
 follow-up by the same authors (NeurIPS 2024) showed the same threshold governs
 computing the gradient of the attention loss, i.e., training, not just inference.
-The gap that remains: the multiplicative constant in the threshold, the
+The picture has since been refined in the head-dimension direction: Gupta,
+Huang, Saha, Xu and Ye (ICLR 2026, arXiv:2505.14840) gave an
+Õ(n^{2-1/d} polylog(B)) algorithm for constant head dimension d = O(1) — so for
+small d, subquadratic attention is possible at *any* temperature/entry bound —
+and showed that once d = 2^{Theta(log* n)} (barely super-constant) with
+unbounded entries, n^{2-o(1)} time is required under SETH. The dichotomy at the
+d = Theta(log n) regime this card targets is unchanged; the gap that remains
+there: the multiplicative constant in the entry-bound threshold, the
 relative-error regime, and multi-layer / non-softmax variants.
 
 ## Why it matters
@@ -57,4 +65,7 @@ The algorithm side is the polynomial method: better low-degree approximations of
 e^x on [-B, B] (cf. optimal-degree bounds of Aggarwal–Alman) directly move the
 upper threshold. Special cases to try first: d = c log n for small c, or Boolean
 Q, K. For relative error, start by checking where the additive-to-relative
-translation in the existing reduction loses its factor.
+translation in the existing reduction loses its factor. The
+Gupta–Huang–Saha–Xu–Ye n^{2-1/d} algorithm and their log*-hardness leave their
+own window — the exact d(n) growth rate where any-temperature subquadratic
+attention dies — which may be a softer target than the constant in B*(n).

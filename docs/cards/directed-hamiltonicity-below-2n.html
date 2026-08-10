@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Detect a directed Hamiltonian cycle in O((2-ε)^n) — close the gap with Björklund's 1.657^n for undirected graphs</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip">graphs</span><span class="chip">hamiltonicity</span><span class="chip">exponential-time</span><span class="chip">algebraic</span><span class="chip">directed-vs-undirected</span></div><dl class="facts"><dt>Record</dt><dd>2^n · poly(n) time (directed); O(1.657^n) randomized for undirected graphs</dd><dt>Record held by</dt><dd>Bellman 1962 and Held &amp; Karp 1962 (directed); Björklund, SICOMP 2014 (announced FOCS 2010) for undirected</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm unless ETH fails</dd><dt>Hardness from</dt><dd>Impagliazzo, Paturi &amp; Zane, JCSS 2001</dd><dt>Hypotheses</dt><dd>ETH, SETH</dd><dt>Problems</dt><dd>Directed Hamiltonian Cycle, Hamiltonicity</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Detect a directed Hamiltonian cycle in O((2-ε)^n) — close the gap with Björklund's 1.657^n for undirected graphs</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">graphs</span><span class="chip">hamiltonicity</span><span class="chip">exponential-time</span><span class="chip">algebraic</span><span class="chip">directed-vs-undirected</span></div><dl class="facts"><dt>Record</dt><dd>2^{n-Ω(√n)} time (directed, even counting) — base 2 with subexponential savings; O(1.657^n) randomized for undirected graphs</dd><dt>Record held by</dt><dd>Bellman 1962 and Held &amp; Karp 1962 (base 2^n DP); savings: Li, ICALP 2026 (arXiv:2309.15422); Björklund, SICOMP 2014 (announced FOCS 2010) for undirected</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm unless ETH fails</dd><dt>Hardness from</dt><dd>Impagliazzo, Paturi &amp; Zane, JCSS 2001</dd><dt>Hypotheses</dt><dd>ETH, SETH</dd><dt>Problems</dt><dd>Directed Hamiltonian Cycle, Hamiltonicity</dd></dl><h2>Statement</h2>
 <p>Give an algorithm deciding whether an n-vertex directed graph contains a
 Hamiltonian cycle (a directed cycle visiting every vertex exactly once) in
 time O((2-ε)^n) for some fixed ε &gt; 0. Randomized algorithms count — the
@@ -42,8 +42,14 @@ crucially on the symmetry of undirected edges (each cycle traversed in two
 directions cancels helpfully), which is exactly what directed graphs lack.
 Björklund, Kaski and Koutis (ICALP 2017) managed to beat plain 2^n in the
 directed case by superpolynomial (but subexponential) factors via
-generalized Laplacians — so the base is exactly 2 with lower-order savings,
-and no O((2-ε)^n) bound is known. No hypothesis rules one out.</p>
+generalized Laplacians, and also gave an O*(1.888^n) randomized algorithm
+for bipartite digraphs. The lower-order savings have since improved: Li
+(ICALP 2026, arXiv:2309.15422) counts directed Hamiltonian cycles in
+2^{n-Ω(√n)} time via fast evaluation of high-order derivatives plus
+multivariate multipoint evaluation, improving the earlier
+2^{n-Ω(√(n/log log n))} of Björklund–Kaski–Williams. So the base is exactly
+2 with subexponential savings, and no O((2-ε)^n) bound is known. No
+hypothesis rules one out.</p>
 <h2>Why it matters</h2>
 <p>This is the cleanest directed-versus-undirected gap in exponential-time
 algorithmics: the same problem, a base of 1.657 on one side and 2 on the
@@ -58,9 +64,10 @@ would sharpen the Set Cover Conjecture landscape.</p>
 <p>(1) Understand the cancellation: Björklund&#39;s algorithm counts closed walks
 with algebraic weights so that non-simple ones cancel mod 2; catalog exactly
 which directed analogues (cycle covers, permanents mod 2, out-branching
-sieves of Björklund–Kaski–Koutis) fail and why — the ICALP 2017 paper is the
-current best foothold and its savings may be improvable. (2) Special cases
-first: bipartite directed graphs, bounded-degree directed graphs, and
+sieves of Björklund–Kaski–Koutis) fail and why — Li&#39;s 2^{n-Ω(√n)} counting
+algorithm (ICALP 2026) is the current best foothold and its savings may be
+improvable. (2) Special cases first: bipartite directed graphs (already at
+O*(1.888^n)), bounded-degree directed graphs, and
 tournaments are natural stepping stones with extra structure to exploit.
 (3) Parity first: computing the parity of directed Hamiltonian cycles
 faster than 2^n is a cleaner algebraic target (Björklund–Husfeldt have

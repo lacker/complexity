@@ -10,6 +10,7 @@ hardness: "no O(n^{2-eps}) algorithm for any eps > 0 unless SETH fails"
 hardness_ref: "Backurs & Indyk, STOC 2015 (arXiv:1412.0348)"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [strings, fine-grained, seth, four-russians, log-shaving]
 ---
 

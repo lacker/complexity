@@ -4,12 +4,13 @@ title: "Solve worst-case Subset Sum faster than O*(2^{n/2}) — beat 50-year-old
 genre: improve-algorithm
 problems: ["Subset Sum", "Knapsack"]
 hypotheses: [ETH, SETH]
-record: "O*(2^{n/2}) time (worst case); ~O(2^{0.29n}) known only for random/average-case instances"
-record_ref: "Horowitz & Sahni, JACM 1974; average case: Becker, Coron & Joux, EUROCRYPT 2011"
+record: "O(2^{n/2} · n^{-γ}) time, γ > 0.5023 (worst case — exponent n/2 unbeaten); ~O(2^{0.29n}) known only for random/average-case instances"
+record_ref: "Horowitz & Sahni, JACM 1974; poly-factor shaving: Chen, Jin, Randolph & Servedio, APPROX/RANDOM 2023 (arXiv:2301.07134); average case: Becker, Coron & Joux, EUROCRYPT 2011"
 hardness: "no 2^{o(n)} algorithm unless ETH fails; no O(t^{1-eps} · 2^{o(n)}) algorithm (t = target) unless SETH fails"
 hardness_ref: "ETH: folklore via IPZ, JCSS 2001; SETH: Abboud, Bringmann, Hermelin & Shabtay, SODA 2019"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [subset-sum, meet-in-the-middle, exponential-time, cryptography, average-case]
 ---
 
@@ -25,7 +26,12 @@ match the 2^{n/2} time with polynomial space.)
 Horowitz and Sahni (JACM 1974) split the n items into two halves, enumerate
 the 2^{n/2} sums of each half, sort, and scan — O*(2^{n/2}) time and space,
 where O* hides polynomial factors. Fifty years later, no worst-case
-improvement in the exponent is known. Schroeppel and Shamir (SICOMP 1981)
+improvement in the exponent is known. The only worst-case time improvement
+at all is a polynomial factor: Chen, Jin, Randolph and Servedio
+(APPROX/RANDOM 2023, arXiv:2301.07134) gave an O(2^{n/2} · n^{-γ})
+algorithm for a constant γ > 0.5023 in the word-RAM model, combining the
+representation method with bit-packing — the exponent n/2 is untouched.
+Schroeppel and Shamir (SICOMP 1981)
 reduced the space to O*(2^{n/4}) at the same time bound, and Nederlof and
 Węgrzycki (STOC 2021) pushed space below that benchmark to O(2^{0.246n}) —
 progress on space, none on time. The average case tells a different story:

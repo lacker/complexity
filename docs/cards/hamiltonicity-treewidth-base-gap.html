@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hamiltonicity by treewidth: beat Cut&amp;Count's 4^tw or prove SETH-hardness above the (2+√2)^tw inherited from pathwidth</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Hamiltonicity by treewidth: beat Cut&amp;Count's 4^tw or prove SETH-hardness above the (2+√2)^tw inherited from pathwidth</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">parameterized</span><span class="chip">treewidth</span><span class="chip">pathwidth</span><span class="chip">seth</span><span class="chip">cut-and-count</span><span class="chip">fine-grained</span></div><dl class="facts"><dt>Record</dt><dd>O*(4^tw) randomized via Cut&amp;Count; for the finer pathwidth parameter, O*((2+√2)^pw), which is SETH-optimal</dd><dt>Record held by</dt><dd>Cygan, Nederlof, Pilipczuk, Pilipczuk, van Rooij &amp; Wojtaszczyk, FOCS 2011 / TALG 2022 (arXiv:1103.0534); Cygan, Kratsch &amp; Nederlof, STOC 2013 / JACM 2018 (arXiv:1211.1506)</dd><dt>Hardness</dt><dd>no O*((2+√2-ε)^tw) algorithm unless SETH fails — inherited from the pathwidth lower bound, since tw ≤ pw</dd><dt>Hardness from</dt><dd>Cygan, Kratsch &amp; Nederlof, STOC 2013 / JACM 2018 (arXiv:1211.1506)</dd><dt>Hypotheses</dt><dd>SETH</dd><dt>Problems</dt><dd>Hamiltonian Cycle, Hamiltonicity</dd></dl><h2>Statement</h2>
+<p>Hamiltonian Cycle on a graph given with a tree decomposition of width tw:
+the standard dynamic programming over the decomposition pays some base c per
+unit of width, running in O*(c^tw). Determine the optimal base. Concretely:
+give a (randomized) algorithm running in O*((4-ε)^tw) for some fixed ε &gt; 0,
+or prove that an O*((b-ε)^tw) algorithm refutes SETH for some b strictly
+greater than 2+√2 ≈ 3.414. Either result closes part of the last open gap
+among the classical problems in the &quot;tight bounds for treewidth&quot; program.</p>
+<h2>Current record</h2>
+<p>Cut&amp;Count (Cygan, Nederlof, Pilipczuk, Pilipczuk, van Rooij, Wojtaszczyk,
+FOCS 2011) counts, modulo 2, pairs (degree-2 edge set, consistent cut) so
+that disconnected solutions cancel; with the Isolation Lemma this decides
+Hamiltonicity in O*(4^tw) randomized time — still the best known.
+Deterministically, the rank-based approach gives single-exponential bounds
+with a slightly worse base, about (2+2^{ω/2})^tw (Bodlaender, Cygan,
+Kratsch, Nederlof, ICALP 2013 / Inf. Comput. 2015). For the more
+restrictive pathwidth parameter, Cygan, Kratsch and Nederlof (STOC 2013)
+did better: the GF(2)-rank of the matching-connectivity matrix is exactly
+2^{k/2}, yielding O*((2+√2)^pw), and they proved a matching SETH lower
+bound — (2+√2) is <em>the</em> answer for pathwidth. Since tw ≤ pw, that lower
+bound transfers to treewidth, but the rank-based upper bound does not: join
+nodes of a tree decomposition combine two partial solutions, and no one
+knows how to multiply the compressed representations without falling back
+to 4^tw states. The truth is somewhere in [2+√2, 4], and experts have
+declined to conjecture which endpoint wins.</p>
+<h2>Why it matters</h2>
+<p>This is the flagship open case of the Lokshtanov–Marx–Saurabh program
+(&quot;known algorithms on graphs of bounded treewidth are probably optimal&quot;,
+TALG 2018), which settled 2^tw for Independent Set, 3^tw for Dominating
+Set, and so on. It is also the cleanest candidate for a genuine
+pathwidth/treewidth separation: if the answer for treewidth exceeds 2+√2,
+join nodes are provably more expensive than linear structure — a new
+phenomenon no current SETH gadgetry can express. The counting analogue is
+already settled at base 6 for pathwidth (Curticapean, Lindzey, Nederlof,
+SODA 2018, arXiv:1709.02311), so decision-versus-counting intuition is
+calibrated and waiting.</p>
+<h2>Attack surface</h2>
+<p>Algorithm side: the bottleneck is a join-node product — find a basis of the
+&quot;consistent matchings&quot; pairing under which the join becomes sparse; the
+March 2026 treedepth advance (4^τ via ordered pairs of consistent
+matchings, arXiv:2603.24492, improving Nederlof et al.&#39;s 5^τ) is the
+freshest template, and cutwidth results (arXiv:2212.12385) supply worked
+examples of nonstandard state spaces. Parity of Hamiltonian cycles by
+treewidth is a softer first target. Hardness side: all known SETH
+constructions build long path-like gadgets whose treewidth and pathwidth
+coincide, capping them at 2+√2; a lower bound beating that must encode SAT
+into balanced join structure — even a (3.5-ε)^tw SETH bound would be the
+first separation of its kind. Lower bounds against pure DP algorithms
+(arXiv:2512.23121) scope which algorithmic escapes remain.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

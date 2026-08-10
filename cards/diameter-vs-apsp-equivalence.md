@@ -10,6 +10,7 @@ hardness: "under SETH, exact diameter on sparse graphs needs m^{2-o(1)} time (Ro
 hardness_ref: "Roditty & Vassilevska Williams, STOC 2013"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [graphs, diameter, apsp, subcubic-equivalence]
 ---
 

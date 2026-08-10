@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Wildcard pattern matching runs in O(n log m) via FFT with no lower bound at all — beat it, or prove it equivalent to Boolean convolution</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip">strings</span><span class="chip">pattern-matching</span><span class="chip">fft</span><span class="chip">convolution</span><span class="chip">missing-hardness</span></div><dl class="facts"><dt>Record</dt><dd>O(n log m) deterministic time</dd><dt>Record held by</dt><dd>Clifford &amp; Clifford, IPL 2007 (simplifying Cole &amp; Hariharan, STOC 2002; original O(n log m log sigma) by Fischer &amp; Paterson, 1974)</dd><dt>Hardness</dt><dd>none known — not even a super-linear conditional lower bound</dd><dt>Hardness from</dt><dd>n/a</dd><dt>Problems</dt><dd>String Matching with Wildcards, Boolean Convolution</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Wildcard pattern matching runs in O(n log m) via FFT with no lower bound at all — beat it, or prove it equivalent to Boolean convolution</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">strings</span><span class="chip">pattern-matching</span><span class="chip">fft</span><span class="chip">convolution</span><span class="chip">missing-hardness</span></div><dl class="facts"><dt>Record</dt><dd>O(n log m) deterministic time</dd><dt>Record held by</dt><dd>Clifford &amp; Clifford, IPL 2007 (simplifying Cole &amp; Hariharan, STOC 2002; original O(n log m log sigma) by Fischer &amp; Paterson, 1974)</dd><dt>Hardness</dt><dd>none known — not even a super-linear conditional lower bound</dd><dt>Hardness from</dt><dd>n/a</dd><dt>Problems</dt><dd>String Matching with Wildcards, Boolean Convolution</dd></dl><h2>Statement</h2>
 <p>In pattern matching with wildcards (don&#39;t-cares), a text of length n and a
 pattern of length m may both contain a special symbol &quot;*&quot; that matches any
 character; report all alignments where the pattern matches. Every known
@@ -69,6 +69,10 @@ For the algorithmic direction, the structured special cases are the wedge:
 few wildcards (k wildcards admit O(n log k)-type bounds via subtler
 methods), clustered wildcards, or bounded alphabet — any regime where
 O(n log m) can be beaten sharpens intuition for whether the general log is
-real. A word-RAM result exploiting bit-packing to get O(n log m / log log n)
+real. Recent instance of exactly this: Bathie, Charalampopoulos and
+Starikovskaya (ESA 2024, arXiv:2402.07732) beat the FFT bound whenever the
+wildcard structure is sparse, running in O(n + DG n/m) time for D wildcards
+in G maximal groups — faster than O(n log m) when DG = o(m log m) — leaving
+only the dense-wildcard regime to the FFT. A word-RAM result exploiting bit-packing to get O(n log m / log log n)
 would already close this card as stated.</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Pin down the exact entry-size threshold for fast attention: n^{1+o(1)} algorithms at B = o(sqrt(log n)) vs SETH-hardness at B = Theta(sqrt(log n)) — close the constant-factor window and extend it to relative error</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip">machine-learning</span><span class="chip">transformers</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">hardness-transfer</span></div><dl class="facts"><dt>Record</dt><dd>n^{1+o(1)} time for additive 1/poly(n)-error attention when d = O(log n) and entries bounded by B = o(sqrt(log n))</dd><dt>Record held by</dt><dd>Alman &amp; Song, NeurIPS 2023 (arXiv:2302.13214)</dd><dt>Hardness</dt><dd>no O(n^{2-delta}) algorithm when B = Theta(sqrt(log n)), assuming SETH</dd><dt>Hardness from</dt><dd>Alman &amp; Song, NeurIPS 2023 (arXiv:2302.13214)</dd><dt>Hypotheses</dt><dd>SETH</dd><dt>Problems</dt><dd>Attention Computation, Orthogonal Vectors</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Pin down the exact entry-size threshold for fast attention: n^{1+o(1)} algorithms at B = o(sqrt(log n)) vs SETH-hardness at B = Theta(sqrt(log n)) — close the constant-factor window and extend it to relative error</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">machine-learning</span><span class="chip">transformers</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">hardness-transfer</span></div><dl class="facts"><dt>Record</dt><dd>n^{1+o(1)} time for additive 1/poly(n)-error attention when d = O(log n) and entries bounded by B = o(sqrt(log n))</dd><dt>Record held by</dt><dd>Alman &amp; Song, NeurIPS 2023 (arXiv:2302.13214)</dd><dt>Hardness</dt><dd>no O(n^{2-delta}) algorithm when B = Theta(sqrt(log n)), assuming SETH</dd><dt>Hardness from</dt><dd>Alman &amp; Song, NeurIPS 2023 (arXiv:2302.13214)</dd><dt>Hypotheses</dt><dd>SETH</dd><dt>Problems</dt><dd>Attention Computation, Orthogonal Vectors</dd></dl><h2>Statement</h2>
 <p>Attention, the core operation of transformers, takes three n x d matrices Q, K, V
 and computes D^{-1} exp(QK^T) V, where exp is entrywise and D normalizes each row
 (the &quot;softmax&quot;). Computing this naively takes about n^2 d time, and n is the
@@ -44,7 +44,14 @@ any n^{2-delta} algorithm would refute the Strong Exponential Time Hypothesis
 a reduction from Approximate Nearest Neighbor built on Orthogonal Vectors. A
 follow-up by the same authors (NeurIPS 2024) showed the same threshold governs
 computing the gradient of the attention loss, i.e., training, not just inference.
-The gap that remains: the multiplicative constant in the threshold, the
+The picture has since been refined in the head-dimension direction: Gupta,
+Huang, Saha, Xu and Ye (ICLR 2026, arXiv:2505.14840) gave an
+Õ(n^{2-1/d} polylog(B)) algorithm for constant head dimension d = O(1) — so for
+small d, subquadratic attention is possible at <em>any</em> temperature/entry bound —
+and showed that once d = 2^{Theta(log* n)} (barely super-constant) with
+unbounded entries, n^{2-o(1)} time is required under SETH. The dichotomy at the
+d = Theta(log n) regime this card targets is unchanged; the gap that remains
+there: the multiplicative constant in the entry-bound threshold, the
 relative-error regime, and multi-layer / non-softmax variants.</p>
 <h2>Why it matters</h2>
 <p>This is the flagship example of hardness-transfer into machine learning: it says
@@ -61,5 +68,8 @@ The algorithm side is the polynomial method: better low-degree approximations of
 e^x on [-B, B] (cf. optimal-degree bounds of Aggarwal–Alman) directly move the
 upper threshold. Special cases to try first: d = c log n for small c, or Boolean
 Q, K. For relative error, start by checking where the additive-to-relative
-translation in the existing reduction loses its factor.</p>
+translation in the existing reduction loses its factor. The
+Gupta–Huang–Saha–Xu–Ye n^{2-1/d} algorithm and their log*-hardness leave their
+own window — the exact d(n) growth rate where any-temperature subquadratic
+attention dies — which may be a softer target than the constant in B*(n).</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

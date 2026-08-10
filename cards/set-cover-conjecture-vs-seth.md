@@ -10,6 +10,7 @@ hardness: "Set Cover Conjecture (no (2-ε)^n · poly(m) algorithm) is itself the
 hardness_ref: "Cygan, Dell, Lokshtanov, Marx, Nederlof, Okamoto, Paturi, Saurabh & Wahlström, CCC 2012 (journal: ACM TALG 2016)"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [set-cover, seth, scc, hypotheses, exponential-time, reductions]
 ---
 
@@ -37,7 +38,15 @@ bridge between this web and the SETH web. The known SAT-to-Set-Cover
 reductions blow up the universe size by a constant factor, which destroys
 tightness at base 2: they rule out nothing about (2-ε)^n. The two
 hypotheses currently float independently — an unusual and unstable-looking
-state for two central assumptions of the same field.
+state for two central assumptions of the same field. Meanwhile SCC has
+acquired a serious enemy from an unexpected direction: Björklund and Kaski
+(STOC 2024, arXiv:2310.11926) proved that Strassen's asymptotic rank
+conjecture (ARC) and SCC cannot both be true, and Pratt (STOC 2024,
+arXiv:2311.02774) strengthened this — ARC implies Set Cover with
+bounded-size sets in (3/2^{2/3} + ε)^n ≈ 1.8899^n time, and conversely SCC
+implies explicit tensor families of asymptotic rank at least N^{1.08}. So
+refuting SCC now reduces to a (widely believed) statement in algebraic
+complexity, while SETH ↔ SCC remains open in both directions.
 
 ## Why it matters
 
@@ -60,6 +69,10 @@ covering problems are tight but SAT resists; the paper itself poses this.
 (2) Intermediate hypotheses: reductions from SETH to SCC restricted to
 sets of bounded size k (mirroring clause width) are a graded version worth
 attempting first — SCC for constant-size sets is already meaningful.
-(3) For refutation, the representation/algebraic toolkit that broke 2^n
-for coloring special cases (Zamir, ICALP 2021) and bipartite TSP (Nederlof,
+(3) For refutation, the now-sharpest route is via tensors: by
+Björklund–Kaski and Pratt (both STOC 2024), proving low-enough rank for one
+explicit tensor family refutes SCC — Pratt shows that improving the known
+(1/2)8^n bound on the tensor rank of a specific T_n to (2/(9n))8^n for any
+single n already suffices. The older algebraic toolkit that broke 2^n for
+coloring special cases (Zamir, ICALP 2021) and bipartite TSP (Nederlof,
 STOC 2020) marks Set Cover with structured set families as the soft spot.

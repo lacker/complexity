@@ -10,6 +10,7 @@ hardness: "no O(n^{2-eps}) algorithm unless SETH fails, even for binary alphabet
 hardness_ref: "Abboud, Backurs & Vassilevska Williams, FOCS 2015; Bringmann & Künnemann, FOCS 2015"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [strings, fine-grained, seth, lcs, log-shaving]
 ---
 

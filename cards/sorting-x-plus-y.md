@@ -10,6 +10,7 @@ hardness: "Ω(n^2) trivially (output size); no superquadratic conditional lower 
 hardness_ref: "—"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [x-plus-y, sorting, decision-trees, geometry-adjacent, classic]
 ---
 
@@ -28,3 +29,15 @@ Sorting X+Y is the granddaddy of the "nonuniform-easy, uniform-stuck" phenomenon
 ## Attack surface
 
 (1) Word-RAM cheat: for integer inputs, radix-style techniques give o(n^2 log n); the open problem is really about the comparison/real-RAM setting, so any attack must exploit structure, not bit tricks — clarifying exactly which models the question is open in is itself worthwhile bookkeeping. (2) Fredman's proof shows few comparisons suffice *after* the right preprocessing order is known; derandomizing this via ε-cuttings of the hyperplane arrangement is the standard stalled approach — recent progress on decision-tree constructivization (Kane–Lovett–Moran; Cardinal et al., ESA 2016 line) is the freshest toolbox nobody has fully applied. (3) Prove a conditional lower bound: reduce (min,+)-convolution or Convolution-3SUM to sorting X+Y with only polylog overhead.
+
+## Verification notes
+
+An April 2025 single-author preprint (Mundhra, arXiv:2504.16393, "An Explicit
+and Efficient O(n^2)-Time Algorithm for Sorting Sumsets") claims a
+comparison-based O(n^2)-time algorithm, which would close this card. As of
+2026-08-10 the preprint has one arXiv version, no peer-reviewed venue, no
+independent verification or citation by the fine-grained community, and its
+stated technique (amortized constant-comparison insertion via sumset-matrix
+monotonicity) makes a claim that decades of work on exactly this structure
+failed to realize. The card stays open pending peer review; treat the claim as
+unverified.

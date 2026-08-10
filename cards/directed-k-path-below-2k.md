@@ -4,12 +4,13 @@ title: "Find a directed k-path faster than O*(2^k) — match the undirected 1.65
 genre: improve-algorithm
 problems: ["k-Path", "Longest Path", "Hamiltonicity"]
 hypotheses: [ETH, SETH]
-record: "O*(2^k) randomized for directed k-Path; O*(1.657^k) randomized for undirected"
-record_ref: "Williams, IPL 2009 (directed, via Koutis's group-algebra technique, ICALP 2008); Björklund, Husfeldt, Kaski & Koivisto, JCSS 2017 (undirected narrow sieves)"
+record: "O*(2^k) randomized for directed k-Path (deterministic now matches up to lower-order terms, even weighted); O*(1.657^k) randomized for undirected"
+record_ref: "Williams, IPL 2009 (directed, via Koutis's group-algebra technique, ICALP 2008); Björklund, Husfeldt, Kaski & Koivisto, JCSS 2017 (undirected narrow sieves); deterministic: Nederlof, FOCS 2025 (arXiv:2512.08583)"
 hardness: "no 2^{o(k)} · poly(n) algorithm unless ETH fails"
 hardness_ref: "Impagliazzo, Paturi & Zane, JCSS 2001 (via standard Hamiltonicity reductions)"
 status: open
 confidence: high
+verified: 2026-08-10
 tags: [parameterized, k-path, algebraic, fpt, color-coding]
 ---
 
@@ -36,7 +37,11 @@ Husfeldt, Kaski and Koivisto ("Narrow sieves for parameterized paths and
 packings", JCSS 2017, announced ~2010) broke 2^k with a determinant-based
 sieve running in O*(1.657^k) — the same cancellation phenomenon as
 Björklund's Hamiltonicity algorithm, and again relying essentially on edge
-symmetry. Directed 2^k also coincides with a natural algebraic barrier:
+symmetry. Determinantal sieving (Eiben, Koana and Wahlström, SODA 2024;
+TheoretiCS 2025, arXiv:2304.02091) extended the sub-2^k regime on the
+undirected side — e.g. undirected Long (s,t)-Path in O*(1.66^k) — but its
+improvements again stop at directed graphs, where 2^k stands. Directed 2^k
+also coincides with a natural algebraic barrier:
 multilinear-detection arguments over characteristic-2 algebras provably
 need dimension 2^k, so beating it requires leaving that framework. Under
 ETH, only 2^{o(k)} is excluded; nothing conditional rules out 1.01^k.
@@ -59,9 +64,13 @@ problems whose kernels invoke k-path as a subroutine.
 algebraic frameworks — map their exact assumptions and search for detection
 schemes outside them (non-commutative algebras of sub-2^k dimension,
 extensor-coding variants; extensor coding, Brand–Dell–Husfeldt STOC 2018,
-is the most recent framework and its directed limits are not fully
-charted). (2) Special digraph classes: for bipartite digraphs or bounded
+and determinantal sieving, Eiben–Koana–Wahlström SODA 2024, are the most
+recent frameworks and their directed limits are not fully charted).
+(2) Special digraph classes: for bipartite digraphs or bounded
 average degree, partial wins would already be publishable. (3) The
-deterministic frontier is a separate open flank: even undirected
-deterministic k-path stands near O*(2.55^k), so derandomizing any of the
-2^k-or-better algorithms is a card-worthy result on its own.
+deterministic frontier has essentially closed at base 2: Nederlof
+(FOCS 2025, arXiv:2512.08583) solves even weighted directed k-Path
+deterministically in 2^{k+O(√k log^2 k)}(n+m) log n via dynamic
+representative sets — so the remaining deterministic gap is only the
+lower-order term, and the sub-2^k question is squarely the open flank,
+randomized or not.

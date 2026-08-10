@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Solve weighted TSP in O((2-ε)^n) — beat Bellman–Held–Karp after 60+ years</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip">tsp</span><span class="chip">exponential-time</span><span class="chip">dynamic-programming</span><span class="chip">weights</span></div><dl class="facts"><dt>Record</dt><dd>O(2^n n^2) time (general weights); O(1.9999^n) for bipartite TSP assuming quadratic-time matrix multiplication</dd><dt>Record held by</dt><dd>Bellman 1962; Held &amp; Karp 1962. Bipartite: Nederlof, STOC 2020</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm unless ETH fails</dd><dt>Hardness from</dt><dd>Impagliazzo, Paturi &amp; Zane, JCSS 2001</dd><dt>Hypotheses</dt><dd>ETH, SETH</dd><dt>Problems</dt><dd>Traveling Salesman Problem, Hamiltonicity</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Solve weighted TSP in O((2-ε)^n) — beat Bellman–Held–Karp after 60+ years</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">tsp</span><span class="chip">exponential-time</span><span class="chip">dynamic-programming</span><span class="chip">weights</span></div><dl class="facts"><dt>Record</dt><dd>2^n n^2 / 2^{Ω(√log n)} deterministic time (general weights) — base 2 with a lower-order shaving; O(1.9999^n) for bipartite TSP assuming quadratic-time matrix multiplication</dd><dt>Record held by</dt><dd>Bellman 1962; Held &amp; Karp 1962; shaving: Stoian, arXiv:2405.03018. Bipartite: Nederlof, STOC 2020</dd><dt>Hardness</dt><dd>no 2^{o(n)} algorithm unless ETH fails</dd><dt>Hardness from</dt><dd>Impagliazzo, Paturi &amp; Zane, JCSS 2001</dd><dt>Hypotheses</dt><dd>ETH, SETH</dd><dt>Problems</dt><dd>Traveling Salesman Problem, Hamiltonicity</dd></dl><h2>Statement</h2>
 <p>Give an algorithm that solves the Traveling Salesman Problem — find a
 minimum-total-weight cycle visiting all n cities, with arbitrary
 (say, integer, polynomially bounded is already interesting) edge weights —
@@ -33,8 +33,12 @@ undirected graphs with polynomially bounded weights.</p>
 <h2>Current record</h2>
 <p>The Bellman and Held–Karp dynamic program from 1962 — for each subset S of
 cities and each endpoint v, store the cheapest path from the start covering
-exactly S and ending at v — runs in O(2^n n^2) time and has not been beaten
-for general weighted TSP in over sixty years. The contrast with the
+exactly S and ending at v — runs in O(2^n n^2) time and stood untouched for
+over sixty years until Stoian (arXiv:2405.03018, 2024) shaved a
+lower-order factor: deterministic time 2^n n^2 / 2^{Ω(√log n)}, by
+remodeling the DP recursion as a min-plus matrix product and applying
+Williams-style faster-than-naive algorithms. The base of the exponent is
+still exactly 2. The contrast with the
 unweighted decision problem is stark: Björklund&#39;s algebraic sieve (SICOMP
 2014) decides undirected Hamiltonicity in O(1.657^n), but the cancellation
 trick counts witnesses modulo 2 and has no known way to carry weights —
@@ -43,7 +47,7 @@ result is Nederlof (STOC 2020), who gave an O(1.9999^n) algorithm for TSP
 on bipartite graphs, conditional on matrix multiplication being doable in
 essentially quadratic time (ω = 2). That result is best read as proof that
 the 2^n wall is not information-theoretic even with weights. For directed
-weighted TSP, nothing below 2^n·poly is known under any assumption. On the
+weighted TSP, nothing with base below 2 is known under any assumption. On the
 lower-bound side, only ETH&#39;s 2^{o(n)} exclusion applies; no (2-ε)^n
 hardness is known under SETH or the Set Cover Conjecture.</p>
 <h2>Why it matters</h2>
