@@ -8,6 +8,7 @@ record: "D(f) = O(Q(f)^4) for every total Boolean function f (hence R(f) = O(Q(f
 record_ref: "Aaronson, Ben-David, Kothari, Rao & Tal, STOC 2021 (arXiv:2010.12629); Bansal & Sinha, STOC 2021 (arXiv:2008.07003); Sherstov, Storozhenko & Wu, STOC 2021 (arXiv:2008.10223)"
 hardness: "explicit total f with R(f) ≥ Q(f)^{3−o(1)}, via the k-Forrelation lower bound plugged into cheat sheets; D vs Q is settled quartic by pointer functions"
 hardness_ref: "Bansal & Sinha, STOC 2021 (arXiv:2008.07003, Corollary 1.5), using Aaronson, Ben-David & Kothari, STOC 2016 (arXiv:1511.01937); Ambainis, Balodis, Belovs, Lee, Santha & Smotrovs, J. ACM 2017 (arXiv:1506.04719)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

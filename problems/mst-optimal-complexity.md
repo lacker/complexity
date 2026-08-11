@@ -8,6 +8,7 @@ record: "deterministic O(m α(m,n)) time; an optimal algorithm exists whose runt
 record_ref: "Chazelle, J. ACM 47(6), 2000; Pettie & Ramachandran, J. ACM 49(1), 2002; randomized: Karger, Klein & Tarjan, J. ACM 42(2), 1995"
 hardness: "Ω(m) trivially; no super-linear lower bound on the MST decision-tree complexity is known"
 hardness_ref: "—"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

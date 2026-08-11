@@ -50,6 +50,7 @@ See [TEMPLATE.md](TEMPLATE.md). Frontmatter fields:
 | `record_ref` | who holds it and where it was published |
 | `hardness` | best known conditional lower bound, if any |
 | `hardness_ref` | citation for the lower bound |
+| `endgame` | published path from this record to an *unconditional* result (a "loop" through a hierarchy theorem or magnification), or `none known` |
 | `status` | `open`, or `claimed` while a claim is under review |
 | `confidence` | `high`/`medium` — how sure we are the record is current |
 | `verified` | date the record was last checked against the literature |

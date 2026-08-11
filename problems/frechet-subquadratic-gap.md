@@ -8,6 +8,7 @@ record: "expected O(mn (log log n)^{2+mu} log n / log^{1+mu} m) for continuous F
 record_ref: "Cheng & Huang, SODA 2025, arXiv:2407.05231 (continuous); Agarwal, Ben Avraham, Kaplan & Sharir, SICOMP 2014 (discrete)"
 hardness: "no O(n^{2-eps}) algorithm unless SETH fails; holds even for 1.001-approximation"
 hardness_ref: "Bringmann, FOCS 2014"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

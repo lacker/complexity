@@ -8,6 +8,7 @@ record: "2^{n-Ω(√n)} time for the hafnian of a 2n×2n symmetric matrix (#perf
 record_ref: "Baitian Li, ICALP 2026 (arXiv:2309.15422); previous record 2^{n-Ω(√(n/log log n))} by Björklund, Kaski & Williams, Algorithmica 2019 (Generalized Kakeya sets / fermionants)"
 hardness: "no 2^{o(n)} algorithm unless ETH fails (already for the decision version); no (2-ε)^n-hardness known under SETH or any counting hypothesis"
 hardness_ref: "Impagliazzo, Paturi & Zane, JCSS 2001 (via Hamiltonicity reductions)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

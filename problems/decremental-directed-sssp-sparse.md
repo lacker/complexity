@@ -8,6 +8,7 @@ record: "(1+ε)-approximate SSSP under edge deletions in weighted digraphs: Õ(n
 record_ref: "Bernstein, Probst Gutenberg & Wulff-Nilsen, FOCS 2020 (arXiv:2004.04496); undirected: Bernstein–Probst Gutenberg–Saranurak (arXiv:2101.07149); incremental: Y. P. Liu (arXiv:2506.19207)"
 hardness: "exact decremental SSSP needs essentially mn total time under BMM/OMv-type hypotheses (matching Even–Shiloach); for (1+ε)-approximate directed decremental SSSP no superlinear conditional lower bound is known — the m n^{2/3} record faces only the trivial Ω(m)"
 hardness_ref: "Roditty & Zwick, ESA 2004; Henzinger, Krinninger, Nanongkai & Saranurak, STOC 2015 (arXiv:1511.06773)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

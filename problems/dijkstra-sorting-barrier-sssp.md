@@ -8,6 +8,7 @@ record: "deterministic O(m sqrt(log n) + sqrt(mn log n log log n)) time — O(m 
 record_ref: "Duan, Mao, Shu & Yin, ICALP 2026 (arXiv:2602.07868)"
 hardness: "none beyond trivial Omega(m + n); Omega(m + n log n) holds only if vertices must be output in sorted distance order"
 hardness_ref: "sorted-output case: comparison-sorting reduction; see also universal optimality of Dijkstra, Haeupler, Hladík, Rozhoň, Tarjan & Tětek, FOCS 2024"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

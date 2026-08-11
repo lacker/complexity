@@ -8,6 +8,7 @@ record: "O(1)-approximation in n^{1+eps} time for every eps > 0 (the constant gr
 record_ref: "Andoni & Nosatzki, FOCS 2020 (arXiv:2005.07678); Mao & Rubinstein, STOC 2026 (arXiv:2603.29702)"
 hardness: "exact: no O(n^{2-eps}) unless SETH fails; approximation: no conditional hardness known for randomized constant-factor — but a deterministic truly subquadratic PTAS for the sibling problem LCS would imply E^NP lacks non-uniform linear-size Valiant series-parallel circuits"
 hardness_ref: "Backurs & Indyk, STOC 2015 (arXiv:1412.0348); Abboud & Backurs, ITCS 2017 (LIPIcs.ITCS.2017.11)"
+endgame: "deterministic route only: a deterministic truly subquadratic (1+1/polylog n)-approximation for edit distance (binary) implies E^NP lacks non-uniform NC^1 circuits (Abboud & Backurs, ITCS 2017, Sec. 4.1 + Thm 27); the constant-factor analogue is published only for LCS (Abboud & Rubinstein, ITCS 2018); nothing known for randomized algorithms"
 status: open
 confidence: high
 verified: 2026-08-10
@@ -52,7 +53,11 @@ lower-bound route: Abboud and Backurs (ITCS 2017) showed that even proving
 hardness of a *deterministic* truly subquadratic PTAS (for LCS, over
 super-constant alphabets) requires new circuit lower bounds, so the hardness
 side is provably difficult — which makes the algorithmic side look like the
-live direction.
+live direction. The obstruction doubles as an endgame for edit distance
+itself: Abboud–Backurs's Section 4.1 applies directly to binary edit
+distance, so a *deterministic* truly subquadratic (1+1/polylog n)-approximation
+would already prove E^NP lacks non-uniform NC^1 circuits — an unconditional
+circuit lower bound from an approximation algorithm.
 
 ## Attack surface
 

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Push the SAT time-space lower bound past n^{2cos(pi/7)} ≈ n^{1.801} — the exponent is proved optimal for the entire known proof technique</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Push the SAT time-space lower bound past n^{2cos(pi/7)} ≈ n^{1.801} — the exponent is proved optimal for the entire known proof technique</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">lower-bounds</span><span class="chip">sat</span><span class="chip">time-space</span><span class="chip">alternation-trading</span><span class="chip">automated-proof-search</span></div><dl class="facts"><dt>Record</dt><dd>SAT cannot be solved by random-access machines in n^c time and n^{o(1)} space for any c &lt; 2cos(pi/7) ≈ 1.8019 (equivalently NTIME[n] ⊄ DTISP[n^c, n^{o(1)}])</dd><dt>Record held by</dt><dd>Williams, Computational Complexity 17(2), 2008 (CCC 2007), \"Time-Space Tradeoffs for Counting NP Solutions Modulo Integers\"</dd><dt>Hardness</dt><dd>ceiling on the technique: no alternation-trading proof, however long, can establish an exponent above 2cos(pi/7) — the record provably exhausts the known method</dd><dt>Hardness from</dt><dd>Buss &amp; Williams, Computational Complexity 24(3), 2015 (CCC 2012), \"Limits on Alternation-Trading Proofs for Time-Space Lower Bounds\"</dd><dt>Endgame</dt><dd>already unconditional — this is a lower bound against all algorithms in the model; any c ≥ 1.802 is a new unconditional theorem about SAT, and c = 2 would settle a 25-year program</dd><dt>Problems</dt><dd>SAT, Time-Space Tradeoffs, NTIME vs DTISP</dd></dl><h2>Statement</h2>
+<p>Prove that SAT requires n^c time for some constant c ≥ 2cos(pi/7) ≈ 1.8019 on
+random-access machines using n^{o(1)} space — beating the record exponent —
+or, more honestly stated: find any proof technique that escapes the
+alternation-trading framework, since the record exponent is a proved fixed
+point of that framework. The natural target is c = 2; nothing is known to stop
+even much larger exponents.</p>
+<h2>Current record</h2>
+<p>The lower-bound line runs Fortnow (CCC 1997), the golden ratio 1.618
+(Fortnow–Lipton–van Melkebeek–Viglas, JACM 2005), sqrt(3) ≈ 1.732 (Williams,
+Computational Complexity 2006), and the current record 2cos(pi/7) (Williams,
+Computational Complexity 2008): for all c with c^3 − c^2 − 2c + 1 &lt; 0, SAT is
+not in DTISP[n^c, n^{o(1)}]. All these proofs &quot;trade alternations&quot;: assume
+NTIME[n] ⊆ DTISP[n^c, n^{o(1)}], alternately apply a speedup rule (simulate
+small-space computation with alternations, à la Nepomnjascii) and a slowdown
+rule (remove an alternation using the assumption), and derive a contradiction
+with a hierarchy theorem. Williams (&quot;Alternation-Trading Proofs, Linear
+Programming, and Lower Bounds&quot;, STACS 2010, arXiv:1001.0746) formalized the
+framework, showed that finding the best proof reduces to linear programming,
+and ran a computer search over proof shapes: the search kept converging to
+1.8019, prompting the conjecture that the framework caps there. Buss and
+Williams (CCC 2012; journal 2015) proved it: no alternation-trading proof
+yields any c ≥ 2cos(pi/7). Extensions since have changed the verifier, not the
+record — e.g., Mudigonda–Williams (ITCS 2021, arXiv:2012.00330) prove n^{2.366}
+against QMA verifiers and 1.465 against MA verifiers.</p>
+<h2>Why it matters</h2>
+<p>This is arguably the most AI-native problem in complexity theory: the record
+proofs were literally found by automated search over a formal proof system,
+the search space was then completely characterized, and the barrier theorem
+says the well is dry. Progress therefore requires inventing a new inference
+rule — a new speedup or slowdown primitive — and the moment one exists, the
+LP-search machinery mechanically extracts the best exponent it implies. It is
+a rare setting where &quot;add one axiom, rerun the optimizer&quot; is the honest shape
+of the open problem. Any improvement is an unconditional lower bound for SAT.</p>
+<h2>Attack surface</h2>
+<p>Buss–Williams pinpoint what to violate: their limit applies to proofs built
+solely from the two known rule schemas. Candidate new rules: speedups based on
+the Williams TIME[t] ⊆ SPACE[sqrt(t log t)] simulation (STOC 2025) and its
+tree-evaluation core, which postdate the barrier and are not in the rule set;
+irregular proof shapes mixing randomized or Merlin–Arthur speedups
+(Mudigonda–Williams show the framework generalizes); or slowdowns exploiting
+structure of SAT beyond parsimonious completeness. A cheap first experiment:
+re-run the alternation-trading LP search with any candidate rule added and see
+whether the optimum moves off 1.8019.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

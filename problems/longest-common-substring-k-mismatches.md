@@ -8,6 +8,7 @@ record: "O(n log^{k-1/2} n) time and O(n) space for any constant k, independent 
 record_ref: "Charalampopoulos, Kociumaka, Pissis & Radoszewski, ESA 2021 (arXiv:2105.03106)"
 hardness: "no O(n^{2-eps}) algorithm for k = Omega(log n), even on binary alphabet, unless SETH fails; also no strongly subquadratic (2-eps)-approximation of the length"
 hardness_ref: "Kociumaka, Radoszewski & Starikovskaya, Algorithmica 81(6), 2019 (arXiv:1712.08573)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

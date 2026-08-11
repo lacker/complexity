@@ -8,6 +8,7 @@ record: "O(n^3) for arbitrary integer weights; Õ(W · n^ω) when weights are bo
 record_ref: "folklore; bounded-weight bound cf. Vassilevska Williams & Williams, SICOMP 2013"
 hardness: "a truly subcubic algorithm refutes the 3SUM conjecture AND the APSP conjecture"
 hardness_ref: "3SUM-hardness: Pătraşcu, STOC 2010 with Vassilevska Williams & Williams, SICOMP 2013; APSP-hardness: Vassilevska Williams & Williams, FOCS 2010 (JACM 2018)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "O(nm log log n / log^{1.5} n) time"
 record_ref: "Bille & Thorup, ICALP 2009 (improving Myers' O(nm / log n), JACM 1992)"
 hardness: "no O((nm)^{1-eps}) algorithm unless SETH fails"
 hardness_ref: "Backurs & Indyk, FOCS 2016"
+endgame: "log-shaving is loop-shaped: an O(n^2/log^{7+eps} n) regex-matching algorithm implies new Formula-SAT algorithms, and shaving an arbitrarily large polylog implies NEXP ⊄ NC^1 via the algorithmic method (Abboud & Bringmann, ICALP 2018, arXiv:1804.08978); a truly sub-(nm) algorithm would refute SETH and give E^NP series-parallel circuit lower bounds (Jahanjou–Miles–Viola, ICALP 2015)"
 status: open
 confidence: high
 verified: 2026-08-10
@@ -49,7 +50,11 @@ the record here (log^{1.5}) lags strings (log^2), so there is a concrete,
 plausibly-reachable target. The dichotomy program also makes this a model
 problem for "hardness classification": each newly classified pattern class adds
 edges to the reduction web, and unclassified classes are candidate sources of
-surprising algorithms.
+surprising algorithms. The log corridor here is also loop-shaped: Abboud and
+Bringmann (ICALP 2018) proved that an O(n^2/log^{7+eps} n) regex-matching
+algorithm would yield new Formula-SAT algorithms, and shaving an arbitrarily
+large polylog would imply NEXP ⊄ NC^1 — so pushing far enough down this
+entry's corridor produces unconditional circuit lower bounds.
 
 ## Attack surface
 

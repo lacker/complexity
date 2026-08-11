@@ -8,6 +8,7 @@ record: "alpha >= 0.321334, i.e., an n x n^{0.321334} matrix can be multiplied b
 record_ref: "Vassilevska Williams, Xu, Xu & Zhou, SODA 2024 (arXiv:2307.07970, \"New Bounds for Matrix Multiplication: from Alpha to Omega\")"
 hardness: "no lower bound beyond the trivial alpha <= 1; alpha = 1 is equivalent to omega = 2, and laser-method barriers for the Coppersmith–Winograd tensor family limit how far these analyses can push rectangular exponents"
 hardness_ref: "Christandl, Le Gall, Lysikov & Zuiddam, \"Barriers for Rectangular Matrix Multiplication\" (computational complexity, 2025)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

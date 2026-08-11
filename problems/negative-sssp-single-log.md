@@ -8,6 +8,7 @@ record: "O((m + n log log n) log(nW) log n log log n) randomized; deterministic 
 record_ref: "Li, Mowry & Rao, 2025 (arXiv:2510.22721); deterministic: Li, STOC 2026 (arXiv:2511.07859)"
 hardness: "none known — nothing rules out matching the non-negative-weight bound of O(m sqrt(log n))"
 hardness_ref: "n/a"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

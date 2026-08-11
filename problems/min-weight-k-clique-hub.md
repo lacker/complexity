@@ -8,6 +8,7 @@ record: "n^k / 2^{Θ(√log n)} time for k divisible by 3, via reduction to Min-
 record_ref: "folklore reduction; min-plus subroutine from R. Williams, STOC 2014 (SICOMP 2018)"
 hardness: "for k = 3 the problem (as Negative Triangle) is subcubic-equivalent to APSP; for k ≥ 4 hardness is its own standalone hypothesis"
 hardness_ref: "Vassilevska Williams & Williams, FOCS 2010 (JACM 2018)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "m^{1+o(1)} time, randomized and deterministic, for exact max flow and m
 record_ref: "Chen, Kyng, Liu, Peng, Probst Gutenberg & Sachdeva, FOCS 2022 (arXiv:2203.00671); deterministic: van den Brand, Chen, Kyng, Liu, Peng, Probst Gutenberg, Sachdeva & Sidford, FOCS 2023 (arXiv:2309.16629)"
 hardness: "none known — no super-linear conditional lower bound for exact max flow"
 hardness_ref: "n/a"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

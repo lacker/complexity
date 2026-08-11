@@ -8,6 +8,7 @@ record: "space Õ(N^2 / t^2) suffices for query time t (folklore two-level schem
 record_ref: "folklore; stated and conjectured optimal in Goldstein, Kopelowitz, Lewenstein & Porat, WADS 2017"
 hardness: "nontrivial but weaker space-time tradeoffs under 3SUM, via triangle-listing reductions"
 hardness_ref: "Pătraşcu, STOC 2010; Kopelowitz, Pettie & Porat, SODA 2016"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

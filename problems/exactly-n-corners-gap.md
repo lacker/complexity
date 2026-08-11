@@ -8,6 +8,7 @@ record: "3-player deterministic NOF protocol of cost 2√2·√(log N)(1+o(1)) b
 record_ref: "Chandra, Furst & Lipton, STOC 1983; Linial & Shraibman, CCC 2021 (\"An Improved Protocol for the Exactly-N Problem\"; companion arXiv:2102.00421); k>3 players: ITCS 2024 (arXiv:2309.06554)"
 hardness: "corner-free A ⊆ G×G has |A| ≤ |G|²·exp(−(log |G|)^Ω(1)), giving (log N)^Ω(1) — polynomial in the input length — deterministic and nondeterministic lower bounds for 3-player Exactly-N"
 hardness_ref: "Jaber, Liu, Lovett, Ostuni & Sawhney, FOCS 2025 best paper (arXiv:2504.07006)"
+endgame: "on the unconditional loop: NOF communication bounds need no conjectures, so any improvement is itself a new unconditional result; scaling Exactly-N lower bounds to superpolylog cost for polylog-many players would give ACC^0 circuit lower bounds via the Yao/Beigel-Tarui SYM-of-AND collapse plus Håstad-Goldmann's NOF protocols (Comput. Complexity 1991)"
 status: open
 confidence: high
 verified: 2026-08-10

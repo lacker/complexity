@@ -8,6 +8,7 @@ record: "Õ(n + sqrt(n k^3)) time for arbitrary weight functions and distance th
 record_ref: "Cassis, Kociumaka & Wellnitz, FOCS 2023 (arXiv:2305.06659); Gorbachev & Kociumaka, STOC 2025 (arXiv:2404.06401)"
 hardness: "Omega(sqrt(n k^3))^{1-o(1)} under the APSP hypothesis for sqrt(n) <= k <= n; below k = sqrt(n) only the trivial Omega(n) reading bound is known"
 hardness_ref: "Cassis, Kociumaka & Wellnitz, FOCS 2023 (arXiv:2305.06659)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

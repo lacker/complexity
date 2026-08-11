@@ -8,6 +8,7 @@ record: "O(log log n)-competitive online BST (Tango trees); splay trees and Gree
 record_ref: "Demaine, Harmon, Iacono & Pătraşcu, SIAM J. Comput. 2007 (FOCS 2004)"
 hardness: "no lower bound rules out an O(1)-competitive online BST; but any algorithm whose cost is charged to Wilber's alternation bound cannot beat Θ(log log n)"
 hardness_ref: "Lecomte & Weinstein, ESA 2020 (arXiv:1912.02858); Tango-optimality-within-the-alternation-bound: ISAAC 2024 (arXiv:2411.14387)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

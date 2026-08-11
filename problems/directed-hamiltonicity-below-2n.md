@@ -8,6 +8,7 @@ record: "2^{n-Ω(√n)} time (directed, even counting) — base 2 with subexpone
 record_ref: "Bellman 1962 and Held & Karp 1962 (base 2^n DP); savings: Li, ICALP 2026 (arXiv:2309.15422); Björklund, SICOMP 2014 (announced FOCS 2010) for undirected"
 hardness: "no 2^{o(n)} algorithm unless ETH fails"
 hardness_ref: "Impagliazzo, Paturi & Zane, JCSS 2001"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

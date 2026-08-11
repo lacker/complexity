@@ -8,6 +8,7 @@ record: "O(n^{4/3}) time"
 record_ref: "Chan & Zheng, SODA 2022 (ACM TALG 2023; arXiv:2111.03744)"
 hardness: "Ω(n^{4/3}) only in Erickson's restricted 'partitioning algorithm' model; no lower bound from any fine-grained hypothesis"
 hardness_ref: "Erickson, Discrete & Computational Geometry 1996"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

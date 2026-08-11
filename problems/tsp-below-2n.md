@@ -8,6 +8,7 @@ record: "2^n n^2 / 2^{Ω(√log n)} deterministic time (general weights) — bas
 record_ref: "Bellman 1962; Held & Karp 1962; shaving: Stoian, arXiv:2405.03018. Bipartite: Nederlof, STOC 2020"
 hardness: "no 2^{o(n)} algorithm unless ETH fails"
 hardness_ref: "Impagliazzo, Paturi & Zane, JCSS 2001"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

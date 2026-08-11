@@ -8,6 +8,7 @@ record: "O(n^2 (log log n)^2 / log^2 n) time for integer inputs; n^2 (log log n)
 record_ref: "Baran, Demaine & Pătraşcu, Algorithmica 2008 (integers); Chan, SODA 2018 (reals)"
 hardness: "3SUM conjecture: no n^{2-eps} time algorithm; but nonuniformly, linear decision trees of depth O(n log^2 n) exist"
 hardness_ref: "Kane, Lovett & Moran, STOC 2018 (JACM 2019)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

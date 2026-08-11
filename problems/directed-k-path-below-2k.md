@@ -8,6 +8,7 @@ record: "O*(2^k) randomized for directed k-Path (deterministic now matches up to
 record_ref: "Williams, IPL 2009 (directed, via Koutis's group-algebra technique, ICALP 2008); Björklund, Husfeldt, Kaski & Koivisto, JCSS 2017 (undirected narrow sieves); deterministic: Nederlof, FOCS 2025 (arXiv:2512.08583)"
 hardness: "no 2^{o(k)} · poly(n) algorithm unless ETH fails"
 hardness_ref: "Impagliazzo, Paturi & Zane, JCSS 2001 (via standard Hamiltonicity reductions)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

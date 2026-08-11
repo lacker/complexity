@@ -8,6 +8,7 @@ record: "Ω((log n / log log n)^2) per operation for dynamic weighted 2D range c
 record_ref: "Larsen, STOC 2012; Larsen, Weinstein & Yu, STOC 2018; Larsen & Yu, FOCS 2023 (arXiv:2304.08745)"
 hardness: "Pătraşcu's multiphase problem is 3SUM-hard, giving conditional polynomial bounds for dynamic reachability and friends"
 hardness_ref: "Pătraşcu, STOC 2010"
+endgame: "on the unconditional loop by definition: the record IS an unconditional cell-probe lower bound, so any improvement is itself a new unconditional result (Larsen, STOC 2012; Larsen-Weinstein-Yu, STOC 2018; Larsen-Yu, FOCS 2023)"
 status: open
 confidence: high
 verified: 2026-08-10

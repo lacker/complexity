@@ -8,6 +8,7 @@ record: "S(n) known exactly for all n ≤ 22; smallest open case is S(23) ∈ {7
 record_ref: "Stober & Weiß, ALENEX 2023 (arXiv:2206.05597), which settled S(16)=46, S(17)=50, S(18)=54; earlier values by Wells 1965, Kasai–Sawato–Iwata 1994, Peczarski (Algorithmica 2004; IPL 2007; Acta Univ. Sapientiae 2012)"
 hardness: "information-theoretic: S(23) ≥ ⌈log₂ 23!⌉ = 75; all stronger lower bounds to date come from exhaustive poset search"
 hardness_ref: "counting bound folklore; poset-search methodology: Wells 1965; Peczarski 2002–2012; Stober & Weiß, ALENEX 2023"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

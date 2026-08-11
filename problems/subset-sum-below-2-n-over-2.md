@@ -8,6 +8,7 @@ record: "O(2^{n/2} · n^{-γ}) time, γ > 0.5023 (worst case — exponent n/2 un
 record_ref: "Horowitz & Sahni, JACM 1974; poly-factor shaving: Chen, Jin, Randolph & Servedio, APPROX/RANDOM 2023 (arXiv:2301.07134); average case: Becker, Coron & Joux, EUROCRYPT 2011"
 hardness: "no 2^{o(n)} algorithm unless ETH fails; no O(t^{1-eps} · 2^{o(n)}) algorithm (t = target) unless SETH fails"
 hardness_ref: "ETH: folklore via IPZ, JCSS 2001; SETH: Abboud, Bringmann, Hermelin & Shabtay, SODA 2019"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

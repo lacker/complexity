@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Regular expression matching: beat the ~O(nm / log^{1.5} n) record, with SETH forbidding (nm)^{1-eps}</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">strings</span><span class="chip">regex</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">log-shaving</span></div><dl class="facts"><dt>Record</dt><dd>O(nm log log n / log^{1.5} n) time</dd><dt>Record held by</dt><dd>Bille &amp; Thorup, ICALP 2009 (improving Myers' O(nm / log n), JACM 1992)</dd><dt>Hardness</dt><dd>no O((nm)^{1-eps}) algorithm unless SETH fails</dd><dt>Hardness from</dt><dd>Backurs &amp; Indyk, FOCS 2016</dd><dt>Hypotheses</dt><dd>SETH, OV</dd><dt>Problems</dt><dd>Regular Expression Matching, Orthogonal Vectors</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Regular expression matching: beat the ~O(nm / log^{1.5} n) record, with SETH forbidding (nm)^{1-eps}</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">strings</span><span class="chip">regex</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">log-shaving</span></div><dl class="facts"><dt>Record</dt><dd>O(nm log log n / log^{1.5} n) time</dd><dt>Record held by</dt><dd>Bille &amp; Thorup, ICALP 2009 (improving Myers' O(nm / log n), JACM 1992)</dd><dt>Hardness</dt><dd>no O((nm)^{1-eps}) algorithm unless SETH fails</dd><dt>Hardness from</dt><dd>Backurs &amp; Indyk, FOCS 2016</dd><dt>Endgame</dt><dd>log-shaving is loop-shaped: an O(n^2/log^{7+eps} n) regex-matching algorithm implies new Formula-SAT algorithms, and shaving an arbitrarily large polylog implies NEXP ⊄ NC^1 via the algorithmic method (Abboud &amp; Bringmann, ICALP 2018, arXiv:1804.08978); a truly sub-(nm) algorithm would refute SETH and give E^NP series-parallel circuit lower bounds (Jahanjou–Miles–Viola, ICALP 2015)</dd><dt>Hypotheses</dt><dd>SETH, OV</dd><dt>Problems</dt><dd>Regular Expression Matching, Orthogonal Vectors</dd></dl><h2>Statement</h2>
 <p>Given a text of length n and a regular expression of size m, decide whether
 the text (or some substring) matches. The classical Thompson NFA simulation
 runs in O(nm). Beat the current polylog-shaved record — concretely, achieve
@@ -54,7 +54,11 @@ the record here (log^{1.5}) lags strings (log^2), so there is a concrete,
 plausibly-reachable target. The dichotomy program also makes this a model
 problem for &quot;hardness classification&quot;: each newly classified pattern class adds
 edges to the reduction web, and unclassified classes are candidate sources of
-surprising algorithms.</p>
+surprising algorithms. The log corridor here is also loop-shaped: Abboud and
+Bringmann (ICALP 2018) proved that an O(n^2/log^{7+eps} n) regex-matching
+algorithm would yield new Formula-SAT algorithms, and shaving an arbitrarily
+large polylog would imply NEXP ⊄ NC^1 — so pushing far enough down this
+entry&#39;s corridor produces unconditional circuit lower bounds.</p>
 <h2>Attack surface</h2>
 <p>(1) The gap between log^{1.5} and log^2 is a tabulation-engineering question:
 Bille–Thorup lose a sqrt(log) because NFA states, unlike DP grid cells, carry

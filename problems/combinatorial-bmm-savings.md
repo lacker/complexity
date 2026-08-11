@@ -8,6 +8,7 @@ record: "n^3 / 2^{Omega((log n)^{1/7})} time, combinatorial"
 record_ref: "Abboud, Fischer, Kelley, Lovett & Meka, STOC 2024 (\"New Graph Decompositions and Combinatorial Boolean Matrix Multiplication Algorithms\", arXiv:2311.09095)"
 hardness: "conjectured: no n^{3-eps} combinatorial algorithm (the BMM conjecture); many equivalences known via triangle detection"
 hardness_ref: "Vassilevska Williams & Williams, FOCS 2010 (subcubic equivalences)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "O(1.307032^n) time, randomized, for general 3-SAT (base ≈ 1.307031578
 record_ref: "Scheder, FOCS 2021 (TheoretiCS 2024, \"PPSZ is better than you think\"); refined by Jiang & Cai, arXiv:2607.10697 (2026)"
 hardness: "no 2^{o(n)} algorithm unless ETH fails"
 hardness_ref: "Impagliazzo & Paturi, JCSS 2001"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

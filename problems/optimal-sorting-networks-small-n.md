@@ -8,6 +8,7 @@ record: "size: optimal for n ≤ 12 (s(11)=35, s(12)=39), and 43 ≤ s(13) ≤ 4
 record_ref: "size n ≤ 12: Harder, arXiv:2012.04400 (Isabelle/HOL-checked, 2020); depth n ≤ 16: Bundala & Závodný, LATA 2014 (arXiv:1310.6271); depth n = 17: Codish, Cruz-Filipe, Ehlers, Müller & Schneider-Kamp, JCSS 2016, with the d(17) ≥ 10 bound from Ehlers & Müller (arXiv:1501.06946)"
 hardness: "lower bounds are the frontier itself: van Voorhis's s(n) ≥ s(n−1) + ⌈log₂ n⌉ gives s(13) ≥ 43; two-layer-prefix SAT search gives d(17) ≥ 10, hence d(18) ≥ 10"
 hardness_ref: "van Voorhis 1972; Ehlers & Müller, arXiv:1501.06946; Harder, arXiv:2012.04400"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

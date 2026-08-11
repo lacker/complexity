@@ -8,6 +8,7 @@ record: "Tree Evaluation is solvable in space o(log n · log log n)"
 record_ref: "Cook & Mertz, STOC 2024 (\"Tree Evaluation Is in Space O(log n · log log n)\"); refined by Goldreich, ECCC TR24-124 (o((h+ℓ)·log(h+ℓ)) space)"
 hardness: "no super-logarithmic space lower bound known; the problem was originally conjectured to require space Omega(h log k), which the record refuted"
 hardness_ref: "Cook, McKenzie, Wehr, Braverman & Santhanam, TOCT 2012 (problem introduction and conjecture)"
+endgame: "both directions hit unconditional results: TreeEval in L flows through Williams' simulation (STOC 2025) to give TIME[t] ⊆ SPACE[O(sqrt t)], sharpening the unconditional SPACE[n] ⊄ TIME[n^{2-eps}] separation obtained via the space hierarchy theorem; conversely any ω(log n) space lower bound would prove L ≠ P, since TreeEval is in P (Cook–McKenzie–Wehr–Braverman–Santhanam, TOCT 2012)"
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "ln(4) + eps < 1.39 approximation"
 record_ref: "Byrka, Grandoni, Rothvoß & Sanità, STOC 2010 / J. ACM 2013; confirmed still best by Paschmanns & Traub, arXiv:2602.19879 (2026)"
 hardness: "NP-hard to approximate within 96/95 - eps"
 hardness_ref: "Chlebík & Chlebíková, Theoretical Computer Science 2008 (APPROX 2002 version: Springer LNCS)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

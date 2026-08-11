@@ -8,6 +8,7 @@ record: "Õ(n^{1.5}) randomized (n^{1.5+o(1)} deterministic) preprocessing with 
 record_ref: "Chi, Duan, Xie & Zhang, STOC 2022 (arXiv:2204.04500); deterministic: Jin, Park, Saha & Xu, 2026 (arXiv:2605.07150)"
 hardness: "3SUM-based preprocessing/query lower bounds known for alphabets of size 3 and up (strengthening as the alphabet grows); nothing nontrivial known for binary"
 hardness_ref: "Amir, Chan, Lewenstein & Lewenstein, ICALP 2014"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

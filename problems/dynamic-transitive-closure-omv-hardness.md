@@ -8,6 +8,7 @@ record: "roughly O(n^{1.407}) worst-case update and pair-query time via dynamic 
 record_ref: "van den Brand, Nanongkai & Saranurak, FOCS 2019"
 hardness: "matching ~n^{1.406} bound known only under 'hinted' OMv/uMv variants; standard OMv gives only weaker update/query tradeoffs"
 hardness_ref: "van den Brand, Nanongkai & Saranurak, FOCS 2019; Henzinger, Krinninger, Nanongkai & Saranurak, STOC 2015"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

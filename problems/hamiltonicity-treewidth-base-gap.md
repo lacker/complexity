@@ -8,6 +8,7 @@ record: "O*(4^tw) randomized via Cut&Count; for the finer pathwidth parameter, O
 record_ref: "Cygan, Nederlof, Pilipczuk, Pilipczuk, van Rooij & Wojtaszczyk, FOCS 2011 / TALG 2022 (arXiv:1103.0534); Cygan, Kratsch & Nederlof, STOC 2013 / JACM 2018 (arXiv:1211.1506)"
 hardness: "no O*((2+√2-ε)^tw) algorithm unless SETH fails — inherited from the pathwidth lower bound, since tw ≤ pw"
 hardness_ref: "Cygan, Kratsch & Nederlof, STOC 2013 / JACM 2018 (arXiv:1211.1506)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "omega < 2.371339"
 record_ref: "Alman, Duan, Vassilevska Williams, Xu, Xu & Zhou, SODA 2025 (arXiv:2404.16349, \"More Asymmetry Yields Faster Matrix Multiplication\")"
 hardness: "no superquadratic lower bound known; laser-method analyses of powers of the Coppersmith–Winograd tensor cannot prove omega < 2.3725 (and broad generalizations cannot go below ~2.3078)"
 hardness_ref: "Ambainis, Filmus & Le Gall, STOC 2015"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

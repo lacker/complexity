@@ -8,6 +8,7 @@ record: "3/2-approximation in Õ(m^{3/2}) time; (2 - 1/2^k)-approximation ladder
 record_ref: "Roditty & Vassilevska Williams, STOC 2013; Chechik, Larkin, Roditty, Schoenebeck, Tarjan & Vassilevska Williams, SODA 2014; Cairo, Grossi & Rizzi, SODA 2016; Kirkpatrick, Roditty, Qi & Vassilevska Williams, arXiv:2604.27142 (2026)"
 hardness: "under SETH: no (3/2-eps)-approximation in m^{2-o(1)} time; no (5/3-eps)-approximation in m^{3/2-o(1)} time"
 hardness_ref: "Roditty & Vassilevska Williams, STOC 2013; Backurs, Roditty, Segal, Vassilevska Williams & Wein, STOC 2018"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "exact: APSP time, O(min{mn + n² log log n, n³/exp(√log n)}) for arb
 record_ref: "Kadria, Roditty, Sidford, Vassilevska Williams & Zwick (arXiv:2507.13869) for the 4k/3 tradeoff; Roditty–Tov 2013 (4/3); Ducoffe (2-approx); Pettie 2004 / Williams 2018 (exact)"
 hardness: "exact girth in weighted graphs is subcubic-equivalent to APSP; any (4/3−ε)-approximation detects triangles, so no truly subcubic combinatorial one unless BMM has subcubic combinatorial algorithms; under the Erdős girth conjecture, algorithms making o(n^{1+1/k}) edge queries cannot (2k+2−τ)-approximate"
 hardness_ref: "Vassilevska Williams & Williams, FOCS 2010 (JACM 2018); query lower bound: Theorem 2 of arXiv:2507.13869"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

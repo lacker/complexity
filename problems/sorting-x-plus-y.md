@@ -8,6 +8,7 @@ record: "O(n^2 log n) time by sorting the n^2 sums naively; nonuniformly, O(n^2)
 record_ref: "folklore upper bound; comparison bound by Fredman, Theoretical Computer Science 1976"
 hardness: "Ω(n^2) trivially (output size); no superquadratic conditional lower bound known"
 hardness_ref: "—"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

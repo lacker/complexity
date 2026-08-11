@@ -8,6 +8,7 @@ record: "O(n^2 / log^2 n) time (constant-size alphabet)"
 record_ref: "Masek & Paterson, JCSS 1980"
 hardness: "no O(n^{2-eps}) algorithm for any eps > 0 unless SETH fails"
 hardness_ref: "Backurs & Indyk, STOC 2015 (arXiv:1412.0348)"
+endgame: "shaving all polylogs — O(n^2/log^c n) for every c — implies NTIME[2^O(n)] lacks non-uniform NC^1 circuits; even a specific log^1000 n shave already gives new formula lower bounds (Abboud-Hansen-Vassilevska Williams-Williams, STOC 2016, Cor. 2)"
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "2^n · poly(m) time over n elements and m sets (dynamic programming / i
 record_ref: "folklore DP; inclusion-exclusion framework: Björklund, Husfeldt & Koivisto, SICOMP 2009"
 hardness: "Set Cover Conjecture (no (2-ε)^n · poly(m) algorithm) is itself the unproven hypothesis; no derivation from SETH is known in either direction"
 hardness_ref: "Cygan, Dell, Lokshtanov, Marx, Nederlof, Okamoto, Paturi, Saurabh & Wahlström, CCC 2012 (journal: ACM TALG 2016)"
+endgame: "the hardness side is loop-shaped: a proof of SCC would refute Strassen's asymptotic rank conjecture (Björklund & Kaski, STOC 2024, arXiv:2310.11926) and yield explicit tensor families of asymptotic rank ≥ N^{1.08} (Pratt, STOC 2024, arXiv:2311.02774) — an unconditional algebraic lower bound; no analogous published path from the algorithmic side"
 status: open
 confidence: high
 verified: 2026-08-10

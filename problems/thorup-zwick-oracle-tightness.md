@@ -8,6 +8,7 @@ record: "stretch 2k−1, space O(n^{1+1/k}), query time O(1) for weighted undire
 record_ref: "Chechik, STOC 2015 (see also Chechik STOC 2014, arXiv:1305.3314); Thorup & Zwick, JACM 2005; sparse regime: Pătraşcu & Roditty, FOCS 2010"
 hardness: "any oracle with stretch < 2k+1 needs Ω(n^{1+1/k}) bits assuming the Erdős girth conjecture — unconditional only for k = 1, 2, 3, 5; on sparse graphs, 2-approximate oracles need Ω̃(n^{1.5}) space under a set-intersection conjecture"
 hardness_ref: "Thorup & Zwick, JACM 2005 (girth-conjecture incompressibility); Pătraşcu & Roditty, FOCS 2010 (set-intersection conditional bound)"
+endgame: "resolution (b) is itself unconditional: exhibiting girth-(2k+2) graphs with n^{1+1/k} edges (the Erdős girth conjecture, open beyond k = 1, 2, 3, 5) turns Thorup–Zwick's incompressibility argument (JACM 2005) into an unconditional Ω(n^{1+1/k})-bit space bound — a combinatorial gate, not a complexity-hypothesis one; no route to uniform separations known"
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "exact radius: Õ(mn) time on sparse graphs (single-source shortest path
 record_ref: "folklore; dense bound via R. Williams, STOC 2014"
 hardness: "no m^{2-eps} algorithm for exact radius on sparse graphs unless the Hitting Set conjecture fails"
 hardness_ref: "Abboud, Vassilevska Williams & Wang, SODA 2016"
+endgame: "hardness side: deriving the Hitting Set conjecture from SETH by a deterministic reduction would refute NSETH, since Hitting Set is in (N ∩ coN)TIME[O(m)] (Carmosino et al., ITCS 2016, Lemma 5.6), and NSETH's failure implies E^NP lacks linear-size series-parallel circuits (ibid., Thm 4.1)"
 status: open
 confidence: high
 verified: 2026-08-10
@@ -24,7 +25,7 @@ Exact radius is computed by running shortest paths from every vertex: Õ(mn), wh
 
 ## Why it matters
 
-This is the cleanest example of a quantifier-structure barrier in fine-grained complexity: two nearly identical problems (diameter, radius) with the same trivial algorithm, one hard under the field's flagship hypothesis and one requiring a bespoke conjecture. Connecting Hitting Set to SETH would consolidate the hypothesis zoo and automatically upgrade every Hitting-Set-based lower bound (radius, Bichromatic Closest Pair variants, and others). A separation-style explanation of why no reduction exists would be equally valuable structurally.
+This is the cleanest example of a quantifier-structure barrier in fine-grained complexity: two nearly identical problems (diameter, radius) with the same trivial algorithm, one hard under the field's flagship hypothesis and one requiring a bespoke conjecture. Connecting Hitting Set to SETH would consolidate the hypothesis zoo and automatically upgrade every Hitting-Set-based lower bound (radius, Bichromatic Closest Pair variants, and others). A separation-style explanation of why no reduction exists would be equally valuable structurally. There is also an unconditional prize hiding here: Hitting Set has linear-time nondeterministic and co-nondeterministic algorithms (Carmosino et al., ITCS 2016, Lemma 5.6), so any deterministic reduction deriving the Hitting Set conjecture from SETH would refute NSETH and thereby produce a function in E^NP without linear-size series-parallel circuits.
 
 ## Attack surface
 

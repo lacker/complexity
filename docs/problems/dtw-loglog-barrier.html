@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Dynamic time warping is stuck at O(n^2 / log log n)-type bounds — catch up to edit distance's log^2 shaving, or explain why not</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">sequences</span><span class="chip">time-series</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">log-shaving</span></div><dl class="facts"><dt>Record</dt><dd>O(n^2 log log log n / log log n) time</dd><dt>Record held by</dt><dd>Gold &amp; Sharir, ACM TALG 2018</dd><dt>Hardness</dt><dd>no O(n^{2-eps}) algorithm unless SETH fails, even for one-dimensional curves over a small integer alphabet</dd><dt>Hardness from</dt><dd>Bringmann &amp; Künnemann, FOCS 2015; Abboud, Backurs &amp; Vassilevska Williams, FOCS 2015</dd><dt>Hypotheses</dt><dd>SETH, OV</dd><dt>Problems</dt><dd>Dynamic Time Warping, Orthogonal Vectors</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Dynamic time warping is stuck at O(n^2 / log log n)-type bounds — catch up to edit distance's log^2 shaving, or explain why not</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">sequences</span><span class="chip">time-series</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">log-shaving</span></div><dl class="facts"><dt>Record</dt><dd>O(n^2 log log log n / log log n) time</dd><dt>Record held by</dt><dd>Gold &amp; Sharir, ACM TALG 2018</dd><dt>Hardness</dt><dd>no O(n^{2-eps}) algorithm unless SETH fails, even for one-dimensional curves over a small integer alphabet</dd><dt>Hardness from</dt><dd>Bringmann &amp; Künnemann, FOCS 2015; Abboud, Backurs &amp; Vassilevska Williams, FOCS 2015</dd><dt>Endgame</dt><dd>shaving all polylog factors from DTW (even 1D curves) implies NTIME[2^O(n)] lacks non-uniform NC^1 circuits — DTW admits the alignment gadgets that simulate branching programs (Abboud-Hansen-Vassilevska Williams-Williams, STOC 2016, Thm 6 + Lemma 6)</dd><dt>Hypotheses</dt><dd>SETH, OV</dd><dt>Problems</dt><dd>Dynamic Time Warping, Orthogonal Vectors</dd></dl><h2>Statement</h2>
 <p>Dynamic time warping (DTW) aligns two sequences of n points by a monotone
 correspondence (each point may repeat to stretch time) minimizing the total
 distance between matched points — the standard elastic similarity measure for
@@ -57,7 +57,12 @@ feature of finite-alphabet character comparison? An answer in either
 direction reshapes expectations across every problem in this family. The
 constant-alphabet special case (where DTW inputs look like strings) is a
 particularly clean test: hardness already holds there, yet no log^2 shaving
-is known even there.</p>
+is known even there. The polylog corridor is also load-bearing here just as
+for edit distance: DTW on one-dimensional curves admits the
+Bringmann–Künnemann alignment gadgets, so the Abboud–Hansen–Vassilevska
+Williams–Williams branching-program simulation (STOC 2016) applies verbatim —
+an O(n^2 / log^c n) DTW algorithm for every c would imply NTIME[2^O(n)] does
+not have non-uniform NC^1 circuits.</p>
 <h2>Attack surface</h2>
 <p>(1) Small alphabets first: for sequences over {0,1,...,c}, distances take
 O(c^2) values and block tabulation becomes plausible — nailing
@@ -68,8 +73,10 @@ matrix when point values are bounded; nobody has run that machinery at
 subquadratic granularity. (3) Word-packing: Gold–Sharir is not
 word-parallel; an O(n^2 / w) bit-parallel DTW for small alphabets is open
 and would immediately beat the record for w = Theta(log n). (4) For
-separations, adapt the Abboud–Hansen–Vassilevska Williams–Williams
-circuit-simulation technique to DTW to show polylog shaving there also
-implies circuit lower bounds — even this &quot;excuse&quot; result is currently
-unwritten.</p>
+separations, note the &quot;excuse&quot; result is already written: the
+Abboud–Hansen–Vassilevska Williams–Williams circuit-simulation technique
+(STOC 2016) covers DTW via its alignment gadget (their Lemma 6), so polylog
+shaving is exactly as circuit-hard as it is for edit distance; the open
+separation question is whether the log log n plateau specifically can be
+explained by a matching model-specific lower bound.</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

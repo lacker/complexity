@@ -8,6 +8,7 @@ record: "2^{n(1 - c_k/k)} time with c_k → π²/6 ≈ 1.645 (PPSZ savings)"
 record_ref: "Paturi, Pudlák, Saks & Zane, JACM 2005; general (non-unique) case by Hertli, SICOMP 2014"
 hardness: "no 2^{o(n)} algorithm for any fixed k ≥ 3 unless ETH fails; SETH asserts the exponent tends to n as k grows"
 hardness_ref: "Impagliazzo & Paturi, JCSS 2001"
+endgame: "no direct implication published (Vyas & Williams, SAT 2019, prove none), but one published route is two-for-one: optimal bounds for the local-enumeration problem Enum(k,t) would simultaneously beat PPSZ savings (k-SAT in 2^{n(1-Ω(log k/k))}) and give 2^{ω(sqrt n)} depth-3 circuit lower bounds (Gurumukhani, Paturi, Pudlák, Saks & Talebanfard, CCC 2024, arXiv:2403.09134)"
 status: open
 confidence: high
 verified: 2026-08-10
@@ -52,7 +53,12 @@ framework and would immediately tighten every reduction that pays attention
 to the savings function (e.g., hardness for Orthogonal Vectors and its
 descendants is calibrated to savings). Conversely, a reduction showing that
 ω(1/k) savings implies a breakthrough elsewhere would give SETH a
-quantitative moat.
+quantitative moat. The savings function is also entangled with unconditional
+lower bounds: Gurumukhani, Paturi, Pudlák, Saks and Talebanfard (CCC 2024)
+show that optimal bounds for a single transversal-enumeration problem would
+simultaneously push k-SAT savings to Θ((log k)/k) and yield 2^{ω(sqrt n)}
+depth-3 circuit lower bounds, so the natural attack route here doubles as a
+circuit-lower-bound program.
 
 ## Attack surface
 

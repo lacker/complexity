@@ -8,6 +8,7 @@ record: "for explicit N x N matrices: R(r) = Omega((N^2/r) log(N/r)) at general 
 record_ref: "Friedman 1993 and Shokrollahi–Spielman–Stichtenoth 1997 (general r); Alman & Liang, STOC 2025 (arXiv:2502.19580); Alman, arXiv:2608.06592 (superlogarithmic rank, 2026)"
 hardness: "no conditional lower bound applies; instead, the classic candidates provably fail: Hadamard-type matrices are not Valiant-rigid (probabilistic rank), function matrices over F_p^n are not rigid (Croot–Lev–Pach), and Fourier/circulant/Toeplitz matrices are not Valiant-rigid"
 hardness_ref: "Alman & Williams, STOC 2017; Dvir & Edelman, 2017; Dvir & Liu, FOCS 2019"
+endgame: "direct: Valiant-rigidity gives unconditional superlinear lower bounds for log-depth linear circuits (Valiant, MFCS 1977); Razborov-rigidity separates the communication analogue of PH (Razborov 1989; Wunderlich, Comput. Complexity 2012)"
 status: open
 confidence: high
 verified: 2026-08-10

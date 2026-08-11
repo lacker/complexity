@@ -8,6 +8,7 @@ record: "O(1.1996^n) time, polynomial space"
 record_ref: "Xiao & Nagamochi, Information and Computation 2017"
 hardness: "no 2^{o(n)} algorithm unless ETH fails"
 hardness_ref: "Impagliazzo, Paturi & Zane, JCSS 2001"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "deterministic k-party NOF protocol with O(log² n + k² n / 2^k) bits; 
 record_ref: "Grolmusz, Information & Computation 112, 1994"
 hardness: "Ω(√n / (2^k k)) for randomized (bounded-error) k-party NOF protocols — Θ̃(√n) for k = 3"
 hardness_ref: "Sherstov, STOC 2013 / J. ACM 61(6), 2014 (\"Communication lower bounds using directional derivatives\"); simplified by Rao & Yehudayoff, CCC 2015"
+endgame: "none known for the k = 3 gap itself: the classic route — superpolylog NOF lower bounds for polylog(n) players on an explicit function imply ACC0 lower bounds (Håstad–Goldmann 1991 composed with Beigel–Tarui 1994) — is closed to disjointness, which Grolmusz 1994 solves with polylog communication once k ≳ log n, so the gap feeds ACC0 only via technique transfer to other functions"
 status: open
 confidence: high
 verified: 2026-08-10

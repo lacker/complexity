@@ -8,6 +8,7 @@ record: "O(n log m) deterministic time"
 record_ref: "Clifford & Clifford, IPL 2007 (simplifying Cole & Hariharan, STOC 2002; original O(n log m log sigma) by Fischer & Paterson, 1974)"
 hardness: "none known — not even a super-linear conditional lower bound"
 hardness_ref: "n/a"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

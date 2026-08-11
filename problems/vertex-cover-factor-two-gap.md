@@ -8,6 +8,7 @@ record: "2 - Theta(1/sqrt(log n)) approximation"
 record_ref: "Karakostas, ACM TALG 2009 (ICALP 2005; ECCC TR04-084)"
 hardness: "NP-hard to approximate within sqrt(2) - eps (via the 2-to-2 Games Theorem); 2 - eps under UGC"
 hardness_ref: "Khot, Minzer & Safra, STOC 2017 (ECCC TR16-124), made unconditional by the Grassmann expansion proof (Khot–Minzer–Safra, FOCS 2018); Khot & Regev, JCSS 2008"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "Õ(n^{0.4})-approximation in O(n) time, and Õ(n^{2eps/5})-approximatio
 record_ref: "Bringmann, Cohen-Addad & Das, ACM TALG 2023 (arXiv:2106.08195); He & Li (arXiv:2211.16660); Mao & Rubinstein, STOC 2026 (arXiv:2603.29702)"
 hardness: "exact: no O(n^{2-eps}) unless SETH fails, even binary; approximation: a deterministic truly subquadratic (1+eps)-approximation over alphabet size n^{o(1)} would imply E^NP lacks non-uniform linear-size Valiant series-parallel circuits; no hardness known for randomized algorithms"
 hardness_ref: "Abboud, Backurs & Vassilevska Williams, FOCS 2015; Bringmann & Künnemann, FOCS 2015; Abboud & Backurs, ITCS 2017 (LIPIcs.ITCS.2017.11)"
+endgame: "deterministic route only: a deterministic truly subquadratic (1+o(1))-approximation over alphabet n^{o(1)} implies E^NP lacks non-uniform linear-size Valiant series-parallel circuits (Abboud & Backurs, ITCS 2017, Thm 5); strengthened to super-constant approximation factors and linear-size NC^1 lower bounds via Distributed PCP (Abboud & Rubinstein, ITCS 2018); nothing known for randomized algorithms"
 status: open
 confidence: high
 verified: 2026-08-10
@@ -55,7 +56,11 @@ constant-factor subquadratic algorithm would show LCS behaves like its
 complement; a hardness result for randomized algorithms would be the first of
 its kind — and Abboud–Backurs (ITCS 2017) proved that even the deterministic
 hardness route forces new circuit lower bounds, so any progress here moves a
-second frontier.
+second frontier. Abboud and Rubinstein (ITCS 2018) sharpened the endgame via
+the Distributed PCP framework: even a deterministic truly subquadratic
+approximation with a super-constant factor would prove E^NP lacks
+non-uniform linear-size NC^1 circuits — so a deterministic version of the
+sought algorithm is itself a circuit lower bound.
 
 ## Attack surface
 

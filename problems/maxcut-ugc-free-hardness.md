@@ -8,6 +8,7 @@ record: "0.87856-approximation (alpha_GW), optimal under the Unique Games Conjec
 record_ref: "Goemans & Williamson, J. ACM 1995; UGC-optimality: Khot, Kindler, Mossel & O'Donnell, SICOMP 2007 (ECCC TR05-101)"
 hardness: "NP-hard to approximate within 17/16 - eps (i.e., ratio 16/17 + eps ≈ 0.941); alpha_GW + eps under UGC"
 hardness_ref: "Håstad, J. ACM 2001 (with Trevisan–Sorkin–Sudan–Williamson gadgets); Khot, Kindler, Mossel & O'Donnell, SICOMP 2007"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

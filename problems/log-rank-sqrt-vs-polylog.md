@@ -8,6 +8,7 @@ record: "D(f) = O(sqrt(rank(f))) for every Boolean matrix; conjectured polylog(r
 record_ref: "Sudakov & Tomon, arXiv:2311.18524 (2023), improving Lovett's O(sqrt(r) log r), STOC 2014 / J. ACM 2016 (arXiv:1306.1877)"
 hardness: "explicit f with D(f) = Ω̃((log rank(f))^2), so the conjecture's exponent must be ≥ 2; the randomized (log-approximate-rank) analogue is false outright"
 hardness_ref: "Göös, Pitassi & Watson, FOCS 2015 / SICOMP 47(6), 2018 (doi:10.1137/16M1059369); Chattopadhyay, Mande & Sherif, STOC 2019 / J. ACM 2020 (ECCC TR18-176)"
+endgame: "separation side is on the unconditional loop: deterministic communication lower bounds need no conjectures, so any ω̃((log rank)^2) example is itself a new unconditional result beating Göös-Pitassi-Watson (FOCS 2015); no published unconditional consequence from improving the O(√rank) protocol"
 status: open
 confidence: high
 verified: 2026-08-10

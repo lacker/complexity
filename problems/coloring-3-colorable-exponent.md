@@ -8,6 +8,7 @@ record: "O(n^0.19539) colors in polynomial time"
 record_ref: "Bansal, Huang & Lee, arXiv:2602.05904 (2026); previously ~O(n^0.19747), Kawarabayashi, Thorup & Yoneda, STOC 2024 (arXiv:2406.00357)"
 hardness: "NP-hard to color a 3-colorable graph with 5 colors (generally 2k-1 colors for k-colorable)"
 hardness_ref: "Barto, Bulín, Krokhin & Opršal, J. ACM 2021 (arXiv:1811.00970; conference version Bulín–Krokhin–Opršal, STOC 2019)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

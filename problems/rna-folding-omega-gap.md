@@ -8,6 +8,7 @@ record: "~O(n^{(3+omega)/2}) time (about O(n^{2.687}) with current omega)"
 record_ref: "Chi, Duan, Xie & Zhang, STOC 2022 (min-plus product for monotone/bounded-difference instances), plugged into the framework of Bringmann, Grandoni, Saha & Vassilevska Williams, FOCS 2016"
 hardness: "an O(n^{omega - eps}) algorithm would give faster k-Clique detection; no truly subcubic combinatorial algorithm unless combinatorial BMM/k-Clique falls"
 hardness_ref: "Abboud, Backurs & Vassilevska Williams, FOCS 2015"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

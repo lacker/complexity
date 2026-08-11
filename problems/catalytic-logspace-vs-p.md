@@ -8,6 +8,7 @@ record: "TC1 ⊆ CL ⊆ ZPP; unconditionally CBPL = CL, and CL ∩ P = CLP (sepa
 record_ref: "Buhrman, Cleve, Koucký, Loff & Speelman, STOC 2014 (containments); Cook, Li, Mertz & Pyne, STOC 2025 (ECCC TR24-106)"
 hardness: "no separation known in either direction; TC1 ⊆ CL is the strongest lower containment, and nothing outside TC1 is known to be in CL"
 hardness_ref: "Buhrman, Cleve, Koucký, Loff & Speelman, STOC 2014"
+endgame: "on the catalytic loop: a proof that CL ⊄ P would unconditionally separate P from ZPP (since CL ⊆ ZPP, Buhrman et al., STOC 2014); catalytic machinery also powers Cook–Mertz Tree Evaluation and Williams' TIME[t] ⊆ SPACE[sqrt(t log t)] (STOC 2025), whose collision with the space hierarchy theorem already gives unconditional SPACE[s] ⊄ TIME[s^{2-eps}]"
 status: open
 confidence: high
 verified: 2026-08-10

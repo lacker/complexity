@@ -8,6 +8,7 @@ record: "Õ(m^{2ω/(ω+1)}) ≈ O(m^{1.41}) time to list up to m triangles (m^{4
 record_ref: "Björklund, Pagh, Vassilevska Williams & Zwick, ICALP 2014"
 hardness: "Ω(m^{4/3-o(1)}) to list m triangles, assuming the 3SUM conjecture"
 hardness_ref: "Kopelowitz, Pettie & Porat, SODA 2016"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "2^n · poly(n) time"
 record_ref: "Björklund, Husfeldt & Koivisto, SICOMP 2009 (announced FOCS 2006)"
 hardness: "no 2^{o(n)} algorithm unless ETH fails"
 hardness_ref: "Impagliazzo, Paturi & Zane, JCSS 2001"
+endgame: "no path from the algorithm side; conversely, any 2^{n-o(n)} lower bound for chromatic number would unconditionally refute Strassen's asymptotic rank conjecture, which implies a deterministic O(1.99982^n) algorithm (Björklund, Curticapean, Husfeldt, Kaski & Pratt, SODA 2025)"
 status: open
 confidence: high
 verified: 2026-08-10

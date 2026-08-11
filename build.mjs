@@ -87,6 +87,7 @@ for (const c of cards) {
   const facts = [
     ['Record', c.record], ['Record held by', c.record_ref],
     ['Hardness', c.hardness], ['Hardness from', c.hardness_ref],
+    ['Endgame', c.endgame],
     ['Hypotheses', (c.hypotheses || []).join(', ')], ['Problems', (c.problems || []).join(', ')],
   ].filter(([, v]) => v);
   const factsHtml = `<dl class="facts">${facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>`;

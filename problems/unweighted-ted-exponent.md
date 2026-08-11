@@ -8,6 +8,7 @@ record: "~O(n^{(3+omega)/2}) time, about O(n^{2.6857}) with current omega"
 record_ref: "Nogler, Polak, Saha, Vassilevska Williams, Xu & Ye, STOC 2025, arXiv:2411.06502"
 hardness: "no O(n^{2-eps}) algorithm unless SETH fails (inherited from string edit distance)"
 hardness_ref: "Backurs & Indyk, STOC 2015 (strings embed as caterpillar trees)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

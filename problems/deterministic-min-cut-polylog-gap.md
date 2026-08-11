@@ -8,6 +8,7 @@ record: "deterministic m polylog(n) time, exponent unspecified; randomized O(m l
 record_ref: "Henzinger, Li, Rao & Wang, SODA 2024 (arXiv:2401.05627); randomized: Gawrychowski, Mozes & Weimann, ICALP 2020 (arXiv:1911.01145)"
 hardness: "none known — nothing rules out deterministic O(m) time"
 hardness_ref: "n/a"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

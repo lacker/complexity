@@ -8,6 +8,7 @@ record: "O(log n (log log n)^2) amortized expected time per operation"
 record_ref: "Huang, Huang, Kopelowitz & Pettie, SODA 2017 (journal version with Thorup: TheoretiCS 2023)"
 hardness: "Ω(log n) amortized per operation in the cell-probe model"
 hardness_ref: "Pătraşcu & Demaine, SICOMP 2006 (conference version STOC 2004)"
+endgame: "lower-bound side is on the unconditional loop: cell-probe bounds need no conjectures, so any ω(log n) bound for connectivity is itself a new unconditional result — and the first separation from partial sums (cf. Pătraşcu & Demaine, SICOMP 2006); no published unconditional consequence from improving the algorithm"
 status: open
 confidence: high
 verified: 2026-08-10

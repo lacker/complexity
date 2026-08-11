@@ -8,6 +8,7 @@ record: "O*(2.554^k) deterministic (works for directed graphs); randomized compa
 record_ref: "Tsur, Theoretical Computer Science 2019 (arXiv:1808.04185); randomized: Williams, IPL 2009; Björklund, Husfeldt, Kaski & Koivisto, JCSS 2017 (arXiv:1007.1161)"
 hardness: "no 2^{o(k)} · poly(n) algorithm unless ETH fails; nothing conditional separates deterministic from randomized time for k-Path"
 hardness_ref: "Impagliazzo, Paturi & Zane, JCSS 2001 (via standard Hamiltonicity reductions)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

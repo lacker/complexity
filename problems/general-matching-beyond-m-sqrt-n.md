@@ -8,6 +8,7 @@ record: "O(m sqrt(n)) deterministic; O(n^omega) randomized for dense graphs"
 record_ref: "Micali & Vazirani, FOCS 1980 (complete proof: Vazirani, arXiv:2012.03582); dense: Mucha & Sankowski, FOCS 2004"
 hardness: "none known — no super-linear conditional lower bound"
 hardness_ref: "n/a"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

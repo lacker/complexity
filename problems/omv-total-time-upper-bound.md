@@ -8,6 +8,7 @@ record: "n^3 / 2^Ω(√log n) total time for n online queries"
 record_ref: "Larsen & Williams, SODA 2017"
 hardness: "no O(n^{3-eps}) total time with polynomial preprocessing, by definition of the OMv conjecture"
 hardness_ref: "Henzinger, Krinninger, Nanongkai & Saranurak, STOC 2015"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

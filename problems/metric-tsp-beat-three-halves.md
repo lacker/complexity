@@ -8,6 +8,7 @@ record: "3/2 - eps approximation for some eps > 10^{-36}, randomized and determi
 record_ref: "Karlin, Klein & Oveis Gharan, STOC 2021 (arXiv:2007.01409); deterministic version IPCO 2023 (arXiv:2212.06296)"
 hardness: "NP-hard to approximate within 123/122 - eps"
 hardness_ref: "Karpinski, Lampis & Schmied, JCSS 2015 (arXiv:1303.6437)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

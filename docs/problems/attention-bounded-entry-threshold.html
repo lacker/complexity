@@ -24,7 +24,7 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Pin down the exact entry-size threshold for fast attention: n^{1+o(1)} algorithms at B = o(sqrt(log n)) vs SETH-hardness at B = Theta(sqrt(log n)) — close the constant-factor window and extend it to relative error</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">machine-learning</span><span class="chip">transformers</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">hardness-transfer</span></div><dl class="facts"><dt>Record</dt><dd>n^{1+o(1)} time for additive 1/poly(n)-error attention when d = O(log n) and entries bounded by B = o(sqrt(log n))</dd><dt>Record held by</dt><dd>Alman &amp; Song, NeurIPS 2023 (arXiv:2302.13214)</dd><dt>Hardness</dt><dd>no O(n^{2-delta}) algorithm when B = Theta(sqrt(log n)), assuming SETH</dd><dt>Hardness from</dt><dd>Alman &amp; Song, NeurIPS 2023 (arXiv:2302.13214)</dd><dt>Hypotheses</dt><dd>SETH</dd><dt>Problems</dt><dd>Attention Computation, Orthogonal Vectors</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Pin down the exact entry-size threshold for fast attention: n^{1+o(1)} algorithms at B = o(sqrt(log n)) vs SETH-hardness at B = Theta(sqrt(log n)) — close the constant-factor window and extend it to relative error</h1><div class="chips"><span class="chip open">open</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">machine-learning</span><span class="chip">transformers</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">hardness-transfer</span></div><dl class="facts"><dt>Record</dt><dd>n^{1+o(1)} time for additive 1/poly(n)-error attention when d = O(log n) and entries bounded by B = o(sqrt(log n))</dd><dt>Record held by</dt><dd>Alman &amp; Song, NeurIPS 2023 (arXiv:2302.13214)</dd><dt>Hardness</dt><dd>no O(n^{2-delta}) algorithm when B = Theta(sqrt(log n)), assuming SETH</dd><dt>Hardness from</dt><dd>Alman &amp; Song, NeurIPS 2023 (arXiv:2302.13214)</dd><dt>Endgame</dt><dd>an n^{2-delta} algorithm at B = Theta(sqrt(log n)) would refute SETH (Alman &amp; Song, NeurIPS 2023), and refuting SETH implies E^NP lacks linear-size series-parallel circuits (Jahanjou, Miles &amp; Viola, \"Local Reductions\", Inf. &amp; Comput. 2018)</dd><dt>Hypotheses</dt><dd>SETH</dd><dt>Problems</dt><dd>Attention Computation, Orthogonal Vectors</dd></dl><h2>Statement</h2>
 <p>Attention, the core operation of transformers, takes three n x d matrices Q, K, V
 and computes D^{-1} exp(QK^T) V, where exp is entrywise and D normalizes each row
 (the &quot;softmax&quot;). Computing this naively takes about n^2 d time, and n is the
@@ -60,7 +60,10 @@ sub-quadratic &quot;efficient attention&quot; schemes must either bound their en
 accuracy. Pinning the exact threshold would tell practitioners precisely where
 approximation heuristics can and cannot be safe, and any improvement to the
 hardness side adds a reusable edge from SETH into the ML-primitives cluster of
-the reduction web.</p>
+the reduction web. There is even an unconditional endgame: since refuting SETH
+implies E^NP lacks linear-size series-parallel circuits (Jahanjou–Miles–Viola),
+a subquadratic attention algorithm at the hard threshold would yield new
+circuit lower bounds outright.</p>
 <h2>Attack surface</h2>
 <p>The hardness side imitates Rubinstein&#39;s distributed-PCP framework for approximate
 nearest neighbor; tightening the constant likely means tightening that gadget.

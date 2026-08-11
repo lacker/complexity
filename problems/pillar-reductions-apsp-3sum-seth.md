@@ -8,6 +8,7 @@ record: "no fine-grained reduction is known between any pair of the three pillar
 record_ref: "status surveyed in V. Vassilevska Williams, 'On some fine-grained questions in algorithms and complexity', ICM 2018"
 hardness: "Triangle Collection is fine-grained hard under all three hypotheses simultaneously"
 hardness_ref: "Abboud, Vassilevska Williams & Yu, STOC 2015 (SICOMP 2018)"
+endgame: "a deterministic fine-grained reduction from CNF-SAT to 3SUM or APSP would refute NSETH (both targets have fast co-nondeterministic algorithms), and NSETH's failure implies E^NP lacks linear-size series-parallel circuits (Carmosino–Gao–Impagliazzo–Mihajlin–Paturi–Schneider, ITCS 2016, Thm 4.1, via Jahanjou–Miles–Viola, ICALP 2015)"
 status: open
 confidence: high
 verified: 2026-08-10
@@ -24,7 +25,7 @@ No pairwise reduction is known in any of the six possible directions. The best p
 
 ## Why it matters
 
-Almost every conditional lower bound in fine-grained complexity hangs off one of these three hypotheses. A reduction between two pillars would halve the number of independent assumptions the whole field rests on, and would automatically transfer hundreds of existing lower bounds from one hypothesis to the other. Even a reduction under a plausible strengthening (e.g., from the OV conjecture rather than full SETH) would restructure the web.
+Almost every conditional lower bound in fine-grained complexity hangs off one of these three hypotheses. A reduction between two pillars would halve the number of independent assumptions the whole field rests on, and would automatically transfer hundreds of existing lower bounds from one hypothesis to the other. Even a reduction under a plausible strengthening (e.g., from the OV conjecture rather than full SETH) would restructure the web. The NSETH barrier also cuts the other way: because 3SUM and APSP have fast co-nondeterministic algorithms, actually exhibiting a deterministic reduction from SAT to either one would refute NSETH — and Carmosino et al. (ITCS 2016) show NSETH's failure yields an unconditional lower bound, namely a function in E^NP with no linear-size series-parallel circuits.
 
 ## Attack surface
 

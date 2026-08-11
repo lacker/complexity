@@ -8,6 +8,7 @@ record: "approximation ratio below 15 (overall guarantee < 14.7)"
 record_ref: "Vygen, arXiv:2603.14334 (2026); previously 17+eps, Traub & Vygen, CUP book 2025, and 22+eps, Traub & Vygen, STOC 2020 (arXiv:1912.00670)"
 hardness: "NP-hard to approximate within 75/74 - eps"
 hardness_ref: "Karpinski, Lampis & Schmied, JCSS 2015 (arXiv:1303.6437)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

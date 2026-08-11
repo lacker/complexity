@@ -8,6 +8,7 @@ record: "every multitape Turing machine running in time t can be simulated in sp
 record_ref: "Williams, STOC 2025 (arXiv:2502.17779; JACM 2026)"
 hardness: "no matching lower bound; a simulation in space t^{o(1)} would imply P != PSPACE-style separations far beyond current techniques"
 hardness_ref: "discussed in Williams, STOC 2025"
+endgame: "already on the loop: via the space hierarchy theorem the simulation yields unconditional separations — for every eps > 0 there are problems in SPACE[n] not solvable in TIME[n^{2-eps}] (Williams, STOC 2025) — and any improvement to the simulation mechanically strengthens this unconditional time lower bound (exponent 1/2 - c would push it past quadratic)"
 status: open
 confidence: high
 verified: 2026-08-10

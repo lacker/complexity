@@ -8,6 +8,7 @@ record: "O(n^2 / log^2 n) time"
 record_ref: "Masek & Paterson, JCSS 1980"
 hardness: "no n^{2-eps} algorithm unless SETH fails"
 hardness_ref: "Backurs & Indyk, STOC 2015 (arXiv:1412.0348)"
+endgame: "polylog shaving implies formula lower bounds (Abboud-Hansen-Vassilevska Williams-Williams, STOC 2016)"
 status: open
 confidence: high
 tags: [strings, fine-grained, seth]

@@ -8,6 +8,7 @@ record: "Omega(n^3 / (log^2 n · log log n)) de Morgan formula size for Andreev'
 record_ref: "Tal, FOCS 2014 (ECCC TR14-048, \"Shrinkage of De Morgan Formulae by Spectral Techniques\"), sharpening Håstad, SICOMP 1998"
 hardness: "no conditional lower bound applies; the structural barrier is that the shrinkage exponent of de Morgan formulas is exactly 2, so all restriction-based arguments cap at n^3 — the known route past cubic is the KRW composition conjecture"
 hardness_ref: "Håstad, SICOMP 1998 (shrinkage exponent 2 is optimal); Karchmer, Raz & Wigderson, Computational Complexity 1995 (KRW conjecture)"
+endgame: "already unconditional — any super-cubic bound is itself new; magnification sits exactly at this barrier: an N^{3+eps} de Morgan formula lower bound for Gap-MKtP implies EXP ⊄ NC1 (Oliveira, Pich & Santhanam, CCC 2019)"
 status: open
 confidence: high
 verified: 2026-08-10
@@ -44,7 +45,10 @@ Formula lower bounds are the direct route to separating NC1 from P: any
 explicit function with formula size n^{omega(1)} does it. The KRW conjecture —
 that formula depth is roughly additive under function composition — would
 yield that separation, and each concrete improvement past n^3 for composed
-functions is a step on that ladder. Formula-size records also propagate:
+functions is a step on that ladder. Hardness magnification pins an endgame at
+exactly this threshold: an N^{3+eps} de Morgan formula lower bound for the gap
+version of MKtP would already imply EXP ⊄ NC1 (Oliveira–Pich–Santhanam, CCC
+2019). Formula-size records also propagate:
 shrinkage bounds power the best #SAT algorithms, pseudorandom generators, and
 quantum-vs-classical query separations for formulas, so a sharper structural
 understanding moves several nodes at once.

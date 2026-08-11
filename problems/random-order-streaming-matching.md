@@ -8,6 +8,7 @@ record: "(2/3 + ε₀)-approximate maximum matching, ε₀ ~ 10^{-14}, in one pa
 record_ref: "Assadi & Behnezhad, ICALP 2021 (arXiv:2102.07011)"
 hardness: "(1−ε₁)-approximation with ε₁ = Θ(1/log n) requires n^{1+Ω(1/log log n)} space in random-order streams; in adversarial order, no single-pass semi-streaming algorithm beats 1/2 — greedy is optimal"
 hardness_ref: "Assadi & Behnezhad, ICALP 2021 (arXiv:2102.07011, Theorem 3); Assadi, Jiang & Xiang, STOC 2026 (arXiv:2607.14644) and arXiv:2607.14656 (July 2026)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

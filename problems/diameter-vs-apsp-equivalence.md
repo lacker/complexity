@@ -8,6 +8,7 @@ record: "n^3 / 2^{Θ(√log n)} time, by running the fastest APSP algorithm and 
 record_ref: "R. Williams, STOC 2014 (SICOMP 2018)"
 hardness: "under SETH, exact diameter on sparse graphs needs m^{2-o(1)} time (Roditty & Vassilevska Williams, STOC 2013); no n^{3-eps} conditional lower bound is known for dense graphs"
 hardness_ref: "Roditty & Vassilevska Williams, STOC 2013"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

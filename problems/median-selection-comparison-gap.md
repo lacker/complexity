@@ -8,6 +8,7 @@ record: "2.95n + o(n) comparisons, deterministic worst case"
 record_ref: "Dor & Zwick, Selecting the Median, SIAM J. Comput. 28(5), 1999 (SODA 1995)"
 hardness: "(2+ε)n comparisons required for some fixed ε > 0 (proved for ε ≈ 2^{-80})"
 hardness_ref: "Dor & Zwick, Median Selection Requires (2+ε)n Comparisons, SIAM J. Discrete Math. 14(3), 2001 (FOCS 1996)"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

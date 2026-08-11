@@ -8,6 +8,7 @@ record: "n^3 / 2^{Omega(sqrt(log n))} time"
 record_ref: "Williams, STOC 2014 / SICOMP 2018 (arXiv:1312.6680)"
 hardness: "conjectured: no O(n^{3-eps}) algorithm for any eps > 0 (the APSP Hypothesis)"
 hardness_ref: "Vassilevska Williams & Williams, FOCS 2010 / JACM 2018"
+endgame: none known
 status: open
 confidence: high
 tags: [graphs, fine-grained, apsp, min-plus, hub]

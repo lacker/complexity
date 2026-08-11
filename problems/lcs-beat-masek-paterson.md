@@ -8,6 +8,7 @@ record: "O(n^2 / log^2 n) time (constant-size alphabet)"
 record_ref: "Masek & Paterson, JCSS 1980 (Four-Russians technique)"
 hardness: "no O(n^{2-eps}) algorithm unless SETH fails, even for binary alphabet"
 hardness_ref: "Abboud, Backurs & Vassilevska Williams, FOCS 2015; Bringmann & Künnemann, FOCS 2015"
+endgame: "shaving all polylogs — O(n^2/log^c n) for every c, even on binary sequences — implies NTIME[2^O(n)] lacks non-uniform NC^1 circuits; a log^1000 n shave already gives new formula lower bounds (Abboud-Hansen-Vassilevska Williams-Williams, STOC 2016, Cor. 2)"
 status: open
 confidence: high
 verified: 2026-08-10

@@ -8,6 +8,7 @@ record: "n^{2-Omega~(eps^{1/3})} time for (1+eps)-approximate closest pair via t
 record_ref: "Alman, Chan & Williams, FOCS 2016"
 hardness: "bichromatic version: for every delta > 0 there is eps > 0 with no n^{2-delta} algorithm for (1+eps)-approximation under SETH; monochromatic approximate version: no n^{1.5-delta} algorithm for (1+eps)-approximation (eps = eps(delta) > 0 constant) in c log n dimensions under SETH — full n^{2-o(1)} hardness remains open"
 hardness_ref: "Rubinstein, STOC 2018; Karthik C. S. & Manurangsi, ITCS 2019 / Combinatorica 2020 (arXiv:1812.00901)"
+endgame: "refutation side: a subquadratic exact (or n^{1.5-delta} approximate) algorithm refutes SETH via the Karthik–Manurangsi reduction, and SETH's failure implies E^NP lacks linear-size series-parallel circuits (Jahanjou–Miles–Viola, ICALP 2015; stated as Cor. B.3 in Carmosino et al., ITCS 2016)"
 status: open
 confidence: high
 verified: 2026-08-10
@@ -57,7 +58,9 @@ attention and KDE problems; the monochromatic case is the version practitioners
 actually run. A transfer here would also likely produce a reusable
 "color-collapsing gadget" applicable across the fine-grained geometry cluster.
 An algorithm would be even more surprising and would immediately propagate to
-clustering-type subroutines.
+clustering-type subroutines — and it carries an unconditional endgame: beating
+the known SETH lower bounds would falsify SETH itself, which by
+Jahanjou–Miles–Viola implies E^NP lacks linear-size series-parallel circuits.
 
 ## Attack surface
 

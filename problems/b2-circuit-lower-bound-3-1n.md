@@ -8,6 +8,7 @@ record: "3.1n − o(n) gates for an explicit function (an affine disperser compu
 record_ref: "Li & Yang, STOC 2022 (ECCC TR21-023, \"3.1n − o(n) Circuit Lower Bounds for Explicit Functions\")"
 hardness: "no conditional lower bound applies; the barriers are natural proofs for strong bounds, and formalizations of gate elimination — the only technique that has ever produced these constants — provably stall at O(n)"
 hardness_ref: "Razborov & Rudich, JCSS 1997 (natural proofs); Golovnev, Hirsch, Knop & Kulikov, \"On the Limits of Gate Elimination\" (MFCS 2016)"
+endgame: "already unconditional — any constant past 3.1 is itself a new lower bound; via hardness magnification, an N^{1+eps} general-circuit lower bound for Gap-MCSP would imply NP ⊄ Circuit[poly] (Oliveira, Pich & Santhanam, CCC 2019; cf. McKay, Murray & Williams, STOC 2019)"
 status: open
 confidence: high
 verified: 2026-08-10

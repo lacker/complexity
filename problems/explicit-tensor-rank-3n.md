@@ -8,6 +8,7 @@ record: "rank >= 3n − Theta(log n) for an explicit {0,1} tensor of shape n x n
 record_ref: "Alexeev, Forbes & Tsimerman, CCC 2011 (arXiv:1102.0072, \"Tensor Rank: Some Lower and Upper Bounds\")"
 hardness: "conditional tension rather than a lower bound: the Set Cover Conjecture and Strassen's asymptotic rank conjecture cannot both hold, so SCC implies explicit tensor families with high asymptotic rank"
 hardness_ref: "Björklund & Kaski, STOC 2024; strengthened by Pratt, STOC 2024"
+endgame: "on the unconditional loop: any improved explicit rank bound is itself unconditional and transfers to bilinear circuit complexity (Strassen, J. Reine Angew. Math. 1973); explicit order-d tensors of rank n^{d(1-o(1))} would give superpolynomial arithmetic formula lower bounds (Raz, STOC 2010 / JACM 2013)"
 status: open
 confidence: high
 verified: 2026-08-10

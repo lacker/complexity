@@ -8,6 +8,7 @@ record: "NQP = NTIME[2^{polylog n}] has no polynomial-size ACC0 circuits; streng
 record_ref: "Murray & Williams, STOC 2018 / SICOMP 2020; Chen & Ren, STOC 2020 (SICOMP 2022); Chen, Lyu & Williams, FOCS 2020; Chen, ECCC TR22-183"
 hardness: "no conditional lower bound applies; the barrier landscape is the point: the algorithmic method evades relativization and algebrization, and natural proofs is not known to apply to ACC0 (no candidate pseudorandom functions in ACC0) — the bottleneck is designing non-trivial satisfiability/derandomization algorithms for larger classes and sharper easy-witness lemmas"
 hardness_ref: "Williams, JACM 2014 (\"Nonuniform ACC Circuit Lower Bounds\", the algorithmic method); Razborov & Rudich, JCSS 1997 (natural proofs, for context)"
+endgame: "already unconditional — any improvement (NP ⊄ ACC0, a bigger NEXP size bound, or NEXP ⊄ TC0) is itself a new unconditional separation, produced via the algorithmic method (Williams, JACM 2014; Murray & Williams, SICOMP 2020)"
 status: open
 confidence: high
 verified: 2026-08-10

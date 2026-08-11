@@ -8,6 +8,7 @@ record: "randomized Õ(n^{2.5}) worst-case update time with Õ(n²) space, maint
 record_ref: "Xiao Mao, STOC 2024 (arXiv:2306.02662); amortized: Demetrescu & Italiano, STOC 2003 (JACM 2004)"
 hardness: "nothing beyond the trivial Ω(n²) for explicitly maintaining the distance matrix; the n^{2.5} 'natural barrier' is a heuristic observation (it resists even algorithms given all future updates), with no formal conditional lower bound under APSP, OMv, or any standard hypothesis"
 hardness_ref: "barrier discussion: Abraham, Chechik & Krinninger, SODA 2017 (arXiv:1607.05132) and Section 1 of Mao, arXiv:2306.02662"
+endgame: none known
 status: open
 confidence: high
 verified: 2026-08-10

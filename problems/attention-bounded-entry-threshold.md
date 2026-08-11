@@ -8,6 +8,7 @@ record: "n^{1+o(1)} time for additive 1/poly(n)-error attention when d = O(log n
 record_ref: "Alman & Song, NeurIPS 2023 (arXiv:2302.13214)"
 hardness: "no O(n^{2-delta}) algorithm when B = Theta(sqrt(log n)), assuming SETH"
 hardness_ref: "Alman & Song, NeurIPS 2023 (arXiv:2302.13214)"
+endgame: "an n^{2-delta} algorithm at B = Theta(sqrt(log n)) would refute SETH (Alman & Song, NeurIPS 2023), and refuting SETH implies E^NP lacks linear-size series-parallel circuits (Jahanjou, Miles & Viola, \"Local Reductions\", Inf. & Comput. 2018)"
 status: open
 confidence: high
 verified: 2026-08-10
@@ -55,7 +56,10 @@ sub-quadratic "efficient attention" schemes must either bound their entries
 accuracy. Pinning the exact threshold would tell practitioners precisely where
 approximation heuristics can and cannot be safe, and any improvement to the
 hardness side adds a reusable edge from SETH into the ML-primitives cluster of
-the reduction web.
+the reduction web. There is even an unconditional endgame: since refuting SETH
+implies E^NP lacks linear-size series-parallel circuits (Jahanjou–Miles–Viola),
+a subquadratic attention algorithm at the hard threshold would yield new
+circuit lower bounds outright.
 
 ## Attack surface
 
