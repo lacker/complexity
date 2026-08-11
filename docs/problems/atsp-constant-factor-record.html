@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asymmetric TSP: push the ratio below Vygen's 2026 record of ~14.7 — the hardness floor is only 75/74</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Asymmetric TSP: push the ratio below Vygen's 2026 record of ~14.7 — the hardness floor is only 75/74</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">tsp</span><span class="chip">atsp</span><span class="chip">approximation</span><span class="chip">hardness-of-approximation</span><span class="chip">lp-rounding</span></div><dl class="facts"><dt>Record</dt><dd>approximation ratio below 15 (overall guarantee &lt; 14.7)</dd><dt>Record held by</dt><dd>Vygen, arXiv:2603.14334 (2026); previously 17+eps, Traub &amp; Vygen, CUP book 2025, and 22+eps, Traub &amp; Vygen, STOC 2020 (arXiv:1912.00670)</dd><dt>Hardness</dt><dd>NP-hard to approximate within 75/74 - eps</dd><dt>Hardness from</dt><dd>Karpinski, Lampis &amp; Schmied, JCSS 2015 (arXiv:1303.6437)</dd><dt>Problems</dt><dd>Asymmetric TSP</dd></dl><h2>Statement</h2>
+<p>Asymmetric TSP: the distance from u to v need not equal the distance from v to
+u (think one-way streets), but the directed triangle inequality holds. Find a
+tour of cost at most c times optimal. Unlike symmetric TSP, no
+Christofides-style 3/2 was ever available; whether any constant c was
+achievable stayed open until 2018. The challenge: beat the current record of
+roughly 14.7, or push the hardness floor above 75/74 ≈ 1.0135. Nobody
+believes 14.7 is the truth — the conjectured answer, tied to the integrality
+gap of the LP relaxation, is a small constant, plausibly close to 2.</p>
+<h2>Current record</h2>
+<p>Svensson, Tarnawski and Végh gave the first constant factor (STOC 2018, J. ACM
+2020), initially 5500, refined to 506, via a reduction to &quot;vertebrate pairs&quot;
+and Svensson&#39;s earlier local-connectivity framework. Traub and Vygen
+simplified and sharpened the pipeline to 22 + ε (STOC 2020, arXiv:1912.00670),
+then to 17 + ε in their 2025 Cambridge University Press book &quot;Approximation
+Algorithms for Traveling Salesman Problems.&quot; The current record is Vygen&#39;s
+March 2026 improvement (arXiv:2603.14334): ratio below 15, with the paper&#39;s
+own accounting giving an overall guarantee under 14.7, plus better constants
+for unweighted digraphs and improved integrality-gap upper bounds for the
+natural LP. The known lower bound on that LP&#39;s integrality gap is 2. On the
+hardness side, Karpinski–Lampis–Schmied prove 75/74 − ε NP-hardness via
+bounded-occurrence CSP amplification.</p>
+<h2>Why it matters</h2>
+<p>ATSP is the canonical test of whether LP-based methods can tame directed
+network design; its machinery (laminar witness structures, subtour covers)
+feeds directed connectivity and vehicle-routing problems. The hardness floor
+comes from the same PCP-to-CSP-to-TSP gadget chain as symmetric TSP&#39;s 123/122
+and Steiner tree&#39;s 96/95, so amplifier improvements propagate across all
+three. And the glaring 1.0135-vs-14.7 gap is a standing accusation that either
+the reduction web or the LP-rounding toolkit is far from its limits — closing
+it from either side would say which.</p>
+<h2>Attack surface</h2>
+<p>The ratio has fallen 506 → 22 → 17 → ~14.7 by successive surgery on one
+pipeline: reduce to laminarly-weighted instances, then vertebrate pairs, then
+solve subtour cover. Each stage carries quantifiable slack, and recent
+progress came from reworking single stages (Vygen&#39;s 2026 paper reworks the
+parametrization; a cited companion line improves the subtour-cover trade-off
+from α &gt; 8 toward α &gt; 3 + 2√2). Auditing the pipeline stage by stage for
+loss constants is concrete, decomposable work. The integrality gap of the
+standard LP is known to be at least 2 and now at most ~14.7 — any
+construction narrowing that bracket moves the field. Hardness side: the KLS
+construction is parametric in expander quality; better wheel amplifiers lift
+75/74 mechanically.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

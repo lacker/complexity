@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find a deterministic linear-time comparison-based MST algorithm — or pin down the complexity of the Pettie–Ramachandran algorithm, which is provably optimal but nobody knows how fast it is</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Find a deterministic linear-time comparison-based MST algorithm — or pin down the complexity of the Pettie–Ramachandran algorithm, which is provably optimal but nobody knows how fast it is</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">graphs</span><span class="chip">mst</span><span class="chip">comparison-model</span><span class="chip">decision-trees</span><span class="chip">inverse-ackermann</span><span class="chip">classic</span></div><dl class="facts"><dt>Record</dt><dd>deterministic O(m α(m,n)) time; an optimal algorithm exists whose runtime T*(m,n) is only known to satisfy Ω(m) ≤ T*(m,n) ≤ O(m α(m,n)); randomized takes linear expected time</dd><dt>Record held by</dt><dd>Chazelle, J. ACM 47(6), 2000; Pettie &amp; Ramachandran, J. ACM 49(1), 2002; randomized: Karger, Klein &amp; Tarjan, J. ACM 42(2), 1995</dd><dt>Hardness</dt><dd>Ω(m) trivially; no super-linear lower bound on the MST decision-tree complexity is known</dd><dt>Hardness from</dt><dd>—</dd><dt>Problems</dt><dd>Minimum Spanning Tree</dd></dl><h2>Statement</h2>
+<p>Compute a minimum spanning forest of an m-edge, n-vertex graph with real edge weights, deterministically, in the comparison model. The record to beat is Chazelle&#39;s O(m α(m,n)), where α is the inverse Ackermann function. Equivalently — and this is the strange part — determine the function T*(m,n), the decision-tree complexity of MST: Pettie and Ramachandran exhibited a deterministic algorithm that provably runs in O(T*(m,n)) time, so the algorithm is optimal, but its running time is unknown. Show T*(m,n) = O(m), or prove T*(m,n) = ω(m).</p>
+<h2>Current record</h2>
+<p>Chazelle (J. ACM 2000) reached O(m α(m,n)) via soft heaps, whose controlled corruption drives the inverse-Ackermann recursion. Pettie and Ramachandran (J. ACM 2002) then built an algorithm optimal on every instance: partition into inverse-Ackermann-sized components, look up provably optimal decision trees for them by brute force, and finish with known machinery — so the uniform and decision-tree complexities of MST provably coincide, and the whole question is now information-theoretic. Everything around the problem is linear: randomized MST takes expected linear time (Karger–Klein–Tarjan, J. ACM 1995), MST verification is deterministic linear (Dixon–Rauch–Tarjan 1992; King 1997; Hagerup 2009), and deterministic linear algorithms exist for integer weights on the word RAM (Fredman–Willard 1994), for dense graphs (Fredman–Tarjan 1987), and for minor-closed families (Mareš 2004). The α(m,n) sliver for sparse general graphs in the comparison model is the entire residue — unmoved since 2000.</p>
+<h2>Why it matters</h2>
+<p>Partly a node update, but with real edges: MST bounds propagate into sensitivity analysis, dynamic and parallel MST, and Chazelle&#39;s soft-heap accounting is the same tool behind selection-from-heaps and X+Y selection results. More structurally, this is the flagship instance of the &quot;nonuniform-easy, uniform-?&quot; phenomenon that this list also tracks for Sorting X+Y and 3SUM decision trees — except here uniform = nonuniform is a theorem and only the number is missing. A proof that T* = O(m) finishes a fifty-year program begun with Borůvka revivals; a proof that T* = ω(m) would be the first natural problem separating deterministic comparison complexity from randomized (KKT&#39;s expected-linear bound makes any super-linear worst-case decision-tree lower bound extraordinarily delicate).</p>
+<h2>Attack surface</h2>
+<p>(1) Derandomize KKT: the single randomized ingredient is edge sampling for F-light edge filtering; a deterministic sampler with soft-heap-style guarantees closes the problem — this is the standard stalled route, and the corruption/sampling trade-off is a concrete combinatorial target. (2) Improve soft-heap accounting: Chazelle&#39;s analysis charges corruption conservatively; Pettie&#39;s sub-inverse-Ackermann sensitivity result (ISAAC 2005) shows the machinery has slack. (3) Decision-tree side: T* for components of size up to α is computable by finite search — extending explicit optimal decision trees to larger blocks (a machine-checkable computation) directly lowers the crossover in Pettie–Ramachandran and would quantify progress even without resolving the asymptotics.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>
