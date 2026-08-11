@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raise the constant-depth arithmetic exponent: the record for product-depth Δ is n^{Ω(d^{1/(φ²)^Δ})} — reaching n^{ω(√d)} at depth 4 separates VP from VNP</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.verified { color: var(--accent); }
+.chip.spine { color: var(--accent); font-weight: 600; }
+.endgame-line { font-size: .82rem; color: var(--muted); margin-top: .2rem; }
+h3 { font-size: 1rem; margin-top: 1.4rem; }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Raise the constant-depth arithmetic exponent: the record for product-depth Δ is n^{Ω(d^{1/(φ²)^Δ})} — reaching n^{ω(√d)} at depth 4 separates VP from VNP</h1><div class="chips"><span class="chip open">open</span><span class="chip spine">&#10227; loop-capable</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">arithmetic-circuits</span><span class="chip">constant-depth</span><span class="chip">depth-reduction</span><span class="chip">vp-vs-vnp</span><span class="chip">set-multilinear</span></div><dl class="facts"><dt>Record</dt><dd>size n^{Ω(d^{1/(φ²)^Δ})} (φ the golden ratio, φ² ≈ 2.618) for product-depth Δ circuits computing IMM_{n,d} with d = O(log n / log log n), improving the first-ever superpolynomial constant-depth bound n^{Ω(d^{1/4^Δ})} of Limaye–Srinivasan–Tavenas; extended from characteristic 0/large to every field by Forbes</dd><dt>Record held by</dt><dd>Limaye, Srinivasan &amp; Tavenas, FOCS 2021 / J. ACM 2025 (ECCC TR21-081); Bhargav, Dutta &amp; Saxena, MFCS 2022 / ACM ToCT 16(4) 2024; Forbes, CCC 2024 (\"Low-Depth Algebraic Circuit Lower Bounds over Any Field\")</dd><dt>Hardness</dt><dd>a published proof barrier rather than a conditional bound: for the set-multilinear measure driving all known proofs, Bhargav–Dutta–Saxena construct a depth-Δ circuit almost matching their bound on which the measure is maximal, so the current technique cannot go much past d^{1/(φ²)^Δ}</dd><dt>Hardness from</dt><dd>Bhargav, Dutta &amp; Saxena, ACM ToCT 16(4) 2024 (proof barrier); cf. Kush &amp; Saraf, CCC 2022 (arXiv:2205.00611) for the set-multilinear formula record n^{Ω(n^{1/Δ}/Δ)}</dd><dt>Endgame</dt><dd>the published depth-reduction escalator: every polynomial in VP has homogeneous ΣΠΣΠ circuits with bottom fan-in O(√d) and size n^{O(√d)}, so an explicit degree-d polynomial requiring such depth-4 circuits of size n^{ω(√d)} implies VP ≠ VNP (Agrawal &amp; Vinay, FOCS 2008; Koiran, Theoret. Comput. Sci. 448, 2012; Tavenas, Inf. Comput. 240, 2015); over characteristic 0, strong enough depth-3 bounds suffice (Gupta–Kamath–Kayal–Saptharishi, FOCS 2013 / SICOMP 2016)</dd><dt>Problems</dt><dd>Constant-Depth Arithmetic Circuits, Iterated Matrix Multiplication, Arithmetic Circuit Lower Bounds</dd></dl><h2>Statement</h2>
+<p>Improve the exponent in constant-depth arithmetic circuit lower bounds: for
+product-depth Δ, prove that an explicit n-variate degree-d polynomial (IMM or
+anything else in VNP) requires size n^{ω(d^{1/(φ²)^Δ})}, beating
+Bhargav–Dutta–Saxena. The escalator target is quantitative and published: at
+Δ = 2 (ΣΠΣΠ, bottom fan-in O(√d)), a bound of n^{ω(√d)} — exponent d^{1/2}
+against the current d^{1/6.85} — implies VP ≠ VNP outright.</p>
+<h2>Current record</h2>
+<p>Limaye, Srinivasan and Tavenas (FOCS 2021; J. ACM 2025) proved the first
+superpolynomial lower bounds for constant-depth arithmetic circuits — size
+n^{Ω(d^{1/4^Δ})} for IMM_{n,d}, d = O(log n / log log n), characteristic 0 or
+large — by converting circuits to set-multilinear form with unequal set sizes
+and applying a relative-rank measure. Bhargav, Dutta and Saxena (MFCS 2022;
+ToCT 2024) optimized the word-decomposition to improve 4^Δ to (φ²)^Δ ≈
+2.618^Δ, and proved a barrier: the measure is already maximal on an explicit
+depth-Δ circuit of nearly matching size, so this exponent is close to the
+technique&#39;s ceiling. Forbes (CCC 2024) removed the characteristic restriction
+via the Binet–Minc identity, matching the BDS parameters over any field. For
+set-multilinear formulas the exponent is much better — n^{Ω(n^{1/Δ}/Δ)} for a
+polynomial in VNP (Kush–Saraf, CCC 2022) — but the hardness-escalation back
+to general circuits loses exactly the amount those bounds gain.</p>
+<h2>Why it matters</h2>
+<p>This is the only unrestricted-gate model where superpolynomial arithmetic
+bounds exist at all, and the published depth-reduction chain
+(Agrawal–Vinay, Koiran, Tavenas, GKKS) prices the remaining distance to VP ≠
+VNP in a single number: get the depth-4 exponent from d^{1/6.85} to d^{1/2}
+and the whole program closes. The LST corollary also drives derandomization —
+the current subexponential blackbox PIT for constant depth (see
+blackbox-pit-constant-depth) inherits every exponent improvement made here.</p>
+<h2>Attack surface</h2>
+<p>The BDS barrier is measure-specific, not model-specific: it caps the
+set-multilinear relative-rank measure, and says nothing about shifted
+partials, APP (affine projections of partials, Amireddy–Garg–Kayal–Saha–
+Thankey, arXiv:2211.07691), or any measure not factoring through
+set-multilinearization. Concrete bites: (1) prove IMM lower bounds for
+d = n^{Ω(1)} rather than d = O(log n) — the escalator needs polynomial
+degree, and extending the hard regime is a self-contained problem; (2) close
+the set-multilinear-to-general gap: Kush–Saraf-strength bounds
+(n^{Ω(n^{1/Δ})}) for set-multilinear <em>circuits</em> rather than formulas would
+already push the general exponent; (3) attack Δ = 2 directly, where the
+target n^{ω(√d)} is nearest and homogeneous depth-4 machinery
+(shifted partials) is most developed. A hardness-magnification-style audit of
+where exactly the escalator constants sit (Tavenas&#39;s 2^{O(√(d log d log n))})
+would pin the exact finish line.</p>
+<h2>Verification notes</h2>
+<p>Checked August 2026: no improvement past (φ²)^Δ found in 2024–2026
+literature; activity is in extensions (any field, proof complexity, IPS
+separations), not the exponent.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

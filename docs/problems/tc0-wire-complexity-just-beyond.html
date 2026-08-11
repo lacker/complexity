@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TC0 wires: parity needs n^{1+c^{−d}} wires with c ≈ 2.41 — prove the same shape for every c &gt; 1 for an NC1-complete function and TC0 ≠ NC1 falls out</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.verified { color: var(--accent); }
+.chip.spine { color: var(--accent); font-weight: 600; }
+.endgame-line { font-size: .82rem; color: var(--muted); margin-top: .2rem; }
+h3 { font-size: 1rem; margin-top: 1.4rem; }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>TC0 wires: parity needs n^{1+c^{−d}} wires with c ≈ 2.41 — prove the same shape for every c &gt; 1 for an NC1-complete function and TC0 ≠ NC1 falls out</h1><div class="chips"><span class="chip open">open</span><span class="chip spine">&#10227; loop-capable</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">circuit-complexity</span><span class="chip">tc0</span><span class="chip">wires</span><span class="chip">hardness-magnification</span><span class="chip">threshold-circuits</span></div><dl class="facts"><dt>Record</dt><dd>any depth-d threshold circuit computing parity needs n^{1+c^{−d}} wires for c ≈ 2.41, matched by upper bounds of the same n^{1+c'^{−d}} shape; average case: parity has correlation at most n^{−ε_d} with depth-d circuits of n^{1+ε_d} wires, with an accompanying #SAT algorithm</dd><dt>Record held by</dt><dd>Impagliazzo, Paturi &amp; Saks, SICOMP 1997 (size-depth tradeoffs for threshold circuits); average-case and #SAT: Chen, Santhanam &amp; Srinivasan, CCC 2016 (arXiv:1806.06290, Theory of Computing 2018)</dd><dt>Hardness</dt><dd>no conditional obstruction, but the natural-proofs barrier applies in full: Naor–Reingold candidate pseudorandom functions are computable in TC0, so superpolynomial TC0 bounds need a non-natural (or non-largeness) argument</dd><dt>Hardness from</dt><dd>Naor &amp; Reingold, JACM 2004; Razborov &amp; Rudich, JCSS 1997</dd><dt>Endgame</dt><dd>if for every c &gt; 1 and all sufficiently large d, some NC1-complete function requires n^{1+c^{−d}} wires in depth-d TC0, then TC0 ≠ NC1 (Chen &amp; Tell, STOC 2019, ECCC TR18-199 — the known c ≈ 2.41 is the only thing in the way); a single fixed-ε bound of n^{1+ε} wires at every constant depth for Boolean Formula Evaluation already gives TC0 ≠ NC1 (Allender &amp; Koucký, JACM 2010); and Gap-MKtP ∉ TC0[N^{1+ε}] implies EXP ⊄ TC0 (Oliveira, Pich &amp; Santhanam, CCC 2019, ECCC TR18-158)</dd><dt>Problems</dt><dd>Parity, Boolean Formula Evaluation, TC0 Circuit Lower Bounds</dd></dl><h2>Statement</h2>
+<p>Improve the wire lower bound for constant-depth threshold circuits: exhibit
+an explicit function requiring n^{1+c^{−d}} wires at depth d for a constant
+c smaller than the Impagliazzo–Paturi–Saks c ≈ 2.41 — ideally for an
+NC1-complete function such as Boolean Formula Evaluation, and ideally for
+every c &gt; 1. Equivalently, prove that some explicit function requires
+n^{1+ε} wires (fixed ε &gt; 0) at all constant depths.</p>
+<h2>Current record</h2>
+<p>Impagliazzo, Paturi and Saks (SICOMP 1997) proved that parity requires
+n^{1+c^{−d}} wires in depth-d threshold circuits, with c ≈ 2.41; this is
+tight in shape, since parity-style functions have depth-d circuits with
+n^{1+c&#39;^{−d}} wires for a larger constant c&#39;. Chen, Santhanam and
+Srinivasan (CCC 2016) strengthened this to an average-case bound —
+correlation at most n^{−ε_d} for circuits with n^{1+ε_d} wires — together
+with a better-than-brute-force #SAT algorithm for the same class (see
+circuit-sat-frontier-beyond-acc0-thr for the algorithmic frontier). As of
+August 2026 no published improvement of the constant c ≈ 2.41 for parity or
+for any NC1-complete function is known; recent progress on threshold
+circuits (e.g., Chen–Tal–Wang&#39;s STOC 2026 n^{2.5−ε} gate bound for
+THR∘THR) concerns depth-2 gate counts, not constant-depth wire exponents.</p>
+<h2>Why it matters</h2>
+<p>This is the sharpest known cliff between a routine calculation and a major
+separation. Chen and Tell (STOC 2019) proved that the IPS bound shape with
+every constant c &gt; 1 — for an NC1-complete function rather than parity —
+implies TC0 ≠ NC1; the sole obstruction is the specific constant 2.41.
+Allender and Koucký (JACM 2010) had already shown via self-reducibility
+that a fixed n^{1+ε} wire bound at all depths for Boolean Formula
+Evaluation gives the same separation, so slack anywhere in the c^{−d}
+tradeoff converts into the first separation of TC0 from a standard class
+above it. The magnification route (OPS CCC 2019) offers a parallel path:
+an N^{1+ε} TC0 lower bound for Gap-MKtP implies EXP ⊄ TC0.</p>
+<h2>Attack surface</h2>
+<p>(1) Re-run IPS with modern tools: the proof restricts variables to reduce
+depth while keeping many wires alive; the constant 2.41 comes from a
+specific tradeoff in that restriction argument, and nothing suggests it is
+optimal. (2) Change the hard function: Chen–Tell only needs the bound for
+NC1-complete functions, which have more structure than parity (downward
+self-reducibility) — the same structure Allender–Koucký exploit — and no
+one has proved wire bounds tailored to it. (3) The average-case route:
+CSS-style random restrictions plus the Chen–Tell bootstrapping might
+tolerate a weaker hypothesis; any quantitative improvement of the
+correlation exponent ε_d feeds both the #SAT frontier and the
+magnification thresholds. (4) A cheap experiment: recompute the exact
+optimal constant achievable by the IPS argument — if the analysis is not
+known to be tight, closing the gap between 2.41 and the upper-bound
+constant is a self-contained optimization problem.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

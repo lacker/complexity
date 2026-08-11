@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noncommutative circuits after the 2026 quadratic: the palindrome bound Ω(n²) is tight — an n^{1.19} bound at constant degree would amplify to exponential</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.verified { color: var(--accent); }
+.chip.spine { color: var(--accent); font-weight: 600; }
+.endgame-line { font-size: .82rem; color: var(--muted); margin-top: .2rem; }
+h3 { font-size: 1rem; margin-top: 1.4rem; }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Noncommutative circuits after the 2026 quadratic: the palindrome bound Ω(n²) is tight — an n^{1.19} bound at constant degree would amplify to exponential</h1><div class="chips"><span class="chip open">open</span><span class="chip spine">&#10227; loop-capable</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">arithmetic-circuits</span><span class="chip">noncommutative</span><span class="chip">hardness-amplification</span><span class="chip">lower-bounds</span></div><dl class="facts"><dt>Record</dt><dd>Ω(nd) for every fan-in-2 noncommutative circuit computing the palindrome polynomial Pal_{n,d} — Ω(n²) at d = n, tight since Pal has O(nd) circuits (arXiv preprint, 2026, superseding the Ω(n log n) that stood since Baur–Strassen); peer-reviewed records: Ω(n^{1+c}) under syntactic degree O(n) (ITCS 2026) and Ω(nd) for homogeneous circuits (CCC 2023); formulas/ABPs: exponential since Nisan 1991</dd><dt>Record held by</dt><dd>Shastri, arXiv:2604.20575 (2026, preprint, v3); Shastri, \"Lower Bounds for Noncommutative Circuits with Low Syntactic Degree\", ITCS 2026; Chatterjee &amp; Hrubeš, CCC 2023 (ECCC TR23-001); Nisan, STOC 1991</dd><dt>Hardness</dt><dd>the published threshold: any explicit constant-degree noncommutative polynomial requiring circuits of size Ω(n^{ω/2+ε}) — i.e. about n^{1.19} with current ω — already implies explicit exponential exp(m^c) lower bounds; superlinear at constant degree thus means exponential noncommutative bounds or ω = 2</dd><dt>Hardness from</dt><dd>Carmosino, Impagliazzo, Lovett &amp; Mihajlin, CCC 2018 (ECCC TR18-095, \"Hardness Amplification for Non-Commutative Arithmetic Circuits\")</dd><dt>Endgame</dt><dd>the CILM amplifier is the loop: Ω(n^{ω/2+ε}) for an explicit constant-degree noncommutative polynomial yields explicit families requiring exp(m^c)-size noncommutative circuits (Theorem 1.2, CCC 2018), and poly-degree bounds beyond n^{ω/2+ε} lift to arbitrary polynomial bounds (Theorem 1.1); a noncommutative determinant in poly size would even give VP = VNP (Arvind–Srinivasan, cited there)</dd><dt>Problems</dt><dd>Noncommutative Arithmetic Circuits, Palindrome Polynomial, Arithmetic Circuit Lower Bounds</dd></dl><h2>Statement</h2>
+<p>Two targets, in order of the amplifier. (1) Beat the record polynomial-degree
+bound: an explicit 2n-variate noncommutative polynomial requiring circuits of
+size ω(n²) — the palindrome bound Ω(nd) is exactly tight for the palindrome,
+so this needs a new hard polynomial. (2) The loop-closing target: any explicit
+constant-degree noncommutative polynomial requiring size Ω(n^{ω/2+ε}) ≈
+n^{1.19}; by Carmosino–Impagliazzo–Lovett–Mihajlin this amplifies to
+exponential lower bounds, which is why nothing superlinear is known at
+constant degree.</p>
+<h2>Current record</h2>
+<p>Nisan (STOC 1991) proved exponential lower bounds for noncommutative formulas
+and ABPs (2^{Ω(n)} for permanent and determinant), but circuits stayed at
+Ω(n log n) for over three decades. Movement came 2023–2026: Chatterjee and
+Hrubeš (CCC 2023) proved Ω(nd) for homogeneous circuits; Shastri (ITCS 2026)
+generalized to circuits of syntactic degree O(n), getting Ω(n^{1+c}); and in
+April 2026 Shastri (arXiv:2604.20575, still a preprint — the paper notes its
+key ideas were generated by Gemini 3.1 Pro) removed all restrictions, proving
+every fan-in-2 noncommutative circuit computing Pal_{n,d}(X,Y) has size
+Ω(nd), quadratic at d = n. The proof bounds the dimension of a coefficient
+space against spanning sets parameterized by strictly-decreasing syntactic
+degree classes. Concurrent unpublished work of Raz (cited in Shastri&#39;s
+Section 2) proves Ω(d√n) and connects such bounds to circuits over free
+noncommutative rings. The bound is tight for the palindrome, which has O(nd)
+homogeneous circuits.</p>
+<h2>Why it matters</h2>
+<p>Noncommutativity is supposed to be the easy case — cancellation, the engine
+of upper bounds, is crippled — yet circuit lower bounds trail formulas by an
+exponential. CILM (CCC 2018) explains and weaponizes this: the model has a
+threshold at n^{ω/2}, so the gap between the new quadratic (at degree n) and
+n^{1.19} (at degree O(1)) is the entire distance to exponential bounds. A
+constant-degree superlinear bound would also decide a dichotomy: either
+exponential noncommutative lower bounds exist, or ω = 2 (superlinear bounds
+would refute themselves otherwise) — either outcome is major.</p>
+<h2>Attack surface</h2>
+<p>The degree regime is the whole game: Shastri&#39;s spanning-set argument
+fundamentally spends the degree (parameterizations of length r ≤ d), so at
+d = O(1) it returns nothing — porting the coefficient-space viewpoint to
+constant degree is the direct attack. Candidate hard polynomials at constant
+degree: CILM&#39;s own encoded families E(f) (their variable-compression
+preserves hardness, so one can search low-variable images of known hard
+polynomials), and the degree-4 width-hardness polynomials of
+Hrubeš–Wigderson–Yehudayoff (STOC 2010), whose sum-of-squares connection is
+an independent published route to exponential bounds. Above degree n, beating
+Ω(n²) needs a polynomial with larger coefficient span than the palindrome —
+Pal is tight, so try IMM-style words. Cheap first experiment: verify whether
+the Ω(d√n) of Raz&#39;s concurrent manuscript composes with CILM&#39;s encoding at
+r = 3 to beat n^{ω/2} in any parameter range.</p>
+<h2>Verification notes</h2>
+<p>Checked August 2026: the unrestricted quadratic bound (arXiv:2604.20575) is a
+preprint, v3 dated May 18, 2026; its intro and independent 2026 papers
+confirm Ω(n log n) was the prior unrestricted record. CILM thresholds read
+from ECCC TR18-095 directly (Theorems 1.1–1.2).</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

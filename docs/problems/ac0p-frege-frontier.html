@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prove any superpolynomial lower bound for AC0[p]-Frege — the circuit analogue fell to Razborov–Smolensky in 1987, the proof-system version has resisted for four decades</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.verified { color: var(--accent); }
+.chip.spine { color: var(--accent); font-weight: 600; }
+.endgame-line { font-size: .82rem; color: var(--muted); margin-top: .2rem; }
+h3 { font-size: 1rem; margin-top: 1.4rem; }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Prove any superpolynomial lower bound for AC0[p]-Frege — the circuit analogue fell to Razborov–Smolensky in 1987, the proof-system version has resisted for four decades</h1><div class="chips"><span class="chip open">open</span><span class="chip spine">&#10227; loop-capable</span><span class="chip">Find the missing hardness</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">proof-complexity</span><span class="chip">frege</span><span class="chip">ac0p</span><span class="chip">res-parity</span><span class="chip">np-vs-conp</span></div><dl class="facts"><dt>Record</dt><dd>no superpolynomial proof-size lower bound is known for AC0[p]-Frege, for any prime p; the strongest fragments with exponential bounds are AC0-Frege with Count_p axioms — which provably do not simulate counting gates — and resolution over parities restricted to regular, bounded-depth, or depth-N^{2−ε} proofs</dd><dt>Record held by</dt><dd>Buss, Impagliazzo, Krajíček, Pudlák, Razborov &amp; Sgall, Computational Complexity 6, 1996/97; Impagliazzo &amp; Segerlind, FOCS 2001; Bhattacharya &amp; Chattopadhyay, STOC 2026 (arXiv:2507.23008)</dd><dt>Hardness</dt><dd>every superpolynomial bounded-depth Frege lower bound known adapts AC0 switching-lemma technology, which parity gates defeat; no proof-complexity analogue of the Razborov–Smolensky polynomial-approximation method exists, and the newest partial results route around it via interpolation, lifting, and games instead</dd><dt>Hardness from</dt><dd>Lu, Santhanam &amp; Tzameret, ITCS 2026 (arXiv:2509.16824) — the frontier restated: open for over three decades, flagged since the Beame–Pitassi 1998 survey</dd><dt>Endgame</dt><dd>Cook–Reckhow, J. Symbolic Logic 44(1), 1979: superpolynomial lower bounds for every propositional proof system ⟺ NP ≠ coNP; AC0[p]-Frege is the weakest natural system on Cook's program with no superpolynomial bound, so any such bound is unconditional and is the program's next rung</dd><dt>Problems</dt><dd>AC0[p]-Frege, Resolution over parities, Modular counting principles</dd></dl><h2>Statement</h2>
+<p>AC0[p]-Frege is bounded-depth Frege where lines may use MOD_p connectives
+alongside AND, OR, NOT. Prove that some family of CNF tautologies requires
+superpolynomial-size AC0[p]-Frege proofs, for some constant depth and some
+prime p — or even for the special case p = 2. Nothing superpolynomial is
+known for any p, at any constant depth beyond the fragments listed below.</p>
+<h2>Current record</h2>
+<p>The proof-complexity/circuit-complexity dictionary maps AC0[p]-Frege to
+AC0[p] circuits, where Razborov–Smolensky proved exponential lower bounds in
+1987. The proof-system side has been open ever since — the sharpest published
+framing of the gap is in Lu–Santhanam–Tzameret (ITCS 2026), who can only show
+AC0[p]-Frege hardness of formulas expressing algebraic circuit lower bounds
+under the assumption that those formulas are tautologies at all. What is
+known unconditionally: bounded-depth Frege with counting <em>axioms</em> Count_p
+cannot efficiently prove Count_q for coprime q (Buss–Impagliazzo–Krajíček–
+Pudlák–Razborov–Sgall 1996/97), and counting axioms provably do not simulate
+counting gates (Impagliazzo–Segerlind, FOCS 2001) — so these bounds stop
+strictly short of AC0[p]-Frege. On the Res(⊕) side (a depth-restricted
+fragment of AC0[2]-Frege), exponential bounds now cover regular proofs
+(Efremenko–Garlík–Itsykson, STOC 2024) and proofs of depth up to N^{2−ε}
+(Bhattacharya–Chattopadhyay, STOC 2026), but not general dag-like proofs.</p>
+<h2>Why it matters</h2>
+<p>This is the exact spot where Cook&#39;s program toward NP ≠ coNP has been stuck
+since the 1990s: resolution fell, bounded-depth Frege fell, and the next
+system up has a forty-year-old circuit analogue and no proof-complexity
+counterpart. A lower bound here would be unconditional, would certify that
+the switching-lemma barrier can be crossed in proof complexity, and would
+make Frege the new frontier. It would also unblock the algebraic side:
+polynomial calculus and Nullstellensatz size bounds over F_p feed into
+AC0[p]-Frege via known simulations.</p>
+<h2>Attack surface</h2>
+<p>(1) Finish Res(⊕): the depth-N^{2−ε} bound of Bhattacharya–Chattopadhyay is
+one step from general dag-like Res(⊕), the natural base case of AC0[2]-Frege.
+(2) Port Razborov–Smolensky: the missing piece is a notion of
+&quot;approximation by low-degree polynomials&quot; that is preserved along proof
+lines rather than circuit gates; every partial result so far (interpolation,
+lifting with gadgets, game characterizations) avoids this and correspondingly
+stalls at restricted proof shapes. (3) Candidate tautologies exist —
+Tseitin mod q contradictions and Count_q principles are provably hard for
+all the fragments above and are believed hard for AC0[p]-Frege itself, so
+the instances are not the bottleneck; the technique is.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>
