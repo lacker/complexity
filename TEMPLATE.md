@@ -1,5 +1,5 @@
 ---
-id: example-card-slug
+id: example-problem-slug
 title: "One-tweet statement of the challenge, mentioning the number to beat"
 genre: improve-algorithm
 problems: ["Edit Distance", "Orthogonal Vectors"]
@@ -25,7 +25,7 @@ Include the matching lower bound if one exists, and name the gap.
 
 ## Why it matters
 
-What cascades if this card is closed — which other bounds move, which
+What cascades if this problem is closed — which other bounds move, which
 hypotheses are implicated, why anyone on the internet should care.
 
 ## Attack surface

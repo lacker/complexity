@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exact-Weight Triangle: find a truly subcubic algorithm (refuting both 3SUM and APSP conjectures at once) or reduce it back to either pillar</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Exact-Weight Triangle: find a truly subcubic algorithm (refuting both 3SUM and APSP conjectures at once) or reduce it back to either pillar</h1><div class="chips"><span class="chip open">open</span><span class="chip">Complete an equivalence</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">triangles</span><span class="chip">3sum</span><span class="chip">apsp</span><span class="chip">weighted-graphs</span><span class="chip">two-pillar</span></div><dl class="facts"><dt>Record</dt><dd>O(n^3) for arbitrary integer weights; Õ(W · n^ω) when weights are bounded by W</dd><dt>Record held by</dt><dd>folklore; bounded-weight bound cf. Vassilevska Williams &amp; Williams, SICOMP 2013</dd><dt>Hardness</dt><dd>a truly subcubic algorithm refutes the 3SUM conjecture AND the APSP conjecture</dd><dt>Hardness from</dt><dd>3SUM-hardness: Pătraşcu, STOC 2010 with Vassilevska Williams &amp; Williams, SICOMP 2013; APSP-hardness: Vassilevska Williams &amp; Williams, FOCS 2010 (JACM 2018)</dd><dt>Hypotheses</dt><dd>3SUM, APSP</dd><dt>Problems</dt><dd>Exact-Weight Triangle, Zero-Weight Triangle, 3SUM, APSP, Convolution-3SUM</dd></dl><h2>Statement</h2>
+<p>Exact-Weight Triangle (special case: Zero-Weight Triangle): given an n-vertex graph with integer edge weights and a target t, decide whether some triangle has edge weights summing exactly to t. Either (a) solve it in O(n^{3-eps}) time, or (b) give a subcubic reduction from Exact-Weight Triangle to APSP or to 3SUM. Outcome (a) would simultaneously refute the 3SUM and APSP conjectures — the only natural problem known to sit above both pillars. Outcome (b) would collapse it into one pillar&#39;s equivalence class and show one hypothesis subsumes part of the other&#39;s territory.</p>
+<h2>Current record</h2>
+<p>No algorithm beats cubic time by a polynomial factor for arbitrary weights; with weights bounded by W, fast matrix multiplication gives Õ(W n^ω). On the hardness side the problem is a &quot;roof&quot; over two pillars. From 3SUM: Pătraşcu (STOC 2010) reduced 3SUM to Convolution-3SUM, and Vassilevska Williams and Williams (SICOMP 2013, &quot;Finding, minimizing, and counting weighted subgraphs&quot;) carried this to Exact-Weight Triangle, so a subcubic algorithm breaks 3SUM. From APSP: Vassilevska Williams and Williams (FOCS 2010; JACM 2018) reduced APSP (via Negative Triangle) to Exact Triangle, so the same algorithm would break APSP — Chan and Xu (arXiv:2310.11575, 2023) cite exactly these two sources for the two sides of the roof. Vassilevska Williams and Xu (FOCS 2020, arXiv:2007.09318) pushed the hardness onward, reducing Exact Triangle to All-Edges Sparse Triangle and Triangle Listing, which is why the &quot;Exact Triangle hypothesis&quot; is now used as a standalone assumption strictly more believable than 3SUM or APSP alone. The reverse directions are wide open: Exact Triangle is not known to reduce to APSP, to 3SUM, or to anything subcubic-equivalent to them. Note the contrast with <em>Negative</em> Triangle (is some triangle&#39;s weight below t?), which is subcubic-equivalent to APSP (also Vassilevska Williams &amp; Williams, FOCS 2010): changing &quot;at most&quot; to &quot;exactly&quot; apparently jumps hardness classes.</p>
+<h2>Why it matters</h2>
+<p>Exact Triangle is the closest thing fine-grained complexity has to a unification point for the non-SETH pillars: hardness proved from it holds under two independent hypotheses (and via Chan, Vassilevska Williams &amp; Xu, STOC 2022, its real-weighted relatives connect to further variants). A reduction back to APSP or 3SUM would be the first arrow between the pillars&#39; theories — closely related to the pillar-reduction problem in this repo, but strictly easier, since Exact Triangle already touches both sides. It is also the natural stepping stone for basing Zero-Weight Triangle hardness on SETH, which would make it a three-pillar roof.</p>
+<h2>Attack surface</h2>
+<p>(1) Reduce Exact Triangle to Negative Triangle: the standard trick — binary-searching the target via monotone perturbations — fails because &quot;exactly t&quot; is not monotone; a bit-by-bit weight-splitting gadget (as used in the APSP-to-Exact-Triangle reduction, run in reverse) is the concrete thing to attempt. (2) Solve the bounded-difference or monotone weight special cases subcubically: structured min-plus products fell this way (Bringmann, Grandoni, Saha &amp; Vassilevska Williams, FOCS 2016), and any such class transferring to exact-sum products would be new. (3) Extend the roof: reduce k-OV or SETH to Exact Triangle, or prove an NSETH-style barrier showing this is impossible.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beat O(n^2 / log^2 n) for Longest Common Subsequence — SETH says no n^{2-eps}, circuits say polylog shaving is already big</title><style>
+:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 1.6rem; line-height: 1.3; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+.tagline { color: var(--muted); }
+.card-link { display:block; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.card-link .t { font-weight: 600; }
+.chips { margin-top: .15rem; }
+.chip { display:inline-block; background:var(--chip); color:var(--muted); border-radius: 4px; padding: 0 .45em; font-size: .78rem; margin-right: .35em; }
+.chip.open { color: var(--open); } .chip.solved { color: var(--solved); } .chip.verified { color: var(--accent); }
+.facts { border:1px solid var(--line); border-radius:8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size:.92rem; }
+.facts dt { font-weight:600; color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; margin-top:.6rem; }
+.facts dt:first-child { margin-top:0; } .facts dd { margin:0; }
+pre, code { background: var(--chip); border-radius:4px; }
+code { padding: .1em .3em; font-size: .9em; }
+.crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
+footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
+</style></head>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Beat O(n^2 / log^2 n) for Longest Common Subsequence — SETH says no n^{2-eps}, circuits say polylog shaving is already big</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">strings</span><span class="chip">fine-grained</span><span class="chip">seth</span><span class="chip">lcs</span><span class="chip">log-shaving</span></div><dl class="facts"><dt>Record</dt><dd>O(n^2 / log^2 n) time (constant-size alphabet)</dd><dt>Record held by</dt><dd>Masek &amp; Paterson, JCSS 1980 (Four-Russians technique)</dd><dt>Hardness</dt><dd>no O(n^{2-eps}) algorithm unless SETH fails, even for binary alphabet</dd><dt>Hardness from</dt><dd>Abboud, Backurs &amp; Vassilevska Williams, FOCS 2015; Bringmann &amp; Künnemann, FOCS 2015</dd><dt>Hypotheses</dt><dd>SETH, OV</dd><dt>Problems</dt><dd>Longest Common Subsequence, Orthogonal Vectors</dd></dl><h2>Statement</h2>
+<p>Given two strings of length n, compute the length of their longest common
+subsequence (LCS) — the longest string obtainable from both by deleting
+characters — in time o(n^2 / log^2 n) for constant-size alphabets. Beating
+the 1980 Four-Russians record by any asymptotic factor closes this problem; so
+would a conditional lower bound explaining why n^2 / log^2 n is optimal.</p>
+<h2>Current record</h2>
+<p>LCS is a special case of weighted edit distance, and the Masek–Paterson
+Four-Russians method (precompute DP behavior on all logarithmic-size blocks)
+gives O(n^2 / log^2 n) for constant alphabets. Bit-parallel algorithms give
+O(n^2 / w) for machine word size w, matching but not beating this for
+w = Theta(log n); for unbounded alphabets the best bounds carry extra
+log-log factors. On the hardness side, Abboud, Backurs, and Vassilevska
+Williams (FOCS 2015) and independently Bringmann and Künnemann (FOCS 2015)
+reduced Orthogonal Vectors to LCS, so an O(n^{2-eps}) algorithm refutes the
+Strong Exponential Time Hypothesis; the Bringmann–Künnemann alignment
+framework pushes the hardness all the way down to binary alphabets. The open
+territory is precisely the polylog corridor between log^2 shaving and n^{2-eps}.</p>
+<h2>Why it matters</h2>
+<p>LCS is the diff/bioinformatics workhorse, and it sits at the center of an
+unusual amplification phenomenon: Abboud, Hansen, Vassilevska Williams, and
+Williams (STOC 2016) showed that an O(n^2 / log^c n) LCS algorithm for every
+constant c would yield new circuit lower bounds, by simulating formulas and
+branching programs inside LCS instances. So the polylog gap is load-bearing:
+small shavings are publishable records, large shavings are breakthroughs in
+circuit complexity, and matching lower bounds would need fundamentally new
+&quot;sub-polynomial hardness&quot; machinery. Progress also propagates to the many
+LCS variants (k-LCS, tree LCS, weighted alignments) whose reductions route
+through this problem.</p>
+<h2>Attack surface</h2>
+<p>The same two levers as edit distance — bigger lookup blocks and
+word-parallelism — appear individually exhausted; the open direction is
+combining them or importing algebraic structure. Concrete bites: (1) the LCS
+DP matrix is monotone with bounded differences, the exact structure that made
+bounded-difference min-plus product subcubic — can that machinery be run at
+the &quot;polylog scale&quot; of n^epsilon-size blocks? (2) the special case where one
+string is highly compressible (run-length or LZ-compressed) has faster
+algorithms; find the largest structured class where log^2 can be beaten, then
+attack random-like inputs. (3) On the hardness side, extend the
+Bringmann–Künnemann alignment gadgets to rule out specific restricted
+algorithm classes (e.g., &quot;block-lookup&quot; algorithms) below n^2 / log^2 n —
+even a model-specific optimality proof would be new.</p>
+<footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>
