@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Push the dual matrix multiplication exponent above alpha &gt;= 0.321334 — multiply n x n^k by n^k x n matrices in n^{2+o(1)} time for larger k</title><style>
+<title>Dual matrix multiplication exponent: alpha &gt;= 1/2 is now known; referee the claimed alpha &lt;= 2/3 (and Lean's alpha = 1/2), or beat 1/2</title><style>
 :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
@@ -27,26 +27,39 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Push the dual matrix multiplication exponent above alpha &gt;= 0.321334 — multiply n x n^k by n^k x n matrices in n^{2+o(1)} time for larger k</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">matrix-multiplication</span><span class="chip">rectangular-matmul</span><span class="chip">alpha</span><span class="chip">algebraic</span><span class="chip">laser-method</span></div><dl class="facts"><dt>Record</dt><dd>alpha &gt;= 0.321334, i.e., an n x n^{0.321334} matrix can be multiplied by an n^{0.321334} x n matrix in n^{2+o(1)} arithmetic operations</dd><dt>Record held by</dt><dd>Vassilevska Williams, Xu, Xu &amp; Zhou, SODA 2024 (arXiv:2307.07970, \"New Bounds for Matrix Multiplication: from Alpha to Omega\")</dd><dt>Hardness</dt><dd>no lower bound beyond the trivial alpha &lt;= 1; alpha = 1 is equivalent to omega = 2, and laser-method barriers for the Coppersmith–Winograd tensor family limit how far these analyses can push rectangular exponents</dd><dt>Hardness from</dt><dd>Christandl, Le Gall, Lysikov &amp; Zuiddam, \"Barriers for Rectangular Matrix Multiplication\" (computational complexity, 2025)</dd><dt>Endgame</dt><dd>none known</dd><dt>Problems</dt><dd>Rectangular Matrix Multiplication, Matrix Multiplication</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Dual matrix multiplication exponent: alpha &gt;= 1/2 is now known; referee the claimed alpha &lt;= 2/3 (and Lean's alpha = 1/2), or beat 1/2</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-11-25</span><span class="chip">matrix-multiplication</span><span class="chip">rectangular-matmul</span><span class="chip">alpha</span><span class="chip">algebraic</span><span class="chip">laser-method</span></div><dl class="facts"><dt>Record</dt><dd>alpha &gt;= 1/2, i.e., an n x n^{1/2} matrix times an n^{1/2} x n matrix in n^{2+o(1)} operations</dd><dt>Record held by</dt><dd>Uznański, arXiv:2610.10494 (\"Rectangular matrix multiplication from polynomial products\", states alpha &gt;= 1/2); every-field version: Amanov, van den Berg &amp; Zuiddam, arXiv:2610.30054 (omega_F(1,k,1) = 2 for 0 &lt;= k &lt;= 1/2)</dd><dt>Hardness</dt><dd>no lower bound beyond the trivial alpha &lt;= 1 in the refereed or arXiv literature (an unrefereed claim of alpha &lt;= 2/3, and a Lean proof of alpha = 1/2, are noted in the body); laser-method barriers for the Coppersmith-Winograd family limit those analyses</dd><dt>Hardness from</dt><dd>Christandl, Le Gall, Lysikov &amp; Zuiddam, \"Barriers for Rectangular Matrix Multiplication\" (computational complexity, 2025)</dd><dt>Endgame</dt><dd>none known</dd><dt>Problems</dt><dd>Rectangular Matrix Multiplication, Matrix Multiplication</dd></dl><h2>Statement</h2>
 <p>Let omega(1, k, 1) be the exponent of multiplying an n x n^k matrix by an
 n^k x n matrix, and define alpha as the largest k with omega(1, k, 1) = 2 —
 the widest aspect ratio at which rectangular matrix multiplication is
 essentially free. Trivially alpha &lt;= 1, and alpha = 1 if and only if omega = 2.
-The problem: publish any bound alpha &gt; 0.321334, or improve omega(1, k, 1) for
-any k in the published tables of rectangular exponents.</p>
+The problem: publish any bound alpha &gt; 1/2, or settle the claimed upper bound
+alpha &lt;= 2/3 (and the Lean claim alpha = 1/2, below) by refereeing or refuting it.</p>
 <h2>Current record</h2>
-<p>The record alpha &gt;= 0.321334 is due to Vassilevska Williams, Xu, Xu and Zhou
-(SODA 2024), who extended the Duan–Wu–Zhou combination-loss analysis (FOCS
-2023) to the rectangular setting, improving Le Gall–Urrutia&#39;s alpha &gt;= 0.31389
-(SODA 2018); the lineage before that runs through Coppersmith&#39;s alpha &gt;= 0.172
-(1982) and alpha &gt;= 0.29462 (1997). Le Gall (arXiv:2307.06535) independently
-improved rectangular exponents by combination-loss analysis, and Alman, Duan,
-Vassilevska Williams, Xu, Xu and Zhou (SODA 2025, arXiv:2404.16349) further
-improved various omega(1, k, 1) values with asymmetric analyses — but
-0.321334 still stands as the best published alpha as of August 2026. All of
-these analyze powers of the Coppersmith–Winograd tensor, and rectangular
-barrier theorems (Christandl–Le Gall–Lysikov–Zuiddam) show this family of
-techniques cannot reach alpha = 1.</p>
+<p>The record is now alpha &gt;= 1/2, well above the laser-method value 0.321334
+(Vassilevska Williams, Xu, Xu and Zhou, SODA 2024, arXiv:2307.07970).</p>
+<ul>
+<li><strong>The bound:</strong> Uznański (arXiv:2610.10494) extends OpenAI&#39;s October 2026 matrix
+multiplication analysis to rectangular products and states alpha &gt;= 1/2.
+Amanov, van den Berg and Zuiddam (arXiv:2610.30054) state omega_F(1,k,1) = 2 for
+0 &lt;= k &lt;= 1/2 over every field.</li>
+<li><strong>The other side, claimed:</strong> OpenAI&#39;s <a href="https://github.com/openai/math/tree/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026">24 Nov 2026 preprint</a> (not
+refereed) claims 1/2 &lt;= alpha &lt;= 2/3 over every field (Corollary 1.3), which
+would be the first upper bound below the trivial alpha &lt;= 1.</li>
+<li><strong>Its Lean release goes further:</strong> it proves alpha = 1/2 exactly, with a closed
+formula for rectangular exponents.<ul>
+<li><strong>Model:</strong> the Comparator challenge states alpha for division-free programs.
+The proof runs through a rectangular model with division gates, with the small
+dimension inner, as in this entry (<code>MatrixExponent.Rectangle.dual_square</code>).</li>
+<li><strong>Independent audit:</strong> Toledo (<a href="https://carlostoledo.co/omega/">carlostoledo.co/omega</a>) reports the
+challenge certified. He reports the with-division alpha = 1/2 as passing in a
+later phase, outside the verdict.</li>
+<li><strong>Statement audit:</strong> a <a href="https://github.com/ryananderson60/superpoly/blob/c49705799ab4ba7e9b2611e3ed69d56ec298f7c6/docs/audits/nine-fourths-2026-11.md">statement audit</a> by the author of this change
+compares the Lean with the paper. It did not build the Lean.</li>
+</ul>
+</li>
+<li><strong>Not covered:</strong> no human refereeing yet. If correct, alpha = 1/2 resolves this
+entry, and beating 1/2 would contradict a machine-checked theorem.</li>
+</ul>
 <h2>Why it matters</h2>
 <p>Alpha is a load-bearing dual of omega: many graph algorithms are bottlenecked
 by unbalanced products rather than square ones. Zwick&#39;s APSP for directed
@@ -59,18 +72,15 @@ these automatically, and since alpha = 1 is equivalent to omega = 2, alpha
 progress is omega progress measured along a different axis — sometimes an
 easier one, since rectangular analyses have more slack to exploit.</p>
 <h2>Attack surface</h2>
-<p>The gains since 2023 came from repairing accounting losses in the laser
-method (combination loss, asymmetry), and the rectangular versions of these
-analyses are younger and less optimized than the square ones — rerunning the
-SODA 2025 asymmetric machinery specifically to maximize alpha rather than
-minimize omega is the obvious first experiment, and the parameter optimization
-is numerical, hence automatable. Higher Coppersmith–Winograd powers remain
-unanalyzed in the rectangular setting. Outside the framework: the barrier
-paper pins down exactly which degeneration notions are capped, so any
-technique outside its scope (e.g., alternative base tensors, group-theoretic
-constructions) applied to rectangular shapes is unexplored territory.</p>
+<p>The laser-method experiments that set the old record (0.321334) cannot reach the new
+one, and the rectangular barriers of Christandl, Le Gall, Lysikov and Zuiddam cap
+that family. The live work is verification: referee the claimed upper bound
+alpha &lt;= 2/3 in the November 2026 preprint, or check its Lean proof of alpha = 1/2
+(<code>MatrixExponent.Rectangle.dual_square</code>), whose rectangular model allows division
+and puts the small dimension inside, as in this entry. A human-readable proof of
+alpha = 1/2 matching the Lean would also be new.</p>
 <h2>Verification notes</h2>
-<p>Checked August 2026: sources from 2025–2026 still cite 0.321334 &lt;= alpha &lt;= 1
-as the current state; the SODA 2025 paper improved omega and various
-rectangular exponents but did not claim a new alpha.</p>
+<p>Checked 25 November 2026 against the arXiv abstracts of 2610.10494 and 2610.30054 and
+the OpenAI preprint and Lean release cited above. The SODA 2024 bound 0.321334 was
+the record through August 2026.</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>

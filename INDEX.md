@@ -70,7 +70,7 @@ No published endgame path known — finding one is itself a contribution.
 |---|---|---|---|
 | [3sat-below-1-307](problems/3sat-below-1-307.md) | open | high | Solve 3-SAT faster than O(1.307^n) — beat the improved PPSZ record |
 | [3sum-log-shaving](problems/3sum-log-shaving.md) | open | high | Beat n^2 (log log n)^{O(1)} / log^2 n for 3SUM — or explain why two log factors is the ceiling |
-| [alpha-dual-matmul-exponent](problems/alpha-dual-matmul-exponent.md) | open | high | Push the dual matrix multiplication exponent above alpha >= 0.321334 — multiply n x n^k by n^k x n matrices in n^{2+o(1)} time for larger k |
+| [alpha-dual-matmul-exponent](problems/alpha-dual-matmul-exponent.md) | open | high | Dual matrix multiplication exponent: alpha >= 1/2 is now known; referee the claimed alpha <= 2/3 (and Lean's alpha = 1/2), or beat 1/2 |
 | [apsp-truly-subcubic](problems/apsp-truly-subcubic.md) | open | high | Beat n^3 / 2^{Omega(sqrt(log n))} for All-Pairs Shortest Paths — the record an entire equivalence class inherits |
 | [atsp-constant-factor-record](problems/atsp-constant-factor-record.md) | open | high | Asymmetric TSP: push the ratio below Vygen's 2026 record of ~14.7 — the hardness floor is only 75/74 |
 | [bst-dynamic-optimality](problems/bst-dynamic-optimality.md) | open | high | Beat O(log log n)-competitive for binary search trees — Tango trees have held the dynamic-optimality record since 2004, the conjecture says O(1) |
@@ -85,7 +85,7 @@ No published endgame path known — finding one is itself a contribution.
 | [general-matching-beyond-m-sqrt-n](problems/general-matching-beyond-m-sqrt-n.md) | open | high | Maximum matching in general graphs is stuck at O(m sqrt(n)) since 1980 — bipartite fell to m^{1+o(1)}, non-bipartite didn't |
 | [hamiltonicity-treewidth-base-gap](problems/hamiltonicity-treewidth-base-gap.md) | open | high | Hamiltonicity by treewidth: beat Cut&Count's 4^tw or prove SETH-hardness above the (2+√2)^tw inherited from pathwidth |
 | [longest-common-substring-k-mismatches](problems/longest-common-substring-k-mismatches.md) | open | high | Beat O(n log^{k-1/2} n) for longest common substring with k mismatches — half a log was shaved in 2021, the SETH wall starts at k = log n |
-| [matmul-omega-record](problems/matmul-omega-record.md) | open | high | Multiply n x n matrices in n^{2.371338} time — beat omega < 2.371339 — or break the Ambainis–Filmus–Le Gall 2.3725 laser-method barrier some other way |
+| [matmul-omega-record](problems/matmul-omega-record.md) | open | high | Multiply n x n matrices in n^{9/4 - eps} time, or referee the claimed matching lower bound omega >= 9/4 |
 | [max-flow-remove-subpolynomial](problems/max-flow-remove-subpolynomial.md) | open | high | Maximum flow is m^{1+o(1)} — remove the o(1) and get truly near-linear O(m polylog n), even randomized |
 | [median-selection-comparison-gap](problems/median-selection-comparison-gap.md) | open | high | Deterministic median selection: beat 2.95n comparisons or raise the (2+ε)n lower bound — a numerical gap untouched since the 1990s |
 | [metric-tsp-beat-three-halves](problems/metric-tsp-beat-three-halves.md) | open | high | Metric TSP: widen the Karlin–Klein–Oveis Gharan crack — beat 3/2 − 10^{-36}, against a 123/122 hardness floor |

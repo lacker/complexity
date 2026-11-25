@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Multiply n x n matrices in n^{2.371338} time — beat omega &lt; 2.371339 — or break the Ambainis–Filmus–Le Gall 2.3725 laser-method barrier some other way</title><style>
+<title>Multiply n x n matrices in n^{9/4 - eps} time, or referee the claimed matching lower bound omega &gt;= 9/4</title><style>
 :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#0b5cad; --chip:#f0f4f8; --open:#0a7a3d; --solved:#8a5a00; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#14161a; --fg:#e6e6e6; --muted:#9a9a9a; --line:#2c2f35; --accent:#6fb3ef; --chip:#1f242b; --open:#4cc07f; --solved:#d8a742; }
@@ -27,26 +27,43 @@ code { padding: .1em .3em; font-size: .9em; }
 .crumb { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; display:block; }
 footer { margin-top:3rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:1rem; }
 </style></head>
-<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Multiply n x n matrices in n^{2.371338} time — beat omega &lt; 2.371339 — or break the Ambainis–Filmus–Le Gall 2.3725 laser-method barrier some other way</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-08-10</span><span class="chip">matrix-multiplication</span><span class="chip">omega</span><span class="chip">algebraic</span><span class="chip">laser-method</span><span class="chip">barriers</span></div><dl class="facts"><dt>Record</dt><dd>omega &lt; 2.371339</dd><dt>Record held by</dt><dd>Alman, Duan, Vassilevska Williams, Xu, Xu &amp; Zhou, SODA 2025 (arXiv:2404.16349, \"More Asymmetry Yields Faster Matrix Multiplication\")</dd><dt>Hardness</dt><dd>no superquadratic lower bound known; laser-method analyses of powers of the Coppersmith–Winograd tensor cannot prove omega &lt; 2.3725 (and broad generalizations cannot go below ~2.3078)</dd><dt>Hardness from</dt><dd>Ambainis, Filmus &amp; Le Gall, STOC 2015</dd><dt>Endgame</dt><dd>none known</dd><dt>Problems</dt><dd>Matrix Multiplication</dd></dl><h2>Statement</h2>
+<body><main><a class="crumb" href="../index.html">&larr; all problems</a><h1>Multiply n x n matrices in n^{9/4 - eps} time, or referee the claimed matching lower bound omega &gt;= 9/4</h1><div class="chips"><span class="chip open">open</span><span class="chip">Improve an algorithm</span><span class="chip">confidence: high</span><span class="chip verified">verified 2026-11-25</span><span class="chip">matrix-multiplication</span><span class="chip">omega</span><span class="chip">algebraic</span><span class="chip">laser-method</span><span class="chip">barriers</span></div><dl class="facts"><dt>Record</dt><dd>omega &lt;= 9/4 over every field</dd><dt>Record held by</dt><dd>Amanov, van den Berg &amp; Zuiddam, arXiv:2610.30054 (\"Multiplying matrices via polynomials: exposition and barriers\"), the every-field version of OpenAI's October 2026 proof over the complex numbers; Lü, arXiv:2610.18914 (every characteristic, over algebraic closures)</dd><dt>Hardness</dt><dd>no superquadratic lower bound in the refereed or arXiv literature (an unrefereed claim of omega &gt;= 9/4 is noted in the body); laser-method analyses of Coppersmith-Winograd powers cannot go below 2.3725, and arXiv:2610.30054 proves a barrier for the current polynomial-route degeneration ingredients</dd><dt>Hardness from</dt><dd>Ambainis, Filmus &amp; Le Gall, STOC 2015; Amanov, van den Berg &amp; Zuiddam, arXiv:2610.30054</dd><dt>Endgame</dt><dd>none known</dd><dt>Problems</dt><dd>Matrix Multiplication</dd></dl><h2>Statement</h2>
 <p>Let omega be the matrix multiplication exponent: the infimum of c such that two
 n x n matrices can be multiplied in O(n^c) arithmetic operations. Trivially
-omega &lt;= 3 and omega &gt;= 2, and the running conjecture is omega = 2. The problem:
-publish any bound omega &lt; 2.371339. An equally valid closing move is structural:
-prove that some concrete new technique escapes the Ambainis–Filmus–Le Gall
-barrier, which shows the standard &quot;laser method&quot; applied to powers of the
-Coppersmith–Winograd tensor can never prove omega &lt; 2.3725.</p>
+omega &lt;= 3 and omega &gt;= 2, and the long-running conjecture was omega = 2. The
+problem: publish any bound omega &lt; 9/4, or settle the claimed matching lower
+bound omega &gt;= 9/4 (below) by refereeing or refuting it. Historically the
+closing move was structural: escaping the Ambainis–Filmus–Le Gall barrier for
+the laser method (omega &lt; 2.3725), which the 2026 polynomial route did.</p>
 <h2>Current record</h2>
-<p>The record is omega &lt; 2.371339, by Alman, Duan, Vassilevska Williams, Xu, Xu and
-Zhou (SODA 2025), the latest step in a line that revived progress after a decade
-of stasis at 2.3728: Duan–Wu–Zhou (FOCS 2023) found and fixed a &quot;combination
-loss&quot; in prior laser-method analyses, Vassilevska Williams–Xu–Xu–Zhou (SODA
-2024) reached 2.371552, and the 2025 paper squeezed further via asymmetric
-analyses of the Coppersmith–Winograd tensor&#39;s powers. All of these analyze the
-same underlying tensor; Ambainis, Filmus and Le Gall (STOC 2015) proved this
-family of analyses hits a wall at 2.3725 for the classical laser method, and
-that even substantially generalized monomial-degeneration approaches on that
-tensor cannot reach below roughly 2.3078. So the remaining slack inside the
-current framework is thin, and known barriers block the road to 2.</p>
+<p>The record is now omega &lt;= 9/4 = 2.25, far below the laser-method value 2.371339
+(Alman, Duan, Vassilevska Williams, Xu, Xu and Zhou, SODA 2025, arXiv:2404.16349).</p>
+<ul>
+<li><strong>Source:</strong> an OpenAI preprint (<a href="https://github.com/openai/math/tree/main/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026">2 Oct 2026</a>, not refereed)
+proved omega &lt;= 9/4 over the complex numbers by a route outside the
+Coppersmith-Winograd framework.</li>
+<li><strong>Every field:</strong> Amanov, van den Berg and Zuiddam (arXiv:2610.30054) give an
+exposition and a version over every field. Lü (arXiv:2610.18914) handles a
+separation step in every characteristic, over algebraic closures.</li>
+<li><strong>Claimed matching lower bound:</strong> a second OpenAI preprint
+(<a href="https://github.com/openai/math/tree/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026">24 Nov 2026</a>, not refereed) claims omega &gt;= 9/4 over every field, for
+formal arithmetic circuits with division. If correct, omega = 9/4 exactly and
+this entry is resolved.<ul>
+<li><strong>Lean:</strong> its Comparator challenge states omega = 9/4 for division-free
+programs; the release also proves, outside the challenge, that division does
+not change the square exponent.</li>
+<li><strong>Independent audit:</strong> an audit by Carlos Toledo (<a href="https://carlostoledo.co/omega/">carlostoledo.co/omega</a>)
+reports a from-source build, Comparator with and without nanoda, an independent
+kernel replay and negative controls, with verdict CERTIFIED for the formal
+statement. It checked commit 92b516ef.</li>
+<li><strong>Statement audit:</strong> a <a href="https://github.com/ryananderson60/superpoly/blob/c49705799ab4ba7e9b2611e3ed69d56ec298f7c6/docs/audits/nine-fourths-2026-11.md">statement audit</a> by the author of this change
+compares the Lean statements with the paper. It did not build the Lean.</li>
+<li><strong>Not covered:</strong> no human refereeing yet. The paper&#39;s explicit per-n bound (at
+least n^(9/4)/2, rounded up, multiplication or division gates at each n &gt;= 2) is
+not formalized in the release.</li>
+</ul>
+</li>
+</ul>
 <h2>Why it matters</h2>
 <p>Omega is a load-bearing constant across the entire reduction web: transitive
 closure, context-free parsing, all-pairs shortest paths subroutines, dense
@@ -55,18 +72,16 @@ problems all inherit their exponents from it. Any improvement propagates
 automatically through dozens of published reductions. Conversely, a clean new
 barrier theorem prunes the search space for everyone.</p>
 <h2>Attack surface</h2>
-<p>Inside the framework: the recent gains came from bookkeeping refinements
-(asymmetry, combination-loss repair) that were sitting unnoticed for years —
-systematic, machine-assisted search over laser-method parameter spaces
-(hash-function moduli, distribution splits) is genuinely plausible territory
-for optimization tooling. Outside it: candidate replacement tensors (e.g.,
-analyzing tensors other than Coppersmith–Winograd), the group-theoretic approach
-of Cohn–Umans, or degeneration notions that evade the known barrier definitions.
-First cheap experiment: rerun the 2025 asymmetric optimization on the next
-unanalyzed tensor power and see whether the numerical program still improves.</p>
+<p>Below 9/4: the polynomial route that reached 9/4 is capped by the barrier in
+arXiv:2610.30054 for its current degeneration ingredients, and the claimed lower
+bound, if correct, rules out any improvement. So the live work is verification:
+referee the November 2026 lower-bound preprint, or find the gap in it. Its Lean
+release states the division-free exponent and proves the square case with
+division, but the paper&#39;s explicit per-n bound is not formalized; formalizing it is
+a concrete, checkable task. The laser-method directions that drove progress to
+2.371339 cannot reach the new record.</p>
 <h2>Verification notes</h2>
-<p>Checked against the literature in August 2026: no published bound below
-2.371339 was found; sources through late 2025 still cite omega &lt; 2.371339
-(arXiv:2404.16349) as the record. Adjacent 2026 activity (e.g., asymptotic-rank
-speedup theorems, arXiv:2605.21738) does not claim a new omega bound.</p>
+<p>Checked 25 November 2026 against the arXiv abstracts of 2610.30054, 2610.18914 and
+2610.10494, and against the OpenAI preprints and Lean release cited above. The
+SODA 2025 bound omega &lt; 2.371339 was the record through August 2026.</p>
 <footer>Records reflect the cited literature; found a stale one? That's a contribution — open a PR.</footer></main></body></html>
